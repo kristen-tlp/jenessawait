@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Moving With God//Challenge//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:moving-with-god-release-20261006@jenessawait.com
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261007
+SUMMARY:Moving with God releases!
+DESCRIPTION:Moving with God by Jenessa Wait releases today. Grab your copy: https://jenessawait.com/
+URL:https://jenessawait.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
