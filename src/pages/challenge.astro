@@ -1,0 +1,818 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "The Moving With God Challenge — Free 9-Day Journey with Jenessa Wait";
+const pageDescription =
+  "A free, guided 9-day challenge to help you get unstuck, quiet the noise, and take your next faithful step with God. Sign up free and start moving with God.";
+
+// Steps
+const steps = [
+  {
+    n: "1",
+    title: "Sign up free",
+    body: "Add your name and email below and we'll save your spot. It takes about ten seconds.",
+  },
+  {
+    n: "2",
+    title: "Open your daily email",
+    body: "Each morning for nine days, a short message lands in your inbox — one key, one Scripture, and one small step.",
+  },
+  {
+    n: "3",
+    title: "Take one step",
+    body: "Spend a few quiet minutes responding. No pressure, no catching up — just you and God, one day at a time.",
+  },
+];
+
+// What you'll receive each day
+const receive = [
+  {
+    title: "A short daily teaching",
+    body: "A few honest, encouraging minutes from Jenessa to ground your day.",
+  },
+  {
+    title: "One key Scripture",
+    body: "A verse to carry with you and return to. [Placeholder — final verses to be added.]",
+  },
+  {
+    title: "A simple reflection prompt",
+    body: "One gentle question to help you listen and respond.",
+  },
+  {
+    title: "A small, doable step",
+    body: "Something you can actually put into practice today — no overwhelm.",
+  },
+  {
+    title: "Space to process",
+    body: "Room to journal, pray, and notice where God is already at work.",
+  },
+];
+
+// The 9-day journey — PLACEHOLDER themes until final chapter titles are provided.
+const journey = [
+  { day: "Day 1", title: "Naming Where You Feel Stuck", body: "Bring your honest starting place to God — no pretending required." },
+  { day: "Day 2", title: "Remembering Who God Is", body: "Return to the character of the One who is leading you." },
+  { day: "Day 3", title: "Seeing Where He's Already Moving", body: "Notice the quiet ways God is at work in your life right now." },
+  { day: "Day 4", title: "Trusting His Timing", body: "Make peace with the wait without letting go of hope." },
+  { day: "Day 5", title: "Releasing What You're Carrying", body: "Set down the striving, the fear, and the comparison." },
+  { day: "Day 6", title: "Preparing in the In-Between", body: "Use this season to quietly get ready for what's next." },
+  { day: "Day 7", title: "Listening for His Voice", body: "Create space to hear God's direction for your next step." },
+  { day: "Day 8", title: "Taking the Next Faithful Step", body: "Move forward with the little you can see in front of you." },
+  { day: "Day 9", title: "Moving with God", body: "Step into the promise with confident, hope-filled faith." },
+];
+
+// Empathy lines
+const empathyLines = [
+  "Maybe you feel stuck between where you are and where you believe God is leading you.",
+  "Maybe you've prayed the same prayer so long you've started to wonder if He heard it.",
+  "Maybe everyone else seems to be moving forward while you're still standing still.",
+  "Maybe you're not sure what the next step is — only that you're ready for one.",
+];
+
+// FAQ
+const faqs = [
+  {
+    q: "Do I need the book?",
+    a: "Not at all. The challenge is completely free and stands on its own. Moving with God is simply an optional way to go deeper after the nine days.",
+  },
+  {
+    q: "How long does each day take?",
+    a: "About five to ten minutes. Each day is short and doable — designed to fit into real life, not add pressure to it.",
+  },
+  {
+    q: "Is the challenge free?",
+    a: "Yes. It's completely free, from Day 1 to Day 9.",
+  },
+  {
+    q: "Can I start anytime?",
+    a: "Yes — sign up whenever you're ready and we'll send your first day so you can begin. [Placeholder — confirm whether the challenge runs on set dates or is available anytime.]",
+  },
+  {
+    q: "How will I receive each day's content?",
+    a: "Straight to your inbox. Each morning for nine days you'll get a short email with that day's teaching, Scripture, and step.",
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Slim header -->
+  <header class="chead">
+    <div class="chead__inner container">
+      <a class="chead__brand" href="/">Moving with God</a>
+      <a class="chead__link" href="/">
+        Pre-Order the Book
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" id="join" aria-labelledby="hero-title">
+      <div class="hero__panel">
+        <div class="hero__content">
+          <p class="section-label hero__eyebrow">Free 9-Day Challenge</p>
+          <h1 id="hero-title" class="hero__title">Nine days to stop waiting and start moving with God.</h1>
+          <p class="hero__lede">
+            A free, guided journey to help you get unstuck, quiet the noise, and take your
+            next faithful step &mdash; one small, hope-filled day at a time.
+          </p>
+          <div class="hero__form">
+            <!-- Klaviyo challenge signup form (renders on the live domain) -->
+            <div class="klaviyo-form-Rvq64Z"></div>
+            <!-- Fallback CTA shown until/if the embedded form loads -->
+            <a class="hero__fallback btn btn--primary" href="#join">Save My Spot — It&rsquo;s Free</a>
+          </div>
+          <p class="hero__reassure">100% free &middot; Start anytime &middot; Unsubscribe whenever you like</p>
+        </div>
+      </div>
+      <div class="hero__media">
+        <img src="/assets/images/challenge-hero.jpg" alt="Jenessa Wait sitting beside handwritten Scripture" width="1200" height="1798" loading="eager" />
+      </div>
+    </section>
+
+    <!-- 2. EMPATHY -->
+    <section class="empathy" aria-labelledby="empathy-title">
+      <div class="empathy__inner container">
+        <h2 id="empathy-title" class="empathy__title">If your heart is tired of waiting, you&rsquo;re in the right place.</h2>
+        <p class="empathy__intro">
+          You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
+          space between His promise and your right-now started to feel heavy.
+        </p>
+        <ul class="empathy__list">
+          {empathyLines.map((line) => (
+            <li>{line}</li>
+          ))}
+        </ul>
+        <p class="empathy__close">
+          Wherever you are, God is still moving &mdash; and over the next nine days, you can
+          begin moving with Him.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. HOW THE CHALLENGE WORKS -->
+    <section class="steps" aria-labelledby="steps-title">
+      <div class="steps__inner container">
+        <header class="section-head">
+          <p class="section-label">How It Works</p>
+          <h2 id="steps-title">Three simple steps</h2>
+        </header>
+        <ol class="steps__grid">
+          {steps.map((s) => (
+            <li class="stepcard">
+              <span class="stepcard__num">{s.n}</span>
+              <h3 class="stepcard__title">{s.title}</h3>
+              <p class="stepcard__body">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. WHAT YOU'LL RECEIVE EACH DAY -->
+    <section class="receive" aria-labelledby="receive-title">
+      <div class="receive__inner container">
+        <header class="section-head">
+          <p class="section-label">Every Day for Nine Days</p>
+          <h2 id="receive-title">What you&rsquo;ll receive</h2>
+        </header>
+        <ul class="receive__list">
+          {receive.map((r) => (
+            <li class="receive__item">
+              <span class="receive__check" aria-hidden="true"></span>
+              <div>
+                <h3 class="receive__label">{r.title}</h3>
+                <p class="receive__body">{r.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. THE 9-DAY JOURNEY -->
+    <section class="journey" aria-labelledby="journey-title">
+      <div class="journey__inner container">
+        <header class="section-head">
+          <p class="section-label">The Journey</p>
+          <h2 id="journey-title">Your next nine days</h2>
+          <p class="journey__note">
+            <strong>Note:</strong> the daily themes below are placeholders and will be updated
+            with the final chapter themes from <em>Moving with God</em>.
+          </p>
+        </header>
+        <ol class="journey__grid">
+          {journey.map((d) => (
+            <li class="daycard">
+              <span class="daycard__day">{d.day}</span>
+              <h3 class="daycard__title">{d.title}</h3>
+              <p class="daycard__body">{d.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. ABOUT JENESSA -->
+    <section class="about" aria-labelledby="about-title">
+      <div class="about__media">
+        <img src="/assets/images/challenge-about.jpg" alt="Jenessa Wait" width="1200" height="1800" loading="lazy" />
+      </div>
+      <div class="about__panel">
+        <div class="about__content">
+          <p class="section-label">Your Guide</p>
+          <h2 id="about-title" class="about__title">Hi, I&rsquo;m Jenessa.</h2>
+          <p class="about__body">
+            I know what it&rsquo;s like to feel stuck &mdash; to love God deeply and still
+            wonder when the things He placed in your heart will finally come.
+            <em>[Placeholder &mdash; a short piece of Jenessa&rsquo;s story / testimony to be added here.]</em>
+          </p>
+          <p class="about__body">
+            I created this challenge because I don&rsquo;t believe getting unstuck happens
+            through more information. It happens through small, faithful movement with God.
+            Over these nine days, I&rsquo;ll walk it with you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS (placeholder) -->
+    <section class="quotes" aria-labelledby="quotes-title">
+      <div class="quotes__inner container">
+        <header class="section-head">
+          <p class="section-label">Stories</p>
+          <h2 id="quotes-title">From women walking it out</h2>
+          <p class="quotes__note">Real stories are on the way &mdash; the cards below are placeholders.</p>
+        </header>
+        <div class="quotes__grid">
+          {[1, 2, 3].map((i) => (
+            <figure class="qcard">
+              <blockquote class="qcard__quote">
+                &ldquo;[Placeholder testimonial {i} &mdash; a short, encouraging quote from a
+                past participant will go here once available.]&rdquo;
+              </blockquote>
+              <figcaption class="qcard__cite">
+                <span class="qcard__avatar" aria-hidden="true"></span>
+                <span>[Name, placeholder]</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. BOOK COMPANION -->
+    <section class="book" aria-labelledby="book-title">
+      <div class="book__inner container">
+        <div class="book__media">
+          <img src="/assets/images/challenge-book.jpg" alt="Moving with God book by Jenessa Wait" width="1200" height="1800" loading="lazy" />
+        </div>
+        <div class="book__content">
+          <p class="section-label book__eyebrow">Optional Companion</p>
+          <h2 id="book-title" class="book__title">Want to go deeper? Meet the book.</h2>
+          <p class="book__body">
+            The challenge is completely free and stands on its own. If you&rsquo;d like to keep
+            going after Day 9, <em>Moving with God</em> expands every theme into nine full
+            chapters &mdash; your guide to getting unstuck and stepping boldly into His promises.
+          </p>
+          <p class="book__meta">Releases October 6 &middot; Pre-order available now</p>
+          <Button href="/" label="Explore the Book" variant="secondary" class="book__cta" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="faq__inner container">
+        <header class="section-head">
+          <p class="section-label">Questions</p>
+          <h2 id="faq-title">Good things to know</h2>
+        </header>
+        <div class="faq__list">
+          {faqs.map((f, i) => (
+            <details class="faq__item" open={i === 0}>
+              <summary class="faq__q">
+                {f.q}
+                <span class="faq__icon" aria-hidden="true"></span>
+              </summary>
+              <p class="faq__a">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FINAL CTA -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="final__panel">
+        <div class="final__content">
+          <h2 id="final-title" class="final__title">Your next step is closer than it feels.</h2>
+          <p class="final__body">
+            You don&rsquo;t have to have it all figured out to begin. You just have to take
+            the first day. Let&rsquo;s move with God &mdash; together.
+          </p>
+          <Button href="#join" label="Save My Spot — It's Free" variant="primary" class="final__cta" />
+          <p class="final__reassure">Free &middot; Nine short days &middot; Start anytime</p>
+        </div>
+      </div>
+      <div class="final__media">
+        <img src="/assets/images/challenge-cta.jpg" alt="Jenessa Wait smiling" width="1200" height="1800" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ---------- Header ---------- */
+  .chead {
+    width: 100%;
+    background-color: var(--color-cream-soft);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .chead__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1em;
+  }
+  .chead__brand {
+    font-family: var(--font-heading);
+    font-size: 1.75em;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--color-blue);
+  }
+  .chead__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.8125em;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    transition: color var(--transition-fast);
+  }
+  .chead__link:hover { color: var(--color-terracotta); }
+
+  /* ---------- Shared section head ---------- */
+  .section-head {
+    max-width: 40em;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  .section-head h2 {
+    margin-top: 0.4em;
+    color: var(--color-blue);
+    font-size: 3.5em;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+
+  /* ---------- 1. Hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: var(--color-cream-soft);
+  }
+  .hero__panel {
+    display: flex;
+    align-items: center;
+    padding: 5.5em 4em 5.5em var(--container-padding);
+  }
+  .hero__content { max-width: 34em; }
+  .hero__eyebrow { color: var(--color-terracotta); }
+  .hero__title {
+    margin-top: 0.5em;
+    color: var(--color-blue);
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .hero__lede {
+    margin-top: 0.9em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+  .hero__form { margin-top: 1.75em; }
+  /* Hide the fallback button once the Klaviyo form has populated */
+  .hero__form:has(.klaviyo-form-Rvq64Z:not(:empty)) .hero__fallback { display: none; }
+  .hero__reassure {
+    margin-top: 1.25em;
+    font-size: 0.9375em;
+    color: var(--color-text);
+    opacity: 0.75;
+  }
+  .hero__media { min-height: 100%; position: relative; }
+  .hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---------- 2. Empathy ---------- */
+  .empathy {
+    width: 100%;
+    background-color: var(--color-periwinkle);
+  }
+  .empathy__inner {
+    padding-block: 5.5em;
+    max-width: 46em;
+    text-align: center;
+  }
+  .empathy__title {
+    color: var(--color-dark);
+    font-size: 3em;
+    line-height: 1.05;
+    letter-spacing: -1.2px;
+  }
+  .empathy__intro {
+    margin-top: 1.25em;
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .empathy__list {
+    list-style: none;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .empathy__list li {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--color-blue);
+  }
+  .empathy__close {
+    margin-top: 2.25em;
+    font-size: 1.25em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  /* ---------- 3. Steps ---------- */
+  .steps { width: 100%; background-color: var(--color-cream-soft); }
+  .steps__inner { padding-block: 5.5em; }
+  .steps__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  .stepcard {
+    background-color: var(--color-cream);
+    padding: 2.5em 2em 2.75em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .stepcard__num {
+    font-family: var(--font-heading);
+    color: var(--color-terracotta);
+    font-size: 3.5em;
+    line-height: 0.8;
+  }
+  .stepcard__title {
+    margin-top: 0.5em;
+    font-size: 1.625em;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--color-dark);
+  }
+  .stepcard__body {
+    margin-top: 0.6em;
+    font-size: 1.125em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  /* ---------- 4. Receive ---------- */
+  .receive { width: 100%; background-color: var(--color-blue); color: var(--color-white); }
+  .receive__inner { padding-block: 5.5em; }
+  .receive .section-head h2 { color: var(--color-white); }
+  .receive .section-label { color: rgba(255, 255, 255, 0.7); }
+  .receive__list {
+    list-style: none;
+    max-width: 44em;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .receive__item {
+    display: flex;
+    gap: 1.1em;
+    align-items: flex-start;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .receive__item:last-child { border-bottom: none; padding-bottom: 0; }
+  .receive__check {
+    flex: none;
+    margin-top: 0.35em;
+    width: 0.55em;
+    height: 0.95em;
+    border: solid var(--color-salmon);
+    border-width: 0 0.18em 0.18em 0;
+    transform: rotate(45deg);
+  }
+  .receive__label {
+    font-size: 1.375em;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    font-family: var(--font-heading);
+    font-weight: 400;
+  }
+  .receive__body {
+    margin-top: 0.35em;
+    font-size: 1.0625em;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ---------- 5. Journey ---------- */
+  .journey { width: 100%; background-color: var(--color-cream-soft); }
+  .journey__inner { padding-block: 5.5em; }
+  .journey__note {
+    margin-top: 1em;
+    font-size: 0.9375em;
+    line-height: 1.5;
+    color: var(--color-text);
+    opacity: 0.85;
+  }
+  .journey__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+  }
+  .daycard {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: 2em 1.75em 2.25em;
+  }
+  .daycard__day {
+    font-size: 0.8125em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+  }
+  .daycard__title {
+    margin-top: 0.5em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.625em;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    color: var(--color-blue);
+  }
+  .daycard__body {
+    margin-top: 0.6em;
+    font-size: 1.0625em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  /* ---------- 6. About ---------- */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: var(--color-cream);
+  }
+  .about__media { min-height: 100%; position: relative; }
+  .about__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about__panel {
+    display: flex;
+    align-items: center;
+    padding: 5.5em var(--container-padding) 5.5em 4em;
+  }
+  .about__content { max-width: 32em; }
+  .about__title {
+    margin-top: 0.4em;
+    color: var(--color-blue);
+    font-size: 3.5em;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .about__body {
+    margin-top: 1.25em;
+    font-size: 1.25em;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+
+  /* ---------- 7. Testimonials ---------- */
+  .quotes { width: 100%; background-color: var(--color-periwinkle); }
+  .quotes__inner { padding-block: 5.5em; }
+  .quotes__note {
+    margin-top: 1em;
+    font-size: 0.9375em;
+    color: var(--color-text);
+    opacity: 0.85;
+  }
+  .quotes__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  .qcard {
+    background-color: var(--color-cream-soft);
+    padding: 2.5em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .qcard__quote {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--color-dark);
+    flex: 1;
+  }
+  .qcard__cite {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    font-size: 1em;
+    color: var(--color-text);
+  }
+  .qcard__avatar {
+    flex: none;
+    width: 2.75em;
+    height: 2.75em;
+    border-radius: 50%;
+    background-color: var(--color-periwinkle);
+  }
+
+  /* ---------- 8. Book ---------- */
+  .book { width: 100%; background-color: var(--color-pink); }
+  .book__inner {
+    padding-block: 5.5em;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 4em;
+    align-items: center;
+  }
+  .book__media img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 24px 60px rgba(57, 51, 49, 0.18);
+  }
+  .book__title {
+    margin-top: 0.4em;
+    color: var(--color-dark);
+    font-size: 3em;
+    line-height: 1.02;
+    letter-spacing: -1.2px;
+  }
+  .book__body {
+    margin-top: 1.1em;
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .book__meta {
+    margin-top: 1.25em;
+    font-size: 0.9375em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+  }
+  .book :global(.book__cta) { margin-top: 1.75em; }
+
+  /* ---------- 9. FAQ ---------- */
+  .faq { width: 100%; background-color: var(--color-cream-soft); }
+  .faq__inner { padding-block: 5.5em; }
+  .faq__list { max-width: 44em; margin-inline: auto; }
+  .faq__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1.35em 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.625em;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+    color: var(--color-blue);
+  }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__icon {
+    position: relative;
+    flex: none;
+    width: 0.85em;
+    height: 0.85em;
+  }
+  .faq__icon::before,
+  .faq__icon::after {
+    content: "";
+    position: absolute;
+    background-color: var(--color-terracotta);
+  }
+  .faq__icon::before { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+  .faq__icon::after { left: 50%; top: 0; height: 100%; width: 2px; transform: translateX(-50%); transition: opacity var(--transition-fast); }
+  .faq__item[open] .faq__icon::after { opacity: 0; }
+  .faq__a {
+    padding: 0 0 1.5em;
+    font-size: 1.125em;
+    line-height: 1.55;
+    color: var(--color-text);
+    max-width: 40em;
+  }
+
+  /* ---------- 10. Final CTA ---------- */
+  .final {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+  .final__panel {
+    display: flex;
+    align-items: center;
+    padding: 6em 4em 6em var(--container-padding);
+  }
+  .final__content { max-width: 30em; }
+  .final__title {
+    font-size: 3.5em;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .final__body {
+    margin-top: 1em;
+    font-size: 1.25em;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .final :global(.final__cta) { margin-top: 1.75em; }
+  .final__reassure {
+    margin-top: 1.25em;
+    font-size: 0.9375em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .final__media { min-height: 100%; position: relative; }
+  .final__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 991px) {
+    .section-head h2 { font-size: 2.75em; }
+    .hero__title { font-size: 3.25em; }
+    .about__title, .final__title { font-size: 2.75em; }
+    .empathy__title, .book__title { font-size: 2.5em; }
+    .steps__grid, .quotes__grid { grid-template-columns: 1fr; max-width: 34em; margin-inline: auto; }
+    .journey__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 767px) {
+    .hero, .about, .final { grid-template-columns: 1fr; }
+    .hero__panel { padding: 3em var(--container-padding); order: 2; }
+    .hero__media { order: 1; aspect-ratio: 4 / 3; min-height: 0; }
+    .hero__title { font-size: 2.75em; }
+    .about__media { aspect-ratio: 4 / 3; min-height: 0; }
+    .about__panel { padding: 3em var(--container-padding); }
+    .book__inner { grid-template-columns: 1fr; gap: 2.5em; }
+    .book__media { max-width: 15em; }
+    .journey__grid { grid-template-columns: 1fr; }
+    .final__panel { padding: 3.5em var(--container-padding); order: 2; }
+    .final__media { order: 1; aspect-ratio: 4 / 3; min-height: 0; }
+    .empathy__inner, .steps__inner, .receive__inner, .journey__inner, .quotes__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
+  }
+</style>
