@@ -1,140 +1,35 @@
 ---
 export const prerender = true;
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
+
+// Editable in the CMS: /keystatic → Challenge Page
+const reader = createReader(process.cwd(), keystaticConfig);
+const c = await reader.singletons.challenge.read();
 
 const pageTitle = "The Moving With God Challenge — Free 9-Day Journey with Jenessa Wait";
 const pageDescription =
   "A free, guided 9-day challenge to help you get unstuck, quiet the noise, and take your next faithful step with God. Sign up free and start moving with God.";
 
-// Steps
-const steps = [
-  {
-    n: "1",
-    title: "Sign up free",
-    body: "Add your name and email below and we'll save your spot. It takes about ten seconds.",
-  },
-  {
-    n: "2",
-    title: "Open your daily email",
-    body: "Each morning for nine days, a short message lands in your inbox — one key, one Scripture, and one small step.",
-  },
-  {
-    n: "3",
-    title: "Take one step",
-    body: "Spend a few quiet minutes responding. No pressure, no catching up — just you and God, one day at a time.",
-  },
-];
+// Normalize image field values (Keystatic stores the filename) into a src path.
+const img = (v?: string | null) =>
+  !v ? "" : v.startsWith("/") || v.startsWith("http") ? v : `/assets/images/${v}`;
 
-// What you'll receive each day
-const receive = [
-  {
-    title: "A short daily teaching",
-    body: "A few honest, encouraging minutes from Jenessa to ground your day.",
-  },
-  {
-    title: "One key Scripture",
-    body: "A verse to carry with you and return to. [Placeholder — final verses to be added.]",
-  },
-  {
-    title: "A simple reflection prompt",
-    body: "One gentle question to help you listen and respond.",
-  },
-  {
-    title: "A small, doable step",
-    body: "Something you can actually put into practice today — no overwhelm.",
-  },
-  {
-    title: "Space to process",
-    body: "Room to journal, pray, and notice where God is already at work.",
-  },
-];
-
-// The 9-day journey — PLACEHOLDER themes until final chapter titles are provided.
-const journey = [
-  { day: "Day 1", title: "Naming Where You Feel Stuck", body: "Bring your honest starting place to God — no pretending required." },
-  { day: "Day 2", title: "Remembering Who God Is", body: "Return to the character of the One who is leading you." },
-  { day: "Day 3", title: "Seeing Where He's Already Moving", body: "Notice the quiet ways God is at work in your life right now." },
-  { day: "Day 4", title: "Trusting His Timing", body: "Make peace with the wait without letting go of hope." },
-  { day: "Day 5", title: "Releasing What You're Carrying", body: "Set down the striving, the fear, and the comparison." },
-  { day: "Day 6", title: "Preparing in the In-Between", body: "Use this season to quietly get ready for what's next." },
-  { day: "Day 7", title: "Listening for His Voice", body: "Create space to hear God's direction for your next step." },
-  { day: "Day 8", title: "Taking the Next Faithful Step", body: "Move forward with the little you can see in front of you." },
-  { day: "Day 9", title: "Moving with God", body: "Step into the promise with confident, hope-filled faith." },
-];
-
-// Empathy lines
-const empathyLines = [
-  "Maybe you feel stuck between where you are and where you believe God is leading you.",
-  "Maybe you've prayed the same prayer so long you've started to wonder if He heard it.",
-  "Maybe everyone else seems to be moving forward while you're still standing still.",
-  "Maybe you're not sure what the next step is — only that you're ready for one.",
-];
-
-// FAQ
-const faqs = [
-  {
-    q: "Do I need the book?",
-    a: "Not at all. The challenge is completely free and stands on its own. Moving with God is simply an optional way to go deeper after the nine days.",
-  },
-  {
-    q: "How long does each day take?",
-    a: "About five to ten minutes. Each day is short and doable — designed to fit into real life, not add pressure to it.",
-  },
-  {
-    q: "Is the challenge free?",
-    a: "Yes. It's completely free, from Day 1 to Day 9.",
-  },
-  {
-    q: "Can I start anytime?",
-    a: "Yes — sign up whenever you're ready and we'll send your first day so you can begin. [Placeholder — confirm whether the challenge runs on set dates or is available anytime.]",
-  },
-  {
-    q: "How will I receive each day's content?",
-    a: "Straight to your inbox. Each morning for nine days you'll get a short email with that day's teaching, Scripture, and step.",
-  },
-];
-
-// Endorsements — identical to the pre-order page, shown here in a full-width slider.
-const endorsements = [
-  {
-    theme: "pink",
-    heading: "What does it look like to move in step with God, not rushing ahead or falling behind?",
-    quote:
-      "Jenessa Wait is a trusted guide to help you discern God's timing and move forward in confidence through every door He opens.",
-    name: "Rebekah Lyons",
-    role: "Bestselling Author, Speaker, and Co-Founder of Thinq Media",
-    img: "/assets/images/head-rebekah.jpg",
-  },
-  {
-    theme: "dark",
-    heading: "Moving with God is not just a message Jenessa Wait teaches; it is a life she has faithfully lived.",
-    quote:
-      "Walking through surrender, stewardship, service, and bold obedience to God's promises. With clarity and conviction, she offers nine practical and spiritual keys that help readers move from stagnation to possession of what God has spoken. This book will strengthen your faith, challenge unbelief, and anchor you in the house of God as you step courageously into His promises for your life.",
-    name: "Joaquin and Renée Evans",
-    role: "Senior Pastors of Bethel Austin",
-    img: "/assets/images/head-evans.jpg",
-  },
-  {
-    theme: "periwinkle",
-    heading: "Jenessa Wait is someone whose life speaks just as powerfully as her words.",
-    quote:
-      "What has always stood out to me is her persistent teachability. She honors the voices God has placed in her life and leans in to discern what He is saying and where He is leading. In Moving with God, she brings that same grace to the reader, helping you see the Father's heart even in hidden or stretching seasons. With clarity and Spirit-led insight, she offers a practical pathway for partnering with God and stepping into His promises. This book will steady your heart, awaken fresh courage, and remind you that you are not forgotten. God is actively leading you forward right now.",
-    name: "Bethany Hicks",
-    role: "Co-Founder of Prophetic Company & Author of The God Connection",
-    img: "/assets/images/head-bethany.jpg",
-  },
-  {
-    theme: "cream",
-    heading: "Jenessa Wait's honest and vulnerable storytelling dismantles the addiction to hustle and calls us back to belief.",
-    quote:
-      "From the very first page, Jenessa Wait beckons us into a deeper life of faith, trust, and vision. Moving with God serves as both an invitation and a guide into the life we ache for but often struggle to access. This book encourages readers to dream, take risks, and recognize God's presence. It challenges the status quo and invites us into a life marked by surrender and expectancy, emphasizing humility, trust, and laying everything down to truly find life.",
-    name: "Jessi Green",
-    role: "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church",
-    img: "/assets/images/head-jessi.jpg",
-  },
-];
+// Aliases so the section markup below reads cleanly.
+const hero = c!.hero;
+const empathy = c!.empathy;
+const empathyLines = empathy.lines;
+const steps = c!.steps.items;
+const receive = c!.receive.items;
+const journey = c!.journey.items;
+const about = c!.about;
+const book = c!.book;
+const finalCta = c!.finalCta;
+const faqs = c!.faq.items;
+const endorsements = c!.endorsements.items.map((e) => ({ ...e, img: img(e.img) }));
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -143,39 +38,30 @@ const endorsements = [
     <section class="hero" id="join" aria-labelledby="hero-title">
       <div class="hero__panel">
         <div class="hero__content">
-          <p class="section-label hero__eyebrow">Free &middot; No Purchase Necessary</p>
-          <h1 id="hero-title" class="hero__title"><span class="hero__title-accent">9 Day Challenge:</span> Start moving with God!</h1>
-          <p class="hero__lede">
-            A free, guided journey to help you get unstuck, quiet the noise, and take your
-            next faithful step &mdash; one small, hope-filled day at a time.
-          </p>
+          <p class="section-label hero__eyebrow">{hero.eyebrow}</p>
+          <h1 id="hero-title" class="hero__title"><span class="hero__title-accent">{hero.titleAccent}</span> {hero.titleRest}</h1>
+          <p class="hero__lede">{hero.lede}</p>
           <div class="hero__form">
             <!-- Klaviyo challenge signup form (renders on the live/allowlisted domain) -->
             <div class="klaviyo-form-Rvq64Z"></div>
           </div>
-          <p class="hero__reassure">100% free &middot; Start anytime &middot; Unsubscribe whenever you like</p>
+          <p class="hero__reassure">{hero.reassure}</p>
         </div>
       </div>
       <div class="hero__media">
-        <img src="/assets/images/challenge-hero.jpg" alt="Jenessa Wait holding the Moving with God book" width="1200" height="1800" loading="eager" />
+        <img src={img(hero.image)} alt="Jenessa Wait holding the Moving with God book" width="1200" height="1800" loading="eager" />
       </div>
     </section>
 
     <!-- 2. EMPATHY (inline-image statement) -->
     <section class="empathy" aria-labelledby="empathy-title">
       <div class="empathy__inner container">
-        <h2 id="empathy-title" class="empathy__statement">If your heart is <span class="u-underline">tired<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> of waiting, you&rsquo;re in the right place.</h2>
+        <h2 id="empathy-title" class="empathy__statement">{empathy.statementBefore} <span class="u-underline">{empathy.statementWord}<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> {empathy.statementAfter}</h2>
 
         <div class="empathy__grid">
           <div class="empathy__col">
-            <p class="empathy__intro">
-              You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
-              space between His promise and your right-now started to feel heavy.
-            </p>
-            <p class="empathy__close">
-              Wherever you are, God is still moving &mdash; and over the next nine days, you can
-              begin moving with Him.
-            </p>
+            <p class="empathy__intro">{empathy.intro}</p>
+            <p class="empathy__close">{empathy.close}</p>
           </div>
           <ul class="empathy__list">
             {empathyLines.map((line) => (
@@ -190,8 +76,8 @@ const endorsements = [
     <section class="steps" aria-labelledby="steps-title">
       <div class="steps__inner container">
         <header class="section-head">
-          <p class="section-label">How It Works</p>
-          <h2 id="steps-title">Three simple steps</h2>
+          <p class="section-label">{c!.steps.eyebrow}</p>
+          <h2 id="steps-title">{c!.steps.heading}</h2>
         </header>
         <ol class="steps__grid">
           {steps.map((s) => (
@@ -212,8 +98,8 @@ const endorsements = [
     <section class="receive" aria-labelledby="receive-title">
       <div class="receive__inner container">
         <header class="section-head">
-          <p class="section-label">Every Day for Nine Days</p>
-          <h2 id="receive-title">What you&rsquo;ll receive</h2>
+          <p class="section-label">{c!.receive.eyebrow}</p>
+          <h2 id="receive-title">{c!.receive.heading}</h2>
         </header>
         <ul class="receive__list">
           {receive.map((r) => (
@@ -236,12 +122,9 @@ const endorsements = [
     <section class="journey" aria-labelledby="journey-title">
       <div class="journey__inner container">
         <header class="section-head">
-          <p class="section-label">The Journey</p>
-          <h2 id="journey-title">The 9 Day Challenge</h2>
-          <p class="journey__note">
-            <strong>Note:</strong> the daily themes below are placeholders and will be updated
-            with the final chapter themes from <em>Moving with God</em>.
-          </p>
+          <p class="section-label">{c!.journey.eyebrow}</p>
+          <h2 id="journey-title">{c!.journey.heading}</h2>
+          <p class="journey__note">{c!.journey.note}</p>
         </header>
         <ol class="journey__grid">
           {journey.map((d, i) => (
@@ -261,23 +144,15 @@ const endorsements = [
     <!-- 6. ABOUT JENESSA -->
     <section class="about" aria-labelledby="about-title">
       <div class="about__media">
-        <img src="/assets/images/challenge-about.jpg" alt="Jenessa Wait" width="1000" height="1505" loading="lazy" />
+        <img src={img(about.image)} alt="Jenessa Wait" width="1000" height="1505" loading="lazy" />
       </div>
       <div class="about__panel">
         <div class="about__content">
-          <p class="section-label">Your Guide</p>
-          <h2 id="about-title" class="about__title">Hi, I&rsquo;m Jenessa.</h2>
-          <p class="about__body">
-            I know what it&rsquo;s like to feel stuck &mdash; to love God deeply and still
-            wonder when the things He placed in your heart will finally come.{" "}
-            <em>[Placeholder &mdash; a short piece of Jenessa&rsquo;s story / testimony to be added here.]</em>
-          </p>
-          <p class="about__body">
-            I created this challenge because I don&rsquo;t believe getting unstuck happens
-            through more information. It happens through small, faithful movement with God.
-            Over these nine days, I&rsquo;ll walk it with you.
-          </p>
-          <Button href="#join" label="Join the Challenge" variant="primary" class="about__cta" />
+          <p class="section-label">{about.eyebrow}</p>
+          <h2 id="about-title" class="about__title">{about.title}</h2>
+          <p class="about__body">{about.body1}</p>
+          <p class="about__body">{about.body2}</p>
+          <Button href="#join" label={about.ctaLabel} variant="primary" class="about__cta" />
         </div>
       </div>
     </section>
@@ -286,8 +161,8 @@ const endorsements = [
     <section class="quotes" aria-labelledby="quotes-title">
       <div class="quotes__head container">
         <div>
-          <p class="section-label">Endorsements</p>
-          <h2 id="quotes-title" class="quotes__title">What others are saying about <span class="quotes__accent">Moving With God</span></h2>
+          <p class="section-label">{c!.endorsements.eyebrow}</p>
+          <h2 id="quotes-title" class="quotes__title">{c!.endorsements.heading} <span class="quotes__accent">{c!.endorsements.headingAccent}</span></h2>
         </div>
         <div class="slider__nav">
           <button class="slider__arrow" type="button" aria-label="Previous endorsement" data-prev>
@@ -322,18 +197,14 @@ const endorsements = [
     <section class="book" aria-labelledby="book-title">
       <div class="book__inner container">
         <div class="book__media">
-          <img src="/assets/images/challenge-book.jpg" alt="Moving with God book by Jenessa Wait" width="1200" height="1800" loading="lazy" />
+          <img src={img(book.image)} alt="Moving with God book by Jenessa Wait" width="1200" height="1800" loading="lazy" />
         </div>
         <div class="book__content">
-          <p class="section-label book__eyebrow">Optional Companion</p>
-          <h2 id="book-title" class="book__title">Want to go deeper?<br />Pre-order the book.</h2>
-          <p class="book__body">
-            The challenge is completely free and stands on its own. If you&rsquo;d like to keep
-            going after Day 9, <em>Moving with God</em> expands every theme into nine full
-            chapters &mdash; your guide to getting unstuck and stepping boldly into His promises.
-          </p>
-          <p class="book__meta">Releases October 6 &middot; Pre-order available now</p>
-          <Button href="/" label="Explore the Book" variant="primary" class="book__cta" />
+          <p class="section-label book__eyebrow">{book.eyebrow}</p>
+          <h2 id="book-title" class="book__title">{book.titleLine1}<br />{book.titleLine2}</h2>
+          <p class="book__body">{book.body}</p>
+          <p class="book__meta">{book.meta}</p>
+          <Button href={book.ctaUrl} label={book.ctaLabel} variant="primary" class="book__cta" />
         </div>
       </div>
     </section>
@@ -342,8 +213,8 @@ const endorsements = [
     <section class="faq" aria-labelledby="faq-title">
       <div class="faq__inner container">
         <header class="section-head">
-          <p class="section-label">Questions</p>
-          <h2 id="faq-title">Good things to know</h2>
+          <p class="section-label">{c!.faq.eyebrow}</p>
+          <h2 id="faq-title">{c!.faq.heading}</h2>
         </header>
         <div class="faq__list">
           {faqs.map((f, i) => (
@@ -362,17 +233,14 @@ const endorsements = [
     <!-- 10. FINAL CTA -->
     <section class="final" aria-labelledby="final-title">
       <div class="final__media">
-        <img src="/assets/images/challenge-cta.jpg" alt="Jenessa Wait smiling" width="1200" height="1800" loading="lazy" />
+        <img src={img(finalCta.image)} alt="Jenessa Wait smiling" width="1200" height="1800" loading="lazy" />
       </div>
       <div class="final__panel">
         <div class="final__content">
-          <h2 id="final-title" class="final__title">Your next step is closer than it feels.</h2>
-          <p class="final__body">
-            You don&rsquo;t have to have it all figured out to begin. You just have to take
-            the first day. Let&rsquo;s move with God &mdash; together.
-          </p>
-          <Button href="#join" label="Save My Spot — It's Free" variant="primary" class="final__cta" />
-          <p class="final__reassure">Free &middot; Nine short days &middot; Start anytime</p>
+          <h2 id="final-title" class="final__title">{finalCta.title}</h2>
+          <p class="final__body">{finalCta.body}</p>
+          <Button href="#join" label={finalCta.ctaLabel} variant="primary" class="final__cta" />
+          <p class="final__reassure">{finalCta.reassure}</p>
         </div>
       </div>
     </section>
