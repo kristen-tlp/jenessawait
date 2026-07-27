@@ -1,0 +1,115 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="sidelined" aria-labelledby="sidelined-title">
+  <div class="sidelined__panel">
+    <div class="sidelined__content">
+      <h2 id="sidelined-title" class="sidelined__title">
+        You are <span class="u-underline">not<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> sidelined.
+      </h2>
+      <p class="sidelined__body">
+        You&rsquo;ve prayed. You&rsquo;ve believed. You&rsquo;ve held tightly to the
+        promises God placed in your heart. Yet somewhere along the journey, you&rsquo;ve
+        found yourself wondering when you&rsquo;ll finally step into all God has spoken
+        over your life.
+      </p>
+      <p class="sidelined__lede">
+        Your life is not on hold.<br />
+        God is still moving, and so can you.
+      </p>
+      <Button href="#how-it-works" label="Pre-Order Today" variant="primary" />
+    </div>
+  </div>
+  <div class="sidelined__media img-zoom">
+    <img
+      src="/assets/images/sidelined-walk.jpg"
+      alt="Jenessa Wait walking along a path outdoors"
+      width="570"
+      height="763"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  .sidelined {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: var(--color-cream-soft);
+  }
+  .sidelined__panel {
+    display: flex;
+    align-items: center;
+    padding: 5em 5em 5em var(--container-padding);
+  }
+  .sidelined__content {
+    max-width: 34em;
+  }
+  .sidelined__title {
+    color: var(--color-dark);
+    font-size: 4em;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+  }
+  .u-underline {
+    position: relative;
+    white-space: nowrap;
+  }
+  .u-underline .hand-underline {
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .sidelined__body {
+    margin-top: 1.5em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+  .sidelined__lede {
+    margin-top: 1.5em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--color-dark);
+    font-size: 1.75em;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
+  }
+  .sidelined__content :global(.btn) {
+    margin-top: 1.75em;
+  }
+  .sidelined__media {
+    min-height: 100%;
+  }
+  .sidelined__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 991px) {
+    .sidelined__panel {
+      padding: 3.5em var(--container-padding);
+    }
+    .sidelined__title {
+      font-size: 3.25em;
+    }
+  }
+  @media (max-width: 767px) {
+    .sidelined {
+      grid-template-columns: 1fr;
+    }
+    .sidelined__panel {
+      padding: 3em var(--container-padding);
+    }
+    /* Figma mobile omits the photo in this section */
+    .sidelined__media {
+      display: none;
+    }
+  }
+</style>

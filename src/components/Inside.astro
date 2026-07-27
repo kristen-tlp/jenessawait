@@ -1,0 +1,143 @@
+---
+const cards = [
+  { icon: "/assets/images/icon-recognize.png", alt: "Head with a lightbulb", text: "Recognize where God is already moving in your life", theme: "dark" },
+  { icon: "/assets/images/icon-navigate.png", alt: "Winding route with location pins", text: "Navigate delays without losing trust in God's timing", theme: "peach" },
+  { icon: "/assets/images/icon-move.png", alt: "Content smiling face", text: "Move from frustration to preparation in your current season", theme: "blue" },
+  { icon: "/assets/images/icon-position.png", alt: "Raised hands", text: "Position yourself for God's purposes", theme: "cream" },
+];
+---
+
+<section class="inside" aria-labelledby="inside-title">
+  <div class="inside__inner container">
+    <header class="inside__head">
+      <p class="section-label inside__eyebrow">What&rsquo;s Inside</p>
+      <h2 id="inside-title" class="inside__title">Inside Moving with God</h2>
+      <p class="inside__intro">
+        Grounded in Scripture and filled with honest personal insight, Moving with God
+        is a guide for anyone longing to enter fully into the promises of God. It will
+        help you recognize where God is at work and show you how to walk forward with
+        confident&nbsp;faith.
+      </p>
+    </header>
+
+    <ul class="inside__cards">
+      {cards.map((c) => (
+        <li class={`icard icard--${c.theme}`}>
+          <img class="icard__icon" src={c.icon} alt={c.alt} width="80" height="80" loading="lazy" />
+          <p class="icard__text">{c.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .inside {
+    width: 100%;
+    background-color: var(--color-periwinkle);
+  }
+  .inside__inner {
+    padding-block: 5em;
+  }
+  .inside__head {
+    max-width: 42em;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .inside__eyebrow {
+    color: var(--color-dark);
+  }
+  .inside__title {
+    margin-top: 0.5em;
+    color: var(--color-blue);
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .inside__intro {
+    margin-top: 1em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  .inside__cards {
+    display: flex;
+    align-items: stretch;
+    margin-top: 4em;
+  }
+  .icard {
+    position: relative;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 1.05;
+    padding: 2.25em 1.75em 2.5em;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  /* slight overlap + alternating tilt */
+  .icard:not(:first-child) { margin-left: -1.75em; }
+  .icard:nth-child(1) { z-index: 2; transform: rotate(-2.5deg); }
+  .icard:nth-child(2) { z-index: 3; transform: rotate(2.5deg); }
+  .icard:nth-child(3) { z-index: 2; transform: rotate(-2.5deg); }
+  .icard:nth-child(4) { z-index: 1; transform: rotate(2.5deg); }
+  .icard:nth-child(1):hover { transform: rotate(-5deg) scale(1.03); z-index: 5; }
+  .icard:nth-child(2):hover { transform: rotate(5deg) scale(1.03); z-index: 5; }
+  .icard:nth-child(3):hover { transform: rotate(-5deg) scale(1.03); z-index: 5; }
+  .icard:nth-child(4):hover { transform: rotate(5deg) scale(1.03); z-index: 5; }
+  .icard__icon {
+    height: 6em;
+    width: auto;
+    max-width: 72%;
+    object-fit: contain;
+    align-self: center;
+    margin-top: auto;
+  }
+  .icard__text {
+    margin-top: auto;
+  }
+  .icard__text {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.375em;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    text-align: center;
+  }
+  .icard--dark { background-color: var(--color-dark); color: var(--color-white); }
+  .icard--peach { background-color: var(--color-card-peach); color: var(--color-dark); }
+  .icard--blue { background-color: var(--color-card-blue); color: var(--color-blue); }
+  .icard--cream { background-color: var(--color-cream); color: var(--color-dark); }
+
+  @media (max-width: 991px) {
+    .inside__title { font-size: 3.25em; }
+    .inside__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile: cards scroll in one-by-one and stack on top of each other */
+  @media (max-width: 767px) {
+    .inside__cards {
+      display: block;
+      grid-template-columns: none;
+      max-width: 24em;
+      margin: 3em auto 0;
+    }
+    .icard {
+      position: sticky;
+      aspect-ratio: auto;
+      min-height: 19em;
+      margin-left: 0;
+      margin-bottom: 2.5em;
+      box-shadow: 0 -6px 24px rgba(57, 51, 49, 0.14);
+    }
+    .icard:not(:first-child) { margin-left: 0; }
+    .icard:last-child { margin-bottom: 0; }
+    /* each later card stacks ON TOP of the previous (increasing z-index) */
+    .icard:nth-child(1) { top: 4.5em; transform: rotate(-3deg); z-index: 1; }
+    .icard:nth-child(2) { top: 5.75em; transform: rotate(2.5deg); z-index: 2; }
+    .icard:nth-child(3) { top: 7em; transform: rotate(-2deg); z-index: 3; }
+    .icard:nth-child(4) { top: 8.25em; transform: rotate(3deg); z-index: 4; }
+  }
+</style>

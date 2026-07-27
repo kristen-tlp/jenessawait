@@ -1,0 +1,352 @@
+/* ==========================================================================
+   Fonts (self-hosted from the design's licensed families)
+   Glamour Absolute (headings) + Sofia Pro (body)
+   ========================================================================== */
+
+@font-face {
+  font-family: "Glamour Absolute";
+  src: url("/assets/fonts/glamour-absolute.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/assets/fonts/sofia-pro-regular.woff2") format("woff2");
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/assets/fonts/sofia-pro-semibold.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Fluid Scaling System
+   Viewport-based scaling — all em values scale automatically.
+   ========================================================================== */
+
+/* Desktop */
+:root {
+  --size-unit: 16; /* body font-size in design — no px */
+  --size-container-ideal: 1440; /* Figma frame width — set during Phase 0 */
+  --size-container-min: 992px;
+  --size-container-max: 1440px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+  --container-padding: 6.5em;
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --size-container-ideal: 834;
+    --size-container-min: 768px;
+    --size-container-max: 991px;
+    --container-padding: 1.5em;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --size-container-ideal: 550;
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+    --container-padding: 1em;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --size-container-ideal: 390;
+    --size-container-min: 320px;
+    --size-container-max: 479px;
+    --container-padding: 1em;
+  }
+}
+
+/* ==========================================================================
+   Design Tokens — Update per project (Phase 0)
+   ========================================================================== */
+
+:root {
+  /* Brand palette (from Figma) */
+  --color-blue: #26549e;        /* primary */
+  --color-terracotta: #b8684f;  /* primary CTA button */
+  --color-dark: #393331;        /* dark surfaces, footer */
+  --color-cream-soft: #fffcf4;  /* main page background */
+  --color-cream: #f3edd9;       /* secondary cream / secondary button */
+  --color-salmon: #dfa897;      /* press bar */
+  --color-periwinkle: #e0e4ec;  /* light-blue sections */
+  --color-pink: #f5e4dd;        /* light-pink cards */
+  --color-card-peach: #e3b9ae;  /* "inside" card */
+  --color-card-blue: #d1d8e3;   /* "inside" card */
+  --color-text: #2f2f2f;        /* body text */
+  --color-white: #ffffff;
+
+  /* Semantic aliases (used by reset + utilities) */
+  --color-primary: var(--color-blue);
+  --color-accent: var(--color-terracotta);
+  --color-bg-white: var(--color-cream-soft);
+  --color-bg-dark: var(--color-dark);
+  --color-text-primary: var(--color-text);
+  --color-text-secondary: var(--color-text);
+  --color-text-white: var(--color-white);
+  --color-border: rgba(57, 51, 49, 0.15);
+
+  /* Typography
+     Design fonts: "Glamour Absolute" (headings), "Sofia Pro" (body).
+     These are licensed fonts — drop the files in /public/assets/fonts and add
+     @font-face rules to match exactly. Playfair Display / Poppins load from
+     Google Fonts as close free stand-ins so the site renders faithfully now. */
+  --font-heading: "Glamour Absolute", Georgia, serif;
+  --font-body: "sofia-pro", "Sofia Pro", system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --spacing-xs: 0.25em;   /* 4px */
+  --spacing-sm: 0.5em;    /* 8px */
+  --spacing-md: 1em;      /* 16px */
+  --spacing-lg: 1.5em;    /* 24px */
+  --spacing-xl: 2em;      /* 32px */
+  --spacing-2xl: 2.5em;   /* 40px */
+  --spacing-3xl: 3em;     /* 48px */
+  --spacing-4xl: 3.25em;  /* 52px */
+  --spacing-5xl: 4em;     /* 64px */
+  --spacing-section: 6.25em; /* 100px */
+
+  /* Border radius */
+  --radius-sm: 0.25em;    /* 4px */
+  --radius-md: 0.5em;     /* 8px */
+  --radius-lg: 1em;       /* 16px */
+  --radius-xl: 1.5em;     /* 24px */
+  --radius-pill: 3em;     /* 48px */
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-font);
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-cream-soft);
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.05;
+  overflow-wrap: break-word;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   Base Utilities
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--size-container);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Narrower centered content column for text-led sections */
+.container--narrow {
+  max-width: 56em; /* ~896px */
+}
+
+/* Desktop-only line break — matches the mockup's exact wrapping */
+.br-desk { display: none; }
+@media (min-width: 992px) { .br-desk { display: inline; } }
+
+/* Very subtle scroll-linked zoom on photos (driven by BaseLayout script) */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.15s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-zoom img { transform: none !important; }
+}
+
+/* Section label — uppercase eyebrow text */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.875em;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+/* Button — shared base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625em;
+  width: fit-content;
+  padding: 1em 1.6em;
+  font-family: var(--font-body);
+  font-size: 0.9375em;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn .btn__arrow {
+  width: 0.9em;
+  height: 0.9em;
+  flex: none;
+}
+
+/* Primary — terracotta */
+.btn--primary {
+  background-color: var(--color-terracotta);
+  color: var(--color-white);
+}
+.btn--primary:hover {
+  background-color: #a4573f;
+}
+
+/* Secondary — cream (used on blue/dark backgrounds) */
+.btn--secondary {
+  background-color: var(--color-cream);
+  color: var(--color-blue);
+}
+.btn--secondary:hover {
+  background-color: #eae2c6;
+}
+
+/* Light — soft cream (used on blue form) */
+.btn--light {
+  background-color: var(--color-card-blue);
+  color: var(--color-blue);
+}
+.btn--light:hover {
+  background-color: #c2cbdb;
+}
+
+/* ==========================================================================
+   Focus & Accessibility
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only:focus {
+  position: fixed;
+  top: 0.5em;
+  left: 0.5em;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 0.75em 1.5em;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}

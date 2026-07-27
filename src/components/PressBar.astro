@@ -1,0 +1,135 @@
+---
+import { retailers, pressKeys } from "../data/retailers.ts";
+// duplicate the set so the marquee loops seamlessly
+const loop = [...pressKeys, ...pressKeys];
+---
+
+<section class="pressbar" aria-label="Pre-order from these retailers">
+  <div class="pressbar__inner">
+    <div class="pressbar__label">
+      <svg class="pressbar__asterisk" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <line x1="12" y1="3" x2="12" y2="21" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="5.6" y1="5.6" x2="18.4" y2="18.4" />
+          <line x1="18.4" y1="5.6" x2="5.6" y2="18.4" />
+        </g>
+      </svg>
+      <span class="pressbar__label-text">pre-order now<img class="hand-underline" src="/assets/images/line-preorder.png" alt="" aria-hidden="true" /></span>
+    </div>
+    <div class="pressbar__marquee">
+      <div class="pressbar__track">
+        {loop.map((k, i) => {
+          const r = retailers[k];
+          const img = `/assets/images/logos/white-${k}.png`;
+          const dup = i >= pressKeys.length;
+          return r.url ? (
+            <a href={r.url} target="_blank" rel="noopener noreferrer" aria-label={dup ? undefined : `Pre-order at ${r.label}`} aria-hidden={dup ? "true" : undefined} tabindex={dup ? -1 : undefined}>
+              <img src={img} alt={dup ? "" : r.label} loading="eager" decoding="async" />
+            </a>
+          ) : (
+            <img src={img} alt={dup ? "" : r.label} loading="eager" decoding="async" />
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pressbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: var(--color-salmon);
+  }
+  .pressbar__inner {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    width: 100%;
+    padding-block: 0.9em;
+    /* label aligns to the page gutter; marquee bleeds to the right screen edge
+       so wide logos clip off-screen instead of in a salmon gutter */
+    padding-left: max(
+      var(--container-padding),
+      calc((100% - var(--size-container)) / 2 + var(--container-padding))
+    );
+    color: var(--color-white);
+  }
+  .pressbar__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    flex: none;
+  }
+  .pressbar__asterisk {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .pressbar__label-text {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 1.875em;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    padding-bottom: 0.3em;
+  }
+  .hand-underline {
+    position: absolute;
+    /* start just after the "p" so its descender is never crossed, matching Figma */
+    left: 5%;
+    bottom: 0;
+    width: 94%;
+    height: auto;
+    display: block;
+  }
+  .pressbar__marquee {
+    flex: 1;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 82%, transparent);
+  }
+  .pressbar__track {
+    display: flex;
+    align-items: center;
+    gap: 5em;
+    width: max-content;
+    padding-left: 3em;
+    animation: pressbar-marquee 38s linear infinite;
+  }
+  .pressbar__marquee:hover .pressbar__track {
+    animation-play-state: paused;
+  }
+  .pressbar__track a {
+    display: flex;
+    align-items: center;
+    transition: opacity var(--transition-fast);
+  }
+  .pressbar__track a:hover { opacity: 0.7; }
+  .pressbar__track img {
+    height: 2.6em;
+    width: auto;
+    max-width: none;
+  }
+  @keyframes pressbar-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pressbar__track { animation: none; }
+  }
+
+  @media (max-width: 767px) {
+    .pressbar__inner {
+      gap: 1.25em;
+      padding-block: 0.8em;
+    }
+    .pressbar__label span { font-size: 1.25em; }
+    .pressbar__track { gap: 2.5em; }
+    .pressbar__track img { height: 1.75em; }
+  }
+</style>

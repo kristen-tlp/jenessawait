@@ -1,0 +1,176 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media img-zoom">
+    <img
+      src="/assets/images/hero-book.jpg"
+      alt="Jenessa Wait holding a copy of the book Moving with God"
+      width="703"
+      height="834"
+      loading="eager"
+    />
+  </div>
+  <div class="hero__panel">
+    <div class="hero__content">
+      <p class="hero__eyebrow section-label">Preorder Now &middot; Releases October 6</p>
+      <h1 id="hero-title" class="hero__title">Moving with God</h1>
+      <p class="hero__lede">
+        If you feel stuck between where <br class="br-desk" />you are and where you believe God <br class="br-desk" />is leading you, this book is for you
+      </p>
+      <p class="hero__body">
+        Nine keys to getting unstuck and stepping <br class="br-desk" />boldly into His promises for your life.
+      </p>
+      <Button href="#how-it-works" label="Pre-Order Today" variant="primary" />
+
+      <div class="hero__badge">
+        <svg class="hero__asterisk" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <line x1="12" y1="3" x2="12" y2="21" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="5.6" y1="5.6" x2="18.4" y2="18.4" />
+            <line x1="18.4" y1="5.6" x2="5.6" y2="18.4" />
+          </g>
+        </svg>
+        <p>Pre-order before 10/6 for bonuses + a chance to win $1,500 in prizes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: var(--color-cream-soft);
+  }
+  .hero__media {
+    position: relative;
+    min-height: 100%;
+  }
+  /* absolute so the tall photo doesn't force extra hero height */
+  .hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero__panel {
+    display: flex;
+    align-items: center;
+    padding: 8.5em 3.75em;
+  }
+  .hero__content {
+    max-width: 38em;
+    text-align: center;
+    margin-inline: auto;
+  }
+  .hero__eyebrow {
+    color: var(--color-dark);
+  }
+  .hero__title {
+    margin-top: 0.3em;
+    color: var(--color-blue);
+    font-size: 4.5em;
+    line-height: 1;
+    letter-spacing: -2px;
+    white-space: nowrap;
+  }
+  .hero__lede {
+    margin-top: 0.6em;
+    margin-inline: auto;
+    max-width: 24em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--color-dark);
+    font-size: 2em;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+  }
+  .hero__body {
+    margin-top: 1.35em;
+    margin-inline: auto;
+    max-width: 26em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+  .hero__content :global(.btn) {
+    margin-top: 1.75em;
+  }
+  .hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    max-width: 29em;
+    margin: 2.25em auto 0;
+    padding: 2em 2.25em;
+    text-align: left;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    transform: rotate(-1.5deg);
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .hero__badge:hover {
+    transform: rotate(-3deg) scale(1.02);
+  }
+  .hero__asterisk {
+    width: 2.5em;
+    height: 2.5em;
+    flex: none;
+    color: var(--color-white);
+  }
+  .hero__badge p {
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 991px) {
+    .hero__panel {
+      padding: 3.5em var(--container-padding);
+    }
+    .hero__title {
+      font-size: 4em;
+      white-space: normal;
+    }
+  }
+  @media (max-width: 767px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero__media {
+      order: 2;
+      aspect-ratio: 4 / 3;
+    }
+    .hero__panel {
+      order: 1;
+      padding: 2.5em var(--container-padding);
+    }
+    .hero__eyebrow { font-size: 0.8em; }
+    .hero__title {
+      font-size: 2.9em;
+    }
+    .hero__lede {
+      font-size: 1.5em;
+      margin-top: 0.5em;
+    }
+    .hero__body {
+      margin-top: 1em;
+      font-size: 1em;
+    }
+    .hero__content :global(.btn) { margin-top: 1.25em; }
+    .hero__badge {
+      margin-top: 1.75em;
+      padding: 1.5em 1.75em;
+      gap: 1em;
+    }
+    .hero__asterisk { width: 2em; height: 2em; }
+    .hero__badge p { font-size: 0.8em; }
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+const prizes = [
+  {
+    badge: "$1000 Value",
+    title: "2 Night Stay at Nava Retreats",
+    sub: "Luxury cabins on Lake Travis just outside of Austin, TX",
+    img: "/assets/images/giveaway-cabin.jpg",
+    alt: "A modern cabin overlooking a lake at sunset",
+    w: 297,
+    h: 212,
+  },
+  {
+    badge: "$500 Value",
+    title: "$500 to Shop Jenessa Wait",
+    sub: "Your favorite faith-based lifestyle shop",
+    img: "/assets/images/giveaway-hats.jpg",
+    alt: "A stack of faith-based branded caps",
+    w: 309,
+    h: 218,
+  },
+];
+---
+
+<section class="giveaway" aria-labelledby="giveaway-title">
+  <div class="giveaway__inner container">
+    <div class="giveaway__grid">
+      <h2 id="giveaway-title" class="giveaway__title">
+        <span class="u-underline">All<img class="hand-underline" src="/assets/images/line-all.png" alt="" aria-hidden="true" /></span> pre-orders are entered into the Big Giveaway
+      </h2>
+
+      {prizes.map((p) => (
+        <article class="prize">
+          <span class="prize__badge">{p.badge}</span>
+          <h3 class="prize__title">{p.title}</h3>
+          <p class="prize__sub">{p.sub}</p>
+          <div class="prize__media img-zoom">
+            <img class="prize__img" src={p.img} alt={p.alt} width={p.w} height={p.h} loading="lazy" />
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .giveaway {
+    width: 100%;
+    background-color: var(--color-periwinkle);
+  }
+  .giveaway__inner {
+    padding-block: 5em 2em;
+  }
+  .giveaway__grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 3em;
+    align-items: stretch;
+  }
+  .giveaway__title {
+    color: var(--color-dark);
+    font-size: 3.5em;
+    line-height: 1.05;
+    letter-spacing: -1.6px;
+  }
+  .u-underline {
+    position: relative;
+    white-space: nowrap;
+  }
+  .u-underline .hand-underline {
+    position: absolute;
+    left: 0;
+    bottom: 0.05em;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* prize cards: equal height with bottom-aligned images */
+  .prize {
+    display: flex;
+    flex-direction: column;
+  }
+  .prize__media {
+    margin-top: auto;
+  }
+  .prize__badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.5em 1.1em;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-size: 0.8125em;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+  }
+  .prize__title {
+    margin-top: 0.8em;
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.875em;
+    line-height: 1.15;
+    letter-spacing: -0.4px;
+  }
+  .prize__sub {
+    margin-top: 0.6em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+  .prize__media {
+    margin-top: 1.75em;
+    aspect-ratio: 297 / 212;
+  }
+  /* bottom-align both prize images so their columns match length */
+  .giveaway__grid .prize .prize__media { margin-top: auto; }
+  .prize__sub { margin-bottom: 1.75em; }
+  .prize__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 991px) {
+    .giveaway__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .giveaway__title {
+      grid-column: 1 / -1;
+      font-size: 3em;
+    }
+  }
+  @media (max-width: 767px) {
+    .giveaway__grid {
+      grid-template-columns: 1fr;
+    }
+    .giveaway__title {
+      text-align: center;
+    }
+  }
+</style>

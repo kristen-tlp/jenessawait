@@ -1,0 +1,115 @@
+---
+---
+
+<header class="nav">
+  <div class="nav__inner container">
+    <img
+      class="nav__thumb"
+      src="/assets/images/nav-thumb.jpg"
+      alt="Jenessa Wait"
+      width="256"
+      height="144"
+      loading="eager"
+    />
+    <div class="nav__text">
+      <p class="nav__title">Join the 9-day Free Challenge</p>
+      <p class="nav__sub">9 days to get unstuck and step boldly into His promises for your life.</p>
+      <a class="nav__cta nav__cta--inline" href="#challenge">
+        Join the Challenge
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <a class="nav__cta nav__cta--btn" href="#challenge">
+      Join Challenge
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    width: 100%;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    gap: 2.25em;
+    padding-block: 2em;
+  }
+  .nav__thumb {
+    width: 16em;
+    height: 9em;
+    object-fit: cover;
+    flex: none;
+  }
+  .nav__text {
+    flex: 1;
+  }
+  .nav__title {
+    font-family: var(--font-heading);
+    font-size: 2.25em;
+    line-height: 1.05;
+    letter-spacing: -0.4px;
+  }
+  .nav__sub {
+    margin-top: 0.35em;
+    font-size: 1.25em;
+    font-weight: 300;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Desktop CTA = filled cream button */
+  .nav__cta--btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    flex: none;
+    padding: 1em 1.6em;
+    background-color: var(--color-cream);
+    color: var(--color-blue);
+    font-size: 0.9375em;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    transition: background-color var(--transition-fast);
+  }
+  .nav__cta--btn:hover { background-color: #eae2c6; }
+
+  /* Mobile CTA = underlined text link (hidden on desktop) */
+  .nav__cta--inline {
+    display: none;
+    align-items: center;
+    gap: 0.4em;
+    margin-top: 0.6em;
+    color: var(--color-white);
+    font-size: 0.875em;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .nav__cta svg {
+    flex: none;
+  }
+
+  @media (max-width: 767px) {
+    .nav__inner {
+      gap: 1em;
+      align-items: center;
+      padding-block: 1.1em;
+    }
+    .nav__thumb {
+      width: 6em;
+      height: 3.4em;
+      align-self: flex-start;
+    }
+    .nav__cta--btn { display: none; }
+    .nav__cta--inline { display: inline-flex; margin-top: 0.5em; }
+    .nav__title { font-size: 1.2em; }
+    .nav__sub { font-size: 0.9375em; }
+  }
+</style>

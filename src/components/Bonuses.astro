@@ -1,0 +1,190 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="bonuses" id="pre-order" aria-labelledby="bonuses-title">
+  <div class="bonuses__inner container">
+    <h2 id="bonuses-title" class="bonuses__title">Pre-Order Bonuses</h2>
+
+    <div class="bonuses__grid">
+      <!-- Individual -->
+      <article class="bcard bcard--individual">
+        <span class="bcard__tag">Individual</span>
+        <header class="bcard__head">
+          <img src="/assets/images/book-single.png" alt="Moving with God book" width="114" height="138" loading="lazy" />
+          <h3 class="bcard__heading">Pre-Order<br />1 Book</h3>
+        </header>
+        <ul class="bcard__list">
+          <li>
+            <strong>The 9-Day Moving with God Video Study</strong>
+            One short video from Jenessa in your inbox every morning for nine days. One key per day.
+          </li>
+          <li>
+            <strong>Live Mentorship Q&amp;A with Jenessa</strong>
+            A one-hour Zoom call. Bring your actual situation. Ask your actual question. Not a webinar, a conversation.
+          </li>
+          <li>
+            <strong>Entry Into the Big Giveaway</strong>
+            Two nights at Naava Retreat ($1,000 value) plus a $500 gift card to shop.jenessawait.com.
+          </li>
+        </ul>
+        <Button href="#how-it-works" label="Pre-Order 1 Book" variant="primary" class="bcard__cta" />
+      </article>
+
+      <!-- Group -->
+      <article class="bcard bcard--group">
+        <span class="bcard__tag">Group</span>
+        <header class="bcard__head">
+          <img src="/assets/images/book-stack.png" alt="Three copies of Moving with God" width="138" height="150" loading="lazy" />
+          <h3 class="bcard__heading">Pre-Order<br />3+ Books</h3>
+        </header>
+        <ul class="bcard__list">
+          <li><strong>All the individual book bonuses, plus&hellip;</strong></li>
+          <li>
+            <strong>The Small Group Facilitator Guide</strong>
+            Nine sessions, discussion questions, and the framework to lead your group through the book without building anything yourself.
+          </li>
+          <li>
+            <strong>Content Creator Lab ($197 Value)</strong>
+            Jenessa&rsquo;s full social media course. Yours free. And you are allowed to run it with your group.
+          </li>
+        </ul>
+        <Button href="#how-it-works" label="Pre-Order 3+ Books" variant="secondary" class="bcard__cta" />
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bonuses {
+    width: 100%;
+    background-color: var(--color-cream-soft);
+  }
+  .bonuses__inner {
+    padding-block: 5em;
+  }
+  .bonuses__title {
+    color: var(--color-dark);
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-align: center;
+  }
+  .bonuses__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 30em));
+    justify-content: center;
+    gap: 2em;
+    margin-top: 3em;
+  }
+  .bcard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2.75em 2.75em 3.25em;
+  }
+  .bcard--individual {
+    background-color: var(--color-pink);
+    color: var(--color-text);
+  }
+  .bcard--group {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+  .bcard__tag {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    padding: 0.6em 1.4em;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: var(--radius-pill);
+    /* white pill inside a colored frame, matching Figma per-card */
+    border: 2px solid #c8bab5; /* taupe frame — Individual (pink card) */
+  }
+  .bcard--group .bcard__tag {
+    border-color: #5176b1; /* light-blue frame — Group (blue card) */
+  }
+  .bcard__head {
+    display: flex;
+    align-items: center;
+    gap: 1.25em;
+    margin-bottom: 1.75em;
+  }
+  .bcard__head img {
+    height: auto;
+    flex: none;
+  }
+  .bcard--individual .bcard__head img { width: 4.5em; }
+  .bcard--group .bcard__head img { width: 8em; }
+  .bcard__heading {
+    font-size: 2.25em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .bcard__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    flex: 1;
+  }
+  .bcard__list li {
+    position: relative;
+    padding-left: 1.9em;
+    font-size: 1.125em;
+    line-height: 1.45;
+  }
+  /* checkmark */
+  .bcard__list li::before {
+    content: "";
+    position: absolute;
+    left: 0.15em;
+    top: 0.28em;
+    width: 0.5em;
+    height: 0.85em;
+    border: solid var(--color-terracotta);
+    border-width: 0 0.16em 0.16em 0;
+    transform: rotate(45deg);
+  }
+  .bcard--group .bcard__list li::before {
+    border-color: var(--color-white);
+  }
+  .bcard__list strong {
+    display: block;
+    font-weight: 600;
+  }
+  .bcard--group .bcard__list li {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .bcard--group .bcard__list strong {
+    color: var(--color-white);
+  }
+  /* button class is passed to the Button component (different scope) — needs :global */
+  .bcard :global(.bcard__cta) {
+    margin-top: 3em;
+  }
+
+  @media (max-width: 991px) {
+    .bonuses__title {
+      font-size: 3.25em;
+    }
+  }
+  @media (max-width: 767px) {
+    .bonuses__grid {
+      grid-template-columns: minmax(0, 30em);
+    }
+    /* stack the book above the heading so it gets full width */
+    .bcard__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1em;
+    }
+    .bcard--individual .bcard__head img { width: 4em; }
+    .bcard--group .bcard__head img { width: 6.5em; }
+    .bcard__heading { font-size: 2em; }
+  }
+</style>
