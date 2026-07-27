@@ -2,23 +2,22 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Footer from "../../components/Footer.astro";
 
-// One template → nine day pages. Titles/descriptions are placeholders
+// One template → nine day pages. Titles/descriptions/takeaways are placeholders
 // until the final chapter themes from Moving with God are ready.
 const days = [
-  { title: "Naming Where You Feel Stuck", desc: "Begin by bringing your honest starting place to God — no pretending required." },
-  { title: "Remembering Who God Is", desc: "Return to the character of the One who is leading you." },
-  { title: "Seeing Where He's Already Moving", desc: "Notice the quiet ways God is at work in your life right now." },
-  { title: "Trusting His Timing", desc: "Make peace with the wait without letting go of hope." },
-  { title: "Releasing What You're Carrying", desc: "Set down the striving, the fear, and the comparison." },
-  { title: "Preparing in the In-Between", desc: "Use this season to quietly get ready for what's next." },
-  { title: "Listening for His Voice", desc: "Create space to hear God's direction for your next step." },
-  { title: "Taking the Next Faithful Step", desc: "Move forward with the little you can see in front of you." },
-  { title: "Moving with God", desc: "Step into the promise with confident, hope-filled faith." },
+  { title: "Naming Where You Feel Stuck", desc: "Begin by bringing your honest starting place to God — no pretending required.", key: "You don't have to have it figured out to begin. You just have to be honest about where you are." },
+  { title: "Remembering Who God Is", desc: "Return to the character of the One who is leading you.", key: "Your circumstances haven't changed who God is — and who He is changes everything." },
+  { title: "Seeing Where He's Already Moving", desc: "Notice the quiet ways God is at work in your life right now.", key: "God is already moving. The invitation is to notice — and to move with Him." },
+  { title: "Trusting His Timing", desc: "Make peace with the wait without letting go of hope.", key: "The wait is not wasted. God is doing something in you before He does something through you." },
+  { title: "Releasing What You're Carrying", desc: "Set down the striving, the fear, and the comparison.", key: "You were never meant to carry it all. Freedom begins the moment you set it down." },
+  { title: "Preparing in the In-Between", desc: "Use this season to quietly get ready for what's next.", key: "The in-between is not empty space. It's preparation for the promise." },
+  { title: "Listening for His Voice", desc: "Create space to hear God's direction for your next step.", key: "God is already speaking. The key is learning the unique way He speaks to you." },
+  { title: "Taking the Next Faithful Step", desc: "Move forward with the little you can see in front of you.", key: "You don't need the whole staircase. You just need to take the next step." },
+  { title: "Moving with God", desc: "Step into the promise with confident, hope-filled faith.", key: "This is what you were made for — not racing ahead or falling behind, but moving with God." },
 ];
 
 export function getStaticPaths() {
-  const days = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  return days.map((n) => ({ params: { day: String(n) } }));
+  return [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ params: { day: String(n) } }));
 }
 
 const dayNum = Number(Astro.params.day);
@@ -36,64 +35,71 @@ const pageDescription = data.desc;
   <main id="main">
     <article class="day">
       <div class="day__inner container">
-        <header class="day__head">
-          <p class="section-label day__eyebrow">The 9 Day Challenge &middot; Day {dayNum} of {total}</p>
-          <h1 class="day__title">Day {dayNum}: {data.title}</h1>
-          <p class="day__intro">{data.desc}</p>
-        </header>
+        <p class="section-label day__eyebrow">The 9 Day Challenge &middot; Day {dayNum} of {total}</p>
+        <h1 class="day__title">Day {dayNum}: {data.title}</h1>
 
-        <div class="day__video">
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title={`Day ${dayNum}: ${data.title}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+        <div class="day__grid">
+          <div class="day__main">
+            <div class="day__video">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title={`Day ${dayNum}: ${data.title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <div class="day__body">
+              <p class="day__intro">{data.desc}</p>
+              <p>
+                <em>[Placeholder &mdash; today&rsquo;s written devotional goes here. Add a few short,
+                encouraging paragraphs that expand on the video and invite the reader to respond.]</em>
+              </p>
+              <p class="day__prompt">
+                <strong>Reflect:</strong> [Placeholder reflection prompt &mdash; one gentle question
+                to help you listen and respond to God today.]
+              </p>
+            </div>
+          </div>
+
+          <aside class="day__side">
+            <blockquote class="day__pull">
+              <svg class="day__pull-mark" viewBox="0 0 32 24" aria-hidden="true">
+                <path d="M0 24V13.2C0 5.9 4.6 1 12 0l1.4 3.4C9.2 4.6 6.8 7 6.6 10.4H12V24H0Zm18 0V13.2C18 5.9 22.6 1 30 0l1.4 3.4C27.2 4.6 24.8 7 24.6 10.4H30V24H18Z" fill="currentColor" />
+              </svg>
+              <p class="day__pull-text">{data.key}</p>
+            </blockquote>
+
+            <div class="day__actions">
+              {nextHref && (
+                <a class="day__btn day__btn--primary" href={nextHref}>
+                  Next Day
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              )}
+              {prevHref && (
+                <a class="day__btn day__btn--light" href={prevHref}>Previous Day</a>
+              )}
+              <a class="day__btn day__btn--light" href="/challenge">All Days</a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Pre-order the book (same box as the thank-you page) -->
+        <div class="day__book">
+          <img
+            src="/assets/images/challenge-book.jpg"
+            alt="Moving with God book by Jenessa Wait"
+            width="1000"
+            height="1500"
             loading="lazy"
-          ></iframe>
-        </div>
-
-        <div class="day__body">
-          <p>
-            <em>[Placeholder &mdash; today&rsquo;s written devotional goes here. Add a few short,
-            encouraging paragraphs that expand on the video and invite the reader to respond.]</em>
-          </p>
-          <blockquote class="day__scripture">
-            &ldquo;[Placeholder Scripture &mdash; the key verse for Day {dayNum} will go here.]&rdquo;
-            <cite>&mdash; [Reference]</cite>
-          </blockquote>
-          <p class="day__prompt">
-            <strong>Reflect:</strong> [Placeholder reflection prompt &mdash; one gentle question
-            to help you listen and respond to God today.]
+          />
+          <p class="day__book-text">
+            To go deeper, we recommend grabbing a copy of <em>Moving with God</em>.{" "}
+            <a href="/">Pre-order yours here</a>.
           </p>
         </div>
-
-        <nav class="day__nav" aria-label="Challenge days">
-          {prevHref ? (
-            <a class="day__navbtn day__navbtn--prev" href={prevHref}>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Previous Day</span>
-            </a>
-          ) : (
-            <span class="day__navbtn is-disabled" aria-disabled="true">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>Previous Day</span>
-            </span>
-          )}
-
-          <a class="day__back" href="/challenge">All days</a>
-
-          {nextHref ? (
-            <a class="day__navbtn day__navbtn--next" href={nextHref}>
-              <span>Next Day</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          ) : (
-            <a class="day__navbtn day__navbtn--next" href="/">
-              <span>Pre-order the book</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          )}
-        </nav>
       </div>
     </article>
   </main>
@@ -103,134 +109,130 @@ const pageDescription = data.desc;
 
 <style>
   .day { width: 100%; background-color: var(--color-cream-soft); }
-  .day__inner {
-    max-width: 52em;
-    padding-block: 4.5em 5.5em;
-  }
+  .day__inner { padding-block: 4em 5.5em; }
 
-  .day__head { text-align: center; }
   .day__eyebrow { color: var(--color-terracotta); }
   .day__title {
     margin-top: 0.4em;
     color: var(--color-blue);
-    font-size: 3.75em;
-    line-height: 1.02;
-    letter-spacing: -1.5px;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -2px;
   }
-  .day__intro {
-    margin-top: 0.75em;
-    margin-inline: auto;
-    max-width: 30em;
-    font-size: 1.375em;
-    line-height: 1.45;
-    color: var(--color-text);
+
+  .day__grid {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 3em;
+    align-items: start;
   }
 
   /* Video */
   .day__video {
-    margin-top: 2.75em;
     aspect-ratio: 16 / 9;
     width: 100%;
     background-color: var(--color-dark);
     overflow: hidden;
   }
-  .day__video iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    display: block;
-  }
+  .day__video iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-  /* Body */
-  .day__body {
-    margin-top: 2.75em;
-    max-width: 40em;
-    margin-inline: auto;
-  }
-  .day__body p {
-    font-size: 1.25em;
-    line-height: 1.6;
-    color: var(--color-text);
-  }
-  .day__scripture {
-    margin: 1.75em 0;
-    padding: 1.25em 1.5em;
-    border-left: 3px solid var(--color-salmon);
-    background-color: var(--color-cream);
-    font-family: var(--font-heading);
-    font-weight: 400;
-    font-size: 1.625em;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
-    color: var(--color-blue);
-  }
-  .day__scripture cite {
-    display: block;
-    margin-top: 0.5em;
-    font-family: var(--font-body);
-    font-style: normal;
-    font-size: 0.55em;
+  /* Body under the video */
+  .day__body { margin-top: 2em; max-width: 40em; }
+  .day__intro {
+    font-size: 1.375em;
+    line-height: 1.4;
+    color: var(--color-dark);
     font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: var(--color-terracotta);
   }
-  .day__prompt {
-    font-size: 1.25em;
+  .day__body p + p { margin-top: 1em; }
+  .day__body > p:not(.day__intro) {
+    font-size: 1.1875em;
     line-height: 1.6;
     color: var(--color-text);
   }
   .day__prompt strong { color: var(--color-dark); }
 
-  /* Nav buttons */
-  .day__nav {
-    margin-top: 3.5em;
-    padding-top: 2.5em;
+  /* Right column */
+  .day__side {
+    position: sticky;
+    top: 2em;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1em;
+    flex-direction: column;
+    gap: 1.5em;
   }
-  .day__navbtn {
+  .day__pull {
+    padding: 1.75em;
+    border: 2px solid var(--color-dark);
+  }
+  .day__pull-mark { width: 2em; height: 1.5em; color: var(--color-salmon); }
+  .day__pull-text {
+    margin-top: 0.6em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.75em;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--color-dark);
+  }
+
+  .day__actions { display: flex; flex-direction: column; gap: 0.85em; }
+  .day__btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.6em;
-    padding: 1em 1.6em;
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    padding: 1.1em 1.5em;
     font-size: 0.9375em;
     font-weight: 700;
     letter-spacing: 0.7px;
     text-transform: uppercase;
-    transition: background-color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
   }
-  .day__navbtn:hover { background-color: #1e447f; }
-  .day__navbtn svg { width: 1.1em; height: 1.1em; flex: none; }
-  .day__navbtn.is-disabled {
-    background-color: transparent;
+  .day__btn svg { width: 1em; height: 1em; flex: none; }
+  .day__btn--primary { background-color: var(--color-blue); color: var(--color-white); }
+  .day__btn--primary:hover { background-color: #1e447f; }
+  .day__btn--light { background-color: var(--color-cream); color: var(--color-dark); }
+  .day__btn--light:hover { background-color: #eae2c6; }
+
+  /* Pre-order book box */
+  .day__book {
+    margin-top: 3.5em;
+    padding: 2em 2.25em;
+    background-color: var(--color-pink);
+    display: flex;
+    align-items: center;
+    gap: 1.75em;
+  }
+  .day__book img {
+    flex: none;
+    width: 6.5em;
+    height: auto;
+    box-shadow: 0 12px 30px rgba(57, 51, 49, 0.16);
+  }
+  .day__book-text {
+    font-size: 1.1875em;
+    line-height: 1.45;
     color: var(--color-text);
-    opacity: 0.35;
-    pointer-events: none;
   }
-  .day__back {
-    font-size: 0.8125em;
-    font-weight: 700;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    color: var(--color-dark);
+  .day__book-text a {
+    color: var(--color-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
     transition: color var(--transition-fast);
   }
-  .day__back:hover { color: var(--color-terracotta); }
+  .day__book-text a:hover { color: var(--color-terracotta); }
 
   @media (max-width: 991px) {
-    .day__title { font-size: 3em; }
+    .day__title { font-size: 3.25em; }
+    .day__grid { grid-template-columns: 1fr; gap: 2.5em; }
+    .day__side { position: static; }
+    .day__body { max-width: none; }
   }
   @media (max-width: 767px) {
-    .day__inner { padding-block: 3em 4em; }
-    .day__title { font-size: 2.4em; }
-    .day__intro { font-size: 1.25em; }
-    .day__nav { flex-wrap: wrap; gap: 0.75em; }
-    .day__navbtn { flex: 1 1 auto; justify-content: center; padding: 0.9em 1em; }
-    .day__back { order: 3; width: 100%; text-align: center; margin-top: 0.5em; }
+    .day__inner { padding-block: 2.5em 4em; }
+    .day__title { font-size: 2.5em; }
+    .day__book { flex-direction: column; align-items: center; text-align: center; gap: 1.25em; }
   }
 </style>
