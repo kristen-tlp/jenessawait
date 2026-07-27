@@ -1,34 +1,30 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Footer from "../../components/Footer.astro";
 
-// One template → nine day pages. Titles/descriptions/takeaways are placeholders
-// until the final chapter themes from Moving with God are ready.
-const days = [
-  { title: "Naming Where You Feel Stuck", desc: "Begin by bringing your honest starting place to God — no pretending required.", key: "You don't have to have it figured out to begin. You just have to be honest about where you are." },
-  { title: "Remembering Who God Is", desc: "Return to the character of the One who is leading you.", key: "Your circumstances haven't changed who God is — and who He is changes everything." },
-  { title: "Seeing Where He's Already Moving", desc: "Notice the quiet ways God is at work in your life right now.", key: "God is already moving. The invitation is to notice — and to move with Him." },
-  { title: "Trusting His Timing", desc: "Make peace with the wait without letting go of hope.", key: "The wait is not wasted. God is doing something in you before He does something through you." },
-  { title: "Releasing What You're Carrying", desc: "Set down the striving, the fear, and the comparison.", key: "You were never meant to carry it all. Freedom begins the moment you set it down." },
-  { title: "Preparing in the In-Between", desc: "Use this season to quietly get ready for what's next.", key: "The in-between is not empty space. It's preparation for the promise." },
-  { title: "Listening for His Voice", desc: "Create space to hear God's direction for your next step.", key: "God is already speaking. The key is learning the unique way He speaks to you." },
-  { title: "Taking the Next Faithful Step", desc: "Move forward with the little you can see in front of you.", key: "You don't need the whole staircase. You just need to take the next step." },
-  { title: "Moving with God", desc: "Step into the promise with confident, hope-filled faith.", key: "This is what you were made for — not racing ahead or falling behind, but moving with God." },
-];
-
-export function getStaticPaths() {
-  return [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ params: { day: String(n) } }));
+// Day content is now editable in the CMS (/keystatic → Challenge Days),
+// stored as JSON in src/content/days and read here via a content collection.
+export async function getStaticPaths() {
+  const days = (await getCollection("days")).sort((a, b) => a.data.order - b.data.order);
+  const total = days.length;
+  return days.map((entry, i) => ({
+    params: { day: String(entry.data.order) },
+    props: {
+      data: entry.data,
+      prevHref: i > 0 ? `/day/${days[i - 1].data.order}` : null,
+      nextHref: i < total - 1 ? `/day/${days[i + 1].data.order}` : null,
+      total,
+    },
+  }));
 }
 
-const dayNum = Number(Astro.params.day);
-const total = days.length;
-const data = days[dayNum - 1];
-const videoId = "PwVxaH8NBA0"; // [Placeholder video]
-const prevHref = dayNum > 1 ? `/day/${dayNum - 1}` : null;
-const nextHref = dayNum < total ? `/day/${dayNum + 1}` : null;
+const { data, prevHref, nextHref, total } = Astro.props;
+const dayNum = data.order;
+const videoId = data.youtubeId;
 
 const pageTitle = `Day ${dayNum}: ${data.title} — Moving With God Challenge`;
-const pageDescription = data.desc;
+const pageDescription = data.description;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -51,7 +47,7 @@ const pageDescription = data.desc;
             </div>
 
             <div class="day__body">
-              <p class="day__intro">{data.desc}</p>
+              <p class="day__intro">{data.description}</p>
               <p>
                 <em>[Placeholder &mdash; today&rsquo;s written devotional goes here. Add a few short,
                 encouraging paragraphs that expand on the video and invite the reader to respond.]</em>
