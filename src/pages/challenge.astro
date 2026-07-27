@@ -443,16 +443,17 @@ const endorsements = [
   }
 
   /* ---------- 2. Empathy ---------- */
-  .empathy { width: 100%; background-color: var(--color-periwinkle); }
+  .empathy { width: 100%; background-color: var(--color-dark); }
   .empathy__inner { padding-block: 6em; }
   .empathy__statement {
-    max-width: 11em;
+    max-width: 14em;
     font-family: var(--font-heading);
     font-weight: 400;
-    color: var(--color-blue);
+    color: var(--color-cream);
     font-size: 4em;
     line-height: 1.05;
     letter-spacing: -1.5px;
+    text-wrap: balance;
   }
   .empathy__grid {
     margin-top: 3em;
@@ -464,7 +465,7 @@ const endorsements = [
   .empathy__intro {
     font-size: 1.375em;
     line-height: 1.5;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.82);
   }
   .empathy__close {
     margin-top: 1.25em;
@@ -473,7 +474,7 @@ const endorsements = [
     font-size: 1.75em;
     line-height: 1.2;
     letter-spacing: -0.5px;
-    color: var(--color-blue);
+    color: var(--color-salmon);
   }
   .empathy__list {
     list-style: none;
@@ -486,7 +487,7 @@ const endorsements = [
     padding-left: 1.6em;
     font-size: 1.25em;
     line-height: 1.4;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.82);
   }
   .empathy__list li::before {
     content: "";
@@ -496,7 +497,7 @@ const endorsements = [
     width: 0.45em;
     height: 0.45em;
     border-radius: 50%;
-    background-color: var(--color-terracotta);
+    background-color: var(--color-salmon);
   }
 
   /* ---------- 3. Steps ---------- */
@@ -504,17 +505,27 @@ const endorsements = [
   .steps__inner { padding-block: 5.5em; }
   .steps__grid {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
   }
   .stepcard {
+    position: relative;
+    flex: 1 1 0;
     background-color: var(--color-cream);
-    padding: 2.5em 2em 2.75em;
+    padding: 2.75em 2em 3em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    box-shadow: 0 14px 34px rgba(57, 51, 49, 0.13);
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
+  /* gentle stacked rotation + slight overlap (like "Inside Moving with God") */
+  .stepcard:not(:first-child) { margin-left: -1.25em; }
+  .stepcard:nth-child(1) { transform: rotate(-2deg); z-index: 1; }
+  .stepcard:nth-child(2) { transform: rotate(1.5deg); z-index: 3; }
+  .stepcard:nth-child(3) { transform: rotate(-1.5deg); z-index: 2; }
+  .stepcard:hover { transform: rotate(0deg) scale(1.02); z-index: 4; }
   .stepcard__num {
     font-family: var(--font-heading);
     color: var(--color-terracotta);
@@ -885,7 +896,10 @@ const endorsements = [
     .about__title, .final__title, .quotes__title { font-size: 2.75em; }
     .empathy__statement { font-size: 3.25em; }
     .book__title { font-size: 2.5em; }
-    .steps__grid { grid-template-columns: 1fr; max-width: 34em; margin-inline: auto; }
+    .steps__grid { flex-direction: column; max-width: 32em; margin-inline: auto; }
+    .stepcard { transform: none; margin-left: 0; }
+    .stepcard:not(:first-child) { margin-top: 1.5em; }
+    .stepcard:hover { transform: scale(1.01); }
     .journey__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
