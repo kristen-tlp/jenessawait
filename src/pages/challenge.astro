@@ -94,20 +94,49 @@ const faqs = [
     a: "Straight to your inbox. Each morning for nine days you'll get a short email with that day's teaching, Scripture, and step.",
   },
 ];
+
+// Endorsements — identical to the pre-order page, shown here in a full-width slider.
+const endorsements = [
+  {
+    theme: "pink",
+    heading: "What does it look like to move in step with God, not rushing ahead or falling behind?",
+    quote:
+      "Jenessa Wait is a trusted guide to help you discern God's timing and move forward in confidence through every door He opens.",
+    name: "Rebekah Lyons",
+    role: "Bestselling Author, Speaker, and Co-Founder of Thinq Media",
+    img: "/assets/images/head-rebekah.jpg",
+  },
+  {
+    theme: "dark",
+    heading: "Moving with God is not just a message Jenessa Wait teaches; it is a life she has faithfully lived.",
+    quote:
+      "Walking through surrender, stewardship, service, and bold obedience to God's promises. With clarity and conviction, she offers nine practical and spiritual keys that help readers move from stagnation to possession of what God has spoken. This book will strengthen your faith, challenge unbelief, and anchor you in the house of God as you step courageously into His promises for your life.",
+    name: "Joaquin and Renée Evans",
+    role: "Senior Pastors of Bethel Austin",
+    img: "/assets/images/head-evans.jpg",
+  },
+  {
+    theme: "periwinkle",
+    heading: "Jenessa Wait is someone whose life speaks just as powerfully as her words.",
+    quote:
+      "What has always stood out to me is her persistent teachability. She honors the voices God has placed in her life and leans in to discern what He is saying and where He is leading. In Moving with God, she brings that same grace to the reader, helping you see the Father's heart even in hidden or stretching seasons. With clarity and Spirit-led insight, she offers a practical pathway for partnering with God and stepping into His promises. This book will steady your heart, awaken fresh courage, and remind you that you are not forgotten. God is actively leading you forward right now.",
+    name: "Bethany Hicks",
+    role: "Co-Founder of Prophetic Company & Author of The God Connection",
+    img: "/assets/images/head-bethany.jpg",
+  },
+  {
+    theme: "cream",
+    heading: "Jenessa Wait's honest and vulnerable storytelling dismantles the addiction to hustle and calls us back to belief.",
+    quote:
+      "From the very first page, Jenessa Wait beckons us into a deeper life of faith, trust, and vision. Moving with God serves as both an invitation and a guide into the life we ache for but often struggle to access. This book encourages readers to dream, take risks, and recognize God's presence. It challenges the status quo and invites us into a life marked by surrender and expectancy, emphasizing humility, trust, and laying everything down to truly find life.",
+    name: "Jessi Green",
+    role: "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church",
+    img: "/assets/images/head-jessi.jpg",
+  },
+];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Slim header -->
-  <header class="chead">
-    <div class="chead__inner container">
-      <a class="chead__brand" href="/">Moving with God</a>
-      <a class="chead__link" href="/">
-        Pre-Order the Book
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </header>
-
   <main id="main">
     <!-- 1. HERO -->
     <section class="hero" id="join" aria-labelledby="hero-title">
@@ -129,27 +158,32 @@ const faqs = [
         </div>
       </div>
       <div class="hero__media">
-        <img src="/assets/images/challenge-hero.jpg" alt="Jenessa Wait sitting beside handwritten Scripture" width="1200" height="1798" loading="eager" />
+        <img src="/assets/images/challenge-hero.jpg" alt="Jenessa Wait holding the Moving with God book" width="1200" height="1800" loading="eager" />
       </div>
     </section>
 
     <!-- 2. EMPATHY -->
     <section class="empathy" aria-labelledby="empathy-title">
-      <div class="empathy__inner container">
-        <h2 id="empathy-title" class="empathy__title">If your heart is tired of waiting, you&rsquo;re in the right place.</h2>
-        <p class="empathy__intro">
-          You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
-          space between His promise and your right-now started to feel heavy.
-        </p>
-        <ul class="empathy__list">
-          {empathyLines.map((line) => (
-            <li>{line}</li>
-          ))}
-        </ul>
-        <p class="empathy__close">
-          Wherever you are, God is still moving &mdash; and over the next nine days, you can
-          begin moving with Him.
-        </p>
+      <div class="empathy__media">
+        <img src="/assets/images/challenge-empathy.jpg" alt="Jenessa Wait sitting outdoors" width="1200" height="1800" loading="lazy" />
+      </div>
+      <div class="empathy__panel">
+        <div class="empathy__content">
+          <h2 id="empathy-title" class="empathy__title">If your heart is tired of waiting, you&rsquo;re in the right place.</h2>
+          <p class="empathy__intro">
+            You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
+            space between His promise and your right-now started to feel heavy.
+          </p>
+          <ul class="empathy__list">
+            {empathyLines.map((line) => (
+              <li>{line}</li>
+            ))}
+          </ul>
+          <p class="empathy__close">
+            Wherever you are, God is still moving &mdash; and over the next nine days, you can
+            begin moving with Him.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -205,8 +239,8 @@ const faqs = [
           </p>
         </header>
         <ol class="journey__grid">
-          {journey.map((d) => (
-            <li class="daycard">
+          {journey.map((d, i) => (
+            <li class={`daycard daycard--${["dark", "peach", "blue", "cream"][i % 4]}`}>
               <span class="daycard__day">{d.day}</span>
               <h3 class="daycard__title">{d.title}</h3>
               <p class="daycard__body">{d.body}</p>
@@ -227,7 +261,7 @@ const faqs = [
           <h2 id="about-title" class="about__title">Hi, I&rsquo;m Jenessa.</h2>
           <p class="about__body">
             I know what it&rsquo;s like to feel stuck &mdash; to love God deeply and still
-            wonder when the things He placed in your heart will finally come.
+            wonder when the things He placed in your heart will finally come.{" "}
             <em>[Placeholder &mdash; a short piece of Jenessa&rsquo;s story / testimony to be added here.]</em>
           </p>
           <p class="about__body">
@@ -239,29 +273,40 @@ const faqs = [
       </div>
     </section>
 
-    <!-- 7. TESTIMONIALS (placeholder) -->
+    <!-- 7. ENDORSEMENTS (full-width slider) -->
     <section class="quotes" aria-labelledby="quotes-title">
-      <div class="quotes__inner container">
-        <header class="section-head">
-          <p class="section-label">Stories</p>
-          <h2 id="quotes-title">From women walking it out</h2>
-          <p class="quotes__note">Real stories are on the way &mdash; the cards below are placeholders.</p>
-        </header>
-        <div class="quotes__grid">
-          {[1, 2, 3].map((i) => (
-            <figure class="qcard">
-              <blockquote class="qcard__quote">
-                &ldquo;[Placeholder testimonial {i} &mdash; a short, encouraging quote from a
-                past participant will go here once available.]&rdquo;
-              </blockquote>
-              <figcaption class="qcard__cite">
-                <span class="qcard__avatar" aria-hidden="true"></span>
-                <span>[Name, placeholder]</span>
-              </figcaption>
-            </figure>
-          ))}
+      <div class="quotes__head container">
+        <div>
+          <p class="section-label">Endorsements</p>
+          <h2 id="quotes-title" class="quotes__title">What others are saying about <span class="quotes__accent">Moving With God</span></h2>
+        </div>
+        <div class="slider__nav">
+          <button class="slider__arrow" type="button" aria-label="Previous endorsement" data-prev>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="slider__arrow" type="button" aria-label="Next endorsement" data-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
       </div>
+      <ul class="slider__track" data-track>
+        {endorsements.map((c) => (
+          <li class={`eqcard eqcard--${c.theme}`}>
+            <svg class="eqcard__mark" viewBox="0 0 32 24" aria-hidden="true">
+              <path d="M0 24V13.2C0 5.9 4.6 1 12 0l1.4 3.4C9.2 4.6 6.8 7 6.6 10.4H12V24H0Zm18 0V13.2C18 5.9 22.6 1 30 0l1.4 3.4C27.2 4.6 24.8 7 24.6 10.4H30V24H18Z" fill="currentColor" />
+            </svg>
+            <p class="eqcard__heading">{c.heading}</p>
+            <p class="eqcard__body">{c.quote}</p>
+            <div class="eqcard__cite">
+              <img src={c.img} alt={c.name} width="56" height="56" loading="lazy" />
+              <span>
+                <span class="eqcard__name">{c.name}</span>
+                <span class="eqcard__role">{c.role}</span>
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <!-- 8. BOOK COMPANION -->
@@ -279,7 +324,7 @@ const faqs = [
             chapters &mdash; your guide to getting unstuck and stepping boldly into His promises.
           </p>
           <p class="book__meta">Releases October 6 &middot; Pre-order available now</p>
-          <Button href="/" label="Explore the Book" variant="secondary" class="book__cta" />
+          <Button href="/" label="Explore the Book" variant="primary" class="book__cta" />
         </div>
       </div>
     </section>
@@ -307,6 +352,9 @@ const faqs = [
 
     <!-- 10. FINAL CTA -->
     <section class="final" aria-labelledby="final-title">
+      <div class="final__media">
+        <img src="/assets/images/challenge-cta.jpg" alt="Jenessa Wait smiling" width="1200" height="1800" loading="lazy" />
+      </div>
       <div class="final__panel">
         <div class="final__content">
           <h2 id="final-title" class="final__title">Your next step is closer than it feels.</h2>
@@ -318,48 +366,25 @@ const faqs = [
           <p class="final__reassure">Free &middot; Nine short days &middot; Start anytime</p>
         </div>
       </div>
-      <div class="final__media">
-        <img src="/assets/images/challenge-cta.jpg" alt="Jenessa Wait smiling" width="1200" height="1800" loading="lazy" />
-      </div>
     </section>
   </main>
 
   <Footer />
+
+  <script is:inline>
+    (() => {
+      const track = document.querySelector("[data-track]");
+      if (!track) return;
+      const amount = () => Math.min(track.clientWidth * 0.85, 480);
+      const prev = document.querySelector("[data-prev]");
+      const next = document.querySelector("[data-next]");
+      if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -amount(), behavior: "smooth" }));
+      if (next) next.addEventListener("click", () => track.scrollBy({ left: amount(), behavior: "smooth" }));
+    })();
+  </script>
 </BaseLayout>
 
 <style>
-  /* ---------- Header ---------- */
-  .chead {
-    width: 100%;
-    background-color: var(--color-cream-soft);
-    border-bottom: 1px solid var(--color-border);
-  }
-  .chead__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-block: 1.1em;
-  }
-  .chead__brand {
-    font-family: var(--font-heading);
-    font-size: 1.75em;
-    line-height: 1;
-    letter-spacing: -0.5px;
-    color: var(--color-blue);
-  }
-  .chead__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4em;
-    font-size: 0.8125em;
-    font-weight: 700;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    color: var(--color-dark);
-    transition: color var(--transition-fast);
-  }
-  .chead__link:hover { color: var(--color-terracotta); }
-
   /* ---------- Shared section head ---------- */
   .section-head {
     max-width: 40em;
@@ -418,18 +443,31 @@ const faqs = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 22%;
   }
 
-  /* ---------- 2. Empathy ---------- */
+  /* ---------- 2. Empathy (editorial split) ---------- */
   .empathy {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
     width: 100%;
     background-color: var(--color-periwinkle);
   }
-  .empathy__inner {
-    padding-block: 5.5em;
-    max-width: 46em;
-    text-align: center;
+  .empathy__media { position: relative; min-height: 100%; }
+  .empathy__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
   }
+  .empathy__panel {
+    display: flex;
+    align-items: center;
+    padding: 5.5em var(--container-padding) 5.5em 4.5em;
+  }
+  .empathy__content { max-width: 34em; }
   .empathy__title {
     color: var(--color-dark);
     font-size: 3em;
@@ -437,28 +475,40 @@ const faqs = [
     letter-spacing: -1.2px;
   }
   .empathy__intro {
-    margin-top: 1.25em;
+    margin-top: 1.1em;
     font-size: 1.25em;
     line-height: 1.5;
     color: var(--color-text);
   }
   .empathy__list {
     list-style: none;
-    margin-top: 2em;
+    margin-top: 1.75em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.9em;
   }
   .empathy__list li {
+    position: relative;
+    padding-left: 1.5em;
     font-family: var(--font-heading);
     font-weight: 400;
     font-size: 1.5em;
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.4px;
     color: var(--color-blue);
   }
+  .empathy__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.4em;
+    height: 0.4em;
+    border-radius: 50%;
+    background-color: var(--color-terracotta);
+  }
   .empathy__close {
-    margin-top: 2.25em;
+    margin-top: 1.75em;
     font-size: 1.25em;
     line-height: 1.45;
     color: var(--color-text);
@@ -544,8 +594,8 @@ const faqs = [
     color: rgba(255, 255, 255, 0.85);
   }
 
-  /* ---------- 5. Journey ---------- */
-  .journey { width: 100%; background-color: var(--color-cream-soft); }
+  /* ---------- 5. Journey (uses the "What's Inside" card palette) ---------- */
+  .journey { width: 100%; background-color: var(--color-periwinkle); }
   .journey__inner { padding-block: 5.5em; }
   .journey__note {
     margin-top: 1em;
@@ -561,8 +611,6 @@ const faqs = [
     gap: 1.5em;
   }
   .daycard {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
     padding: 2em 1.75em 2.25em;
   }
   .daycard__day {
@@ -570,7 +618,7 @@ const faqs = [
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--color-terracotta);
+    opacity: 0.75;
   }
   .daycard__title {
     margin-top: 0.5em;
@@ -579,14 +627,25 @@ const faqs = [
     font-size: 1.625em;
     line-height: 1.05;
     letter-spacing: -0.5px;
-    color: var(--color-blue);
   }
   .daycard__body {
     margin-top: 0.6em;
     font-size: 1.0625em;
     line-height: 1.45;
-    color: var(--color-text);
   }
+  /* card themes (mirrors Inside Moving with God) */
+  .daycard--dark { background-color: var(--color-dark); color: rgba(255, 255, 255, 0.82); }
+  .daycard--dark .daycard__title { color: var(--color-white); }
+  .daycard--dark .daycard__day { color: var(--color-white); }
+  .daycard--peach { background-color: var(--color-card-peach); color: var(--color-dark); }
+  .daycard--peach .daycard__title { color: var(--color-dark); }
+  .daycard--peach .daycard__day { color: var(--color-terracotta); opacity: 1; }
+  .daycard--blue { background-color: var(--color-card-blue); color: var(--color-blue); }
+  .daycard--blue .daycard__title { color: var(--color-blue); }
+  .daycard--blue .daycard__day { color: var(--color-blue); }
+  .daycard--cream { background-color: var(--color-cream); color: var(--color-dark); }
+  .daycard--cream .daycard__title { color: var(--color-dark); }
+  .daycard--cream .daycard__day { color: var(--color-terracotta); opacity: 1; }
 
   /* ---------- 6. About ---------- */
   .about {
@@ -602,6 +661,7 @@ const faqs = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 36% 26%;
   }
   .about__panel {
     display: flex;
@@ -623,50 +683,90 @@ const faqs = [
     color: var(--color-text);
   }
 
-  /* ---------- 7. Testimonials ---------- */
-  .quotes { width: 100%; background-color: var(--color-periwinkle); }
-  .quotes__inner { padding-block: 5.5em; }
-  .quotes__note {
-    margin-top: 1em;
-    font-size: 0.9375em;
-    color: var(--color-text);
-    opacity: 0.85;
-  }
-  .quotes__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  /* ---------- 7. Endorsements slider ---------- */
+  .quotes { width: 100%; background-color: var(--color-cream-soft); padding-block: 5.5em; overflow: hidden; }
+  .quotes__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
     gap: 2em;
+    margin-bottom: 2.5em;
   }
-  .qcard {
-    background-color: var(--color-cream-soft);
-    padding: 2.5em 2em;
+  .quotes .section-label { color: var(--color-dark); }
+  .quotes__title {
+    margin-top: 0.4em;
+    max-width: 16em;
+    color: var(--color-dark);
+    font-size: 3em;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+  }
+  .quotes__accent { color: var(--color-blue); }
+  .slider__nav { display: flex; gap: 0.75em; flex: none; }
+  .slider__arrow {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+  .slider__arrow svg { width: 1.25em; height: 1.25em; }
+  .slider__arrow:hover { background-color: var(--color-blue); color: var(--color-white); border-color: var(--color-blue); }
+
+  .slider__track {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* first card aligns to the page gutter; cards bleed off the right edge */
+    padding-inline: max(var(--container-padding), calc((100% - var(--size-container)) / 2 + var(--container-padding)));
+    scrollbar-width: none;
+  }
+  .slider__track::-webkit-scrollbar { display: none; }
+  .eqcard {
+    scroll-snap-align: start;
+    flex: 0 0 30em;
+    max-width: 85vw;
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    padding: 2.75em 2.5em;
   }
-  .qcard__quote {
+  .eqcard__mark { width: 2em; height: 1.5em; }
+  .eqcard__heading {
+    margin-top: 1.25em;
     font-family: var(--font-heading);
     font-weight: 400;
     font-size: 1.5em;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
-    color: var(--color-dark);
-    flex: 1;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
   }
-  .qcard__cite {
-    display: flex;
-    align-items: center;
-    gap: 0.75em;
-    font-size: 1em;
-    color: var(--color-text);
+  .eqcard__body {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    font-size: 1.0625em;
+    line-height: 1.5;
   }
-  .qcard__avatar {
-    flex: none;
-    width: 2.75em;
-    height: 2.75em;
-    border-radius: 50%;
-    background-color: var(--color-periwinkle);
-  }
+  .eqcard__cite { display: flex; align-items: center; gap: 1em; margin-top: auto; }
+  .eqcard__cite img { width: 3.25em; height: 3.25em; object-fit: cover; flex: none; border-radius: 50%; }
+  .eqcard__name, .eqcard__role { display: block; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+  .eqcard__name { font-weight: 600; font-size: 0.875em; }
+  .eqcard__role { font-size: 0.8em; opacity: 0.8; }
+  .eqcard--pink { background-color: var(--color-pink); color: var(--color-text); }
+  .eqcard--pink .eqcard__mark, .eqcard--pink .eqcard__heading, .eqcard--pink .eqcard__name, .eqcard--pink .eqcard__role { color: var(--color-terracotta); }
+  .eqcard--dark { background-color: var(--color-dark); color: rgba(255, 255, 255, 0.85); }
+  .eqcard--dark .eqcard__mark, .eqcard--dark .eqcard__heading, .eqcard--dark .eqcard__name, .eqcard--dark .eqcard__role { color: var(--color-white); }
+  .eqcard--periwinkle { background-color: var(--color-periwinkle); color: var(--color-text); }
+  .eqcard--periwinkle .eqcard__mark, .eqcard--periwinkle .eqcard__heading, .eqcard--periwinkle .eqcard__name, .eqcard--periwinkle .eqcard__role { color: var(--color-blue); }
+  .eqcard--cream { background-color: var(--color-cream); color: var(--color-text); }
+  .eqcard--cream .eqcard__mark, .eqcard--cream .eqcard__heading, .eqcard--cream .eqcard__name, .eqcard--cream .eqcard__role { color: var(--color-dark); }
 
   /* ---------- 8. Book ---------- */
   .book { width: 100%; background-color: var(--color-pink); }
@@ -762,7 +862,7 @@ const faqs = [
   .final__panel {
     display: flex;
     align-items: center;
-    padding: 6em 4em 6em var(--container-padding);
+    padding: 6em var(--container-padding) 6em 4em;
   }
   .final__content { max-width: 30em; }
   .final__title {
@@ -789,30 +889,35 @@ const faqs = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 40% 16%;
   }
 
   /* ============ Responsive ============ */
   @media (max-width: 991px) {
     .section-head h2 { font-size: 2.75em; }
     .hero__title { font-size: 3.25em; }
-    .about__title, .final__title { font-size: 2.75em; }
+    .about__title, .final__title, .quotes__title { font-size: 2.75em; }
     .empathy__title, .book__title { font-size: 2.5em; }
-    .steps__grid, .quotes__grid { grid-template-columns: 1fr; max-width: 34em; margin-inline: auto; }
+    .steps__grid { grid-template-columns: 1fr; max-width: 34em; margin-inline: auto; }
     .journey__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 767px) {
-    .hero, .about, .final { grid-template-columns: 1fr; }
+    .hero, .about, .final, .empathy { grid-template-columns: 1fr; }
     .hero__panel { padding: 3em var(--container-padding); order: 2; }
     .hero__media { order: 1; aspect-ratio: 4 / 3; min-height: 0; }
     .hero__title { font-size: 2.75em; }
+    .empathy__media { aspect-ratio: 4 / 3; min-height: 0; }
+    .empathy__panel { padding: 3em var(--container-padding); }
     .about__media { aspect-ratio: 4 / 3; min-height: 0; }
     .about__panel { padding: 3em var(--container-padding); }
     .book__inner { grid-template-columns: 1fr; gap: 2.5em; }
     .book__media { max-width: 15em; }
     .journey__grid { grid-template-columns: 1fr; }
-    .final__panel { padding: 3.5em var(--container-padding); order: 2; }
-    .final__media { order: 1; aspect-ratio: 4 / 3; min-height: 0; }
-    .empathy__inner, .steps__inner, .receive__inner, .journey__inner, .quotes__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
+    .final__panel { padding: 3.5em var(--container-padding); }
+    .final__media { aspect-ratio: 4 / 3; min-height: 0; }
+    .quotes__head { flex-direction: column; align-items: flex-start; gap: 1.25em; }
+    .empathy__panel, .steps__inner, .receive__inner, .journey__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
+    .quotes { padding-block: 3.5em; }
   }
 </style>
