@@ -11,7 +11,10 @@ import { config, fields, collection } from '@keystatic/core';
 // server adapter + `output: 'server'` so the admin route runs in production.
 
 export default config({
-  storage: { kind: 'local' },
+  storage: {
+    kind: 'github',
+    repo: 'kristen-tlp/jenessawait',
+  },
   ui: {
     brand: { name: 'Moving With God' },
   },
