@@ -940,6 +940,8 @@ const endorsements = [
     .final__panel { padding: 3.5em var(--container-padding); }
     .final__media { aspect-ratio: 4 / 3; min-height: 0; }
     .quotes__head { flex-direction: column; align-items: flex-start; gap: 1.25em; }
+    /* one endorsement card at a time (the half-width basis is far too narrow on phones) */
+    .eqcard { flex: 0 0 86%; max-width: 86%; padding: 2em 1.75em; }
     .empathy__inner, .steps__inner, .receive__inner, .journey__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
     .quotes { padding-block: 3.5em; }
   }

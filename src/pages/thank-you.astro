@@ -90,21 +90,23 @@ const steps = [
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
     gap: 4.5em;
-    align-items: center;
+    align-items: stretch;
     padding-block: 5.5em;
   }
 
-  /* Framed portrait */
+  /* Portrait — fills the column so its bottom lines up with the book box */
   .ty__media {
     align-self: stretch;
-    display: flex;
+    position: relative;
+    min-height: 24em;
   }
   .ty__media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    max-height: 40em;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 18%;
   }
 
   /* Content */
@@ -198,6 +200,6 @@ const steps = [
     }
     .ty__media img { max-height: 26em; }
     .ty__title { font-size: 4em; }
-    .ty__book { flex-direction: column; align-items: flex-start; gap: 1.25em; }
+    .ty__book { flex-direction: column; align-items: center; text-align: center; gap: 1.25em; }
   }
 </style>

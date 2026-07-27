@@ -1,0 +1,236 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer.astro";
+
+// One template → nine day pages. Titles/descriptions are placeholders
+// until the final chapter themes from Moving with God are ready.
+const days = [
+  { title: "Naming Where You Feel Stuck", desc: "Begin by bringing your honest starting place to God — no pretending required." },
+  { title: "Remembering Who God Is", desc: "Return to the character of the One who is leading you." },
+  { title: "Seeing Where He's Already Moving", desc: "Notice the quiet ways God is at work in your life right now." },
+  { title: "Trusting His Timing", desc: "Make peace with the wait without letting go of hope." },
+  { title: "Releasing What You're Carrying", desc: "Set down the striving, the fear, and the comparison." },
+  { title: "Preparing in the In-Between", desc: "Use this season to quietly get ready for what's next." },
+  { title: "Listening for His Voice", desc: "Create space to hear God's direction for your next step." },
+  { title: "Taking the Next Faithful Step", desc: "Move forward with the little you can see in front of you." },
+  { title: "Moving with God", desc: "Step into the promise with confident, hope-filled faith." },
+];
+
+export function getStaticPaths() {
+  const days = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return days.map((n) => ({ params: { day: String(n) } }));
+}
+
+const dayNum = Number(Astro.params.day);
+const total = days.length;
+const data = days[dayNum - 1];
+const videoId = "PwVxaH8NBA0"; // [Placeholder video]
+const prevHref = dayNum > 1 ? `/day/${dayNum - 1}` : null;
+const nextHref = dayNum < total ? `/day/${dayNum + 1}` : null;
+
+const pageTitle = `Day ${dayNum}: ${data.title} — Moving With God Challenge`;
+const pageDescription = data.desc;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main id="main">
+    <article class="day">
+      <div class="day__inner container">
+        <header class="day__head">
+          <p class="section-label day__eyebrow">The 9 Day Challenge &middot; Day {dayNum} of {total}</p>
+          <h1 class="day__title">Day {dayNum}: {data.title}</h1>
+          <p class="day__intro">{data.desc}</p>
+        </header>
+
+        <div class="day__video">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title={`Day ${dayNum}: ${data.title}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="day__body">
+          <p>
+            <em>[Placeholder &mdash; today&rsquo;s written devotional goes here. Add a few short,
+            encouraging paragraphs that expand on the video and invite the reader to respond.]</em>
+          </p>
+          <blockquote class="day__scripture">
+            &ldquo;[Placeholder Scripture &mdash; the key verse for Day {dayNum} will go here.]&rdquo;
+            <cite>&mdash; [Reference]</cite>
+          </blockquote>
+          <p class="day__prompt">
+            <strong>Reflect:</strong> [Placeholder reflection prompt &mdash; one gentle question
+            to help you listen and respond to God today.]
+          </p>
+        </div>
+
+        <nav class="day__nav" aria-label="Challenge days">
+          {prevHref ? (
+            <a class="day__navbtn day__navbtn--prev" href={prevHref}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Previous Day</span>
+            </a>
+          ) : (
+            <span class="day__navbtn is-disabled" aria-disabled="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Previous Day</span>
+            </span>
+          )}
+
+          <a class="day__back" href="/challenge">All days</a>
+
+          {nextHref ? (
+            <a class="day__navbtn day__navbtn--next" href={nextHref}>
+              <span>Next Day</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          ) : (
+            <a class="day__navbtn day__navbtn--next" href="/">
+              <span>Pre-order the book</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          )}
+        </nav>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .day { width: 100%; background-color: var(--color-cream-soft); }
+  .day__inner {
+    max-width: 52em;
+    padding-block: 4.5em 5.5em;
+  }
+
+  .day__head { text-align: center; }
+  .day__eyebrow { color: var(--color-terracotta); }
+  .day__title {
+    margin-top: 0.4em;
+    color: var(--color-blue);
+    font-size: 3.75em;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+  }
+  .day__intro {
+    margin-top: 0.75em;
+    margin-inline: auto;
+    max-width: 30em;
+    font-size: 1.375em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  /* Video */
+  .day__video {
+    margin-top: 2.75em;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background-color: var(--color-dark);
+    overflow: hidden;
+  }
+  .day__video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* Body */
+  .day__body {
+    margin-top: 2.75em;
+    max-width: 40em;
+    margin-inline: auto;
+  }
+  .day__body p {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  .day__scripture {
+    margin: 1.75em 0;
+    padding: 1.25em 1.5em;
+    border-left: 3px solid var(--color-salmon);
+    background-color: var(--color-cream);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.625em;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--color-blue);
+  }
+  .day__scripture cite {
+    display: block;
+    margin-top: 0.5em;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.55em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+  }
+  .day__prompt {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  .day__prompt strong { color: var(--color-dark); }
+
+  /* Nav buttons */
+  .day__nav {
+    margin-top: 3.5em;
+    padding-top: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+  }
+  .day__navbtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 1em 1.6em;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-size: 0.9375em;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    transition: background-color var(--transition-fast);
+  }
+  .day__navbtn:hover { background-color: #1e447f; }
+  .day__navbtn svg { width: 1.1em; height: 1.1em; flex: none; }
+  .day__navbtn.is-disabled {
+    background-color: transparent;
+    color: var(--color-text);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .day__back {
+    font-size: 0.8125em;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    transition: color var(--transition-fast);
+  }
+  .day__back:hover { color: var(--color-terracotta); }
+
+  @media (max-width: 991px) {
+    .day__title { font-size: 3em; }
+  }
+  @media (max-width: 767px) {
+    .day__inner { padding-block: 3em 4em; }
+    .day__title { font-size: 2.4em; }
+    .day__intro { font-size: 1.25em; }
+    .day__nav { flex-wrap: wrap; gap: 0.75em; }
+    .day__navbtn { flex: 1 1 auto; justify-content: center; padding: 0.9em 1em; }
+    .day__back { order: 3; width: 100%; text-align: center; margin-top: 0.5em; }
+  }
+</style>
