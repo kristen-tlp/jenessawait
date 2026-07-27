@@ -13,7 +13,7 @@ export default config({
     kind: 'cloud',
   },
   cloud: {
-    project: 'TEAM/PROJECT', // TODO: replace with your Keystatic Cloud slug, e.g. jenessa-wait/moving-with-god
+    project: 'jenessa-wait/moving-with-god',
   },
   ui: {
     brand: { name: 'Moving With God' },
