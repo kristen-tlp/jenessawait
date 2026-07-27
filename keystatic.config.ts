@@ -378,6 +378,8 @@ export default config({
             lead: fields.text({ label: 'Lead line', multiline: true }),
             body1: fields.text({ label: 'Body paragraph 1', multiline: true }),
             body2: fields.text({ label: 'Body paragraph 2 (line breaks preserved)', multiline: true }),
+            ctaLabel: fields.text({ label: 'Button label' }),
+            ctaHref: fields.text({ label: 'Button link' }),
             image: imageField('Image'),
           },
           { label: 'Challenge CTA' },

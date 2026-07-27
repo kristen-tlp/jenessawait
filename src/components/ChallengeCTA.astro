@@ -1,4 +1,5 @@
 ---
+import Button from "./Button.astro";
 import { getHome, img } from "../lib/cms";
 const home = await getHome();
 const d = home!.challengeCta;
@@ -24,7 +25,7 @@ const d = home!.challengeCta;
       <p class="cta__body">{d.body1}</p>
       <p class="cta__body cta__body--breaks">{d.body2}</p>
 
-      <div class="klaviyo-form-Rvq64Z"></div>
+      <Button href={d.ctaHref} label={d.ctaLabel} variant="light" class="cta__cta" />
     </div>
   </div>
 </section>
@@ -78,6 +79,7 @@ const d = home!.challengeCta;
     color: rgba(255, 255, 255, 0.85);
   }
   .cta__body--breaks { white-space: pre-line; }
+  .cta :global(.cta__cta) { margin-top: 1.75em; }
   .cta__form {
     display: flex;
     flex-direction: column;

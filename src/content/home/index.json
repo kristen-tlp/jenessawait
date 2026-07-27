@@ -134,6 +134,8 @@
     "lead": "Nine days. One short video from me in your inbox every morning.",
     "body1": "If you feel caught between where you are and where you believe God is leading you, this challenge is for you.",
     "body2": "Thousands of us are going through it together.\nWill you join us?",
+    "ctaLabel": "Join the Challenge",
+    "ctaHref": "/challenge",
     "image": "cta-steps.jpg"
   },
   "about": {
