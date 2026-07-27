@@ -163,7 +163,7 @@ const endorsements = [
     <!-- 2. EMPATHY (inline-image statement) -->
     <section class="empathy" aria-labelledby="empathy-title">
       <div class="empathy__inner container">
-        <h2 id="empathy-title" class="empathy__statement">If your heart is tired of waiting, you&rsquo;re in the right place.</h2>
+        <h2 id="empathy-title" class="empathy__statement">If your heart is <span class="u-underline">tired<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> of waiting, you&rsquo;re in the right place.</h2>
 
         <div class="empathy__grid">
           <div class="empathy__col">
@@ -201,6 +201,9 @@ const endorsements = [
             </li>
           ))}
         </ol>
+        <div class="steps__cta">
+          <Button href="#join" label="Sign Up Free" variant="primary" />
+        </div>
       </div>
     </section>
 
@@ -222,6 +225,9 @@ const endorsements = [
             </li>
           ))}
         </ul>
+        <div class="sec-cta">
+          <Button href="#join" label="Sign Up Free" variant="light" />
+        </div>
       </div>
     </section>
 
@@ -230,7 +236,7 @@ const endorsements = [
       <div class="journey__inner container">
         <header class="section-head">
           <p class="section-label">The Journey</p>
-          <h2 id="journey-title">Your next nine days</h2>
+          <h2 id="journey-title">The 9 Day Challenge</h2>
           <p class="journey__note">
             <strong>Note:</strong> the daily themes below are placeholders and will be updated
             with the final chapter themes from <em>Moving with God</em>.
@@ -245,13 +251,16 @@ const endorsements = [
             </li>
           ))}
         </ol>
+        <div class="sec-cta">
+          <Button href="#join" label="Sign Up Free" variant="primary" />
+        </div>
       </div>
     </section>
 
     <!-- 6. ABOUT JENESSA -->
     <section class="about" aria-labelledby="about-title">
       <div class="about__media">
-        <img src="/assets/images/challenge-about.jpg" alt="Jenessa Wait" width="1200" height="1800" loading="lazy" />
+        <img src="/assets/images/challenge-about.jpg" alt="Jenessa Wait" width="1000" height="1505" loading="lazy" />
       </div>
       <div class="about__panel">
         <div class="about__content">
@@ -267,6 +276,7 @@ const endorsements = [
             through more information. It happens through small, faithful movement with God.
             Over these nine days, I&rsquo;ll walk it with you.
           </p>
+          <Button href="#join" label="Join the Challenge" variant="primary" class="about__cta" />
         </div>
       </div>
     </section>
@@ -315,7 +325,7 @@ const endorsements = [
         </div>
         <div class="book__content">
           <p class="section-label book__eyebrow">Optional Companion</p>
-          <h2 id="book-title" class="book__title">Want to go deeper? Meet the book.</h2>
+          <h2 id="book-title" class="book__title">Want to go deeper?<br />Pre-order the book.</h2>
           <p class="book__body">
             The challenge is completely free and stands on its own. If you&rsquo;d like to keep
             going after Day 9, <em>Moving with God</em> expands every theme into nine full
@@ -410,7 +420,7 @@ const endorsements = [
     align-items: center;
     padding: 5.5em 4em 5.5em var(--container-padding);
   }
-  .hero__content { max-width: 34em; color: var(--color-white); }
+  .hero__content { max-width: 27em; color: var(--color-white); }
   .hero__eyebrow { color: var(--color-salmon); }
   .hero__title {
     margin-top: 0.5em;
@@ -443,17 +453,26 @@ const endorsements = [
   }
 
   /* ---------- 2. Empathy ---------- */
-  .empathy { width: 100%; background-color: var(--color-dark); }
-  .empathy__inner { padding-block: 6em; }
+  .empathy { width: 100%; background-color: var(--color-periwinkle); }
+  .empathy__inner { padding-top: 6em; padding-bottom: 3em; }
   .empathy__statement {
     max-width: 14em;
     font-family: var(--font-heading);
     font-weight: 400;
-    color: var(--color-cream);
+    color: var(--color-blue);
     font-size: 4em;
     line-height: 1.05;
     letter-spacing: -1.5px;
     text-wrap: balance;
+  }
+  .empathy__statement .u-underline { position: relative; white-space: nowrap; }
+  .empathy__statement .hand-underline {
+    position: absolute;
+    left: 0;
+    bottom: 0.04em;
+    width: 100%;
+    height: auto;
+    display: block;
   }
   .empathy__grid {
     margin-top: 3em;
@@ -465,7 +484,7 @@ const endorsements = [
   .empathy__intro {
     font-size: 1.375em;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--color-text);
   }
   .empathy__close {
     margin-top: 1.25em;
@@ -474,7 +493,7 @@ const endorsements = [
     font-size: 1.75em;
     line-height: 1.2;
     letter-spacing: -0.5px;
-    color: var(--color-salmon);
+    color: var(--color-blue);
   }
   .empathy__list {
     list-style: none;
@@ -487,7 +506,7 @@ const endorsements = [
     padding-left: 1.6em;
     font-size: 1.25em;
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--color-text);
   }
   .empathy__list li::before {
     content: "";
@@ -497,12 +516,12 @@ const endorsements = [
     width: 0.45em;
     height: 0.45em;
     border-radius: 50%;
-    background-color: var(--color-salmon);
+    background-color: var(--color-terracotta);
   }
 
   /* ---------- 3. Steps ---------- */
-  .steps { width: 100%; background-color: var(--color-cream-soft); }
-  .steps__inner { padding-block: 5.5em; }
+  .steps { width: 100%; background-color: var(--color-periwinkle); }
+  .steps__inner { padding-top: 3em; padding-bottom: 5.5em; }
   .steps__grid {
     list-style: none;
     display: flex;
@@ -526,6 +545,8 @@ const endorsements = [
   .stepcard:nth-child(2) { transform: rotate(1.5deg); z-index: 3; }
   .stepcard:nth-child(3) { transform: rotate(-1.5deg); z-index: 2; }
   .stepcard:hover { transform: rotate(0deg) scale(1.02); z-index: 4; }
+  .steps__cta { margin-top: 4em; text-align: center; }
+  .sec-cta { margin-top: 3.5em; text-align: center; }
   .stepcard__num {
     font-family: var(--font-heading);
     color: var(--color-terracotta);
@@ -657,7 +678,7 @@ const endorsements = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 36% 26%;
+    object-position: center 28%;
   }
   .about__panel {
     display: flex;
@@ -678,6 +699,7 @@ const endorsements = [
     line-height: 1.55;
     color: var(--color-text);
   }
+  .about__content :global(.about__cta) { margin-top: 2em; }
 
   /* ---------- 7. Endorsements slider ---------- */
   .quotes { width: 100%; background-color: var(--color-cream-soft); padding-block: 5.5em; overflow: hidden; }
@@ -691,11 +713,11 @@ const endorsements = [
   .quotes .section-label { color: var(--color-dark); }
   .quotes__title {
     margin-top: 0.4em;
-    max-width: 16em;
     color: var(--color-dark);
     font-size: 3em;
     line-height: 1.02;
     letter-spacing: -1.5px;
+    text-wrap: balance;
   }
   .quotes__accent { color: var(--color-blue); }
   .slider__nav { display: flex; gap: 0.75em; flex: none; }
@@ -803,7 +825,7 @@ const endorsements = [
   .book :global(.book__cta) { margin-top: 1.75em; }
 
   /* ---------- 9. FAQ ---------- */
-  .faq { width: 100%; background-color: var(--color-cream-soft); }
+  .faq { width: 100%; background-color: var(--color-periwinkle); }
   .faq__inner { padding-block: 5.5em; }
   .faq__list { max-width: 44em; margin-inline: auto; }
   .faq__item {
