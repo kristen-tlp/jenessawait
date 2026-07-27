@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+
+const pageTitle = "You're In! — The Moving With God Challenge";
+const pageDescription =
+  "You're signed up for the free Moving With God 9-Day Challenge. Here's what happens next.";
+
+// Next-step links. Replace the '#' placeholders with real URLs.
+const steps = [
+  {
+    text: "Check your inbox for the welcome email and all the details.",
+    link: null,
+  },
+  {
+    text: "Add it to your calendar so you don't miss a single day.",
+    link: { label: "Add to your calendar", href: "#" }, // [Placeholder link]
+  },
+  {
+    text: "We're walking this out together — come say hi.",
+    link: { label: "Join the community group", href: "#" }, // [Placeholder link]
+  },
+  {
+    text: "Get a little encouragement sent straight to your phone.",
+    link: { label: "Join the text thread", href: "#" }, // [Placeholder link]
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} noindex={true}>
+  <main id="main">
+    <section class="ty">
+      <div class="ty__inner container">
+        <div class="ty__media">
+          <img
+            src="/assets/images/challenge-hero.jpg"
+            alt="Jenessa Wait holding the Moving with God book"
+            width="1200"
+            height="1800"
+            loading="eager"
+          />
+        </div>
+
+        <div class="ty__content">
+          <p class="section-label ty__eyebrow">The 9 Day Challenge</p>
+          <h1 class="ty__title">You&rsquo;re in!</h1>
+          <p class="ty__lede">
+            Thanks for signing up for the free <em>Moving with God</em> 9-Day Challenge.
+            Here&rsquo;s what happens next:
+          </p>
+
+          <ol class="ty__steps">
+            {steps.map((s, i) => (
+              <li class="ty__step">
+                <span class="ty__num">{i + 1}</span>
+                <p class="ty__step-text">
+                  {s.link ? (
+                    <><a href={s.link.href}>{s.link.label}</a> — {s.text}</>
+                  ) : (
+                    s.text
+                  )}
+                </p>
+              </li>
+            ))}
+          </ol>
+
+          <div class="ty__book">
+            <img
+              src="/assets/images/challenge-book.jpg"
+              alt="Moving with God book by Jenessa Wait"
+              width="1000"
+              height="1500"
+              loading="lazy"
+            />
+            <p class="ty__book-text">
+              To go deeper, we recommend grabbing a copy of <em>Moving with God</em>.{" "}
+              <a href="/">Pre-order yours here</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .ty {
+    width: 100%;
+    background-color: var(--color-cream-soft);
+  }
+  .ty__inner {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5em;
+    align-items: center;
+    padding-block: 5.5em;
+  }
+
+  /* Framed portrait */
+  .ty__media {
+    align-self: stretch;
+    display: flex;
+  }
+  .ty__media img {
+    width: 100%;
+    height: 100%;
+    max-height: 40em;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 1.25em;
+    box-shadow: 0 24px 60px rgba(57, 51, 49, 0.16);
+  }
+
+  /* Content */
+  .ty__content { max-width: 34em; }
+  .ty__eyebrow { color: var(--color-terracotta); }
+  .ty__title {
+    margin-top: 0.35em;
+    color: var(--color-blue);
+    font-size: 6em;
+    line-height: 0.95;
+    letter-spacing: -2.5px;
+  }
+  .ty__lede {
+    margin-top: 0.75em;
+    font-size: 1.375em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  .ty__steps {
+    list-style: none;
+    margin-top: 2.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .ty__step {
+    display: grid;
+    grid-template-columns: 1.75em 1fr;
+    gap: 1.25em;
+    align-items: baseline;
+  }
+  .ty__num {
+    font-family: var(--font-heading);
+    font-size: 1.75em;
+    line-height: 1;
+    color: var(--color-terracotta);
+  }
+  .ty__step-text {
+    font-size: 1.1875em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+  .ty__step-text a {
+    color: var(--color-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color var(--transition-fast);
+  }
+  .ty__step-text a:hover { color: var(--color-terracotta); }
+
+  /* Book cross-sell */
+  .ty__book {
+    margin-top: 3em;
+    padding-top: 2.5em;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 1.75em;
+  }
+  .ty__book img {
+    flex: none;
+    width: 6.5em;
+    height: auto;
+    box-shadow: 0 12px 30px rgba(57, 51, 49, 0.16);
+  }
+  .ty__book-text {
+    font-size: 1.1875em;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+  .ty__book-text a {
+    color: var(--color-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color var(--transition-fast);
+  }
+  .ty__book-text a:hover { color: var(--color-terracotta); }
+
+  @media (max-width: 991px) {
+    .ty__inner { gap: 3em; }
+    .ty__title { font-size: 4.5em; }
+  }
+  @media (max-width: 767px) {
+    .ty__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5em;
+      padding-block: 3.5em;
+    }
+    .ty__media img { max-height: 26em; }
+    .ty__title { font-size: 4em; }
+    .ty__book { flex-direction: column; align-items: flex-start; gap: 1.25em; }
+  }
+</style>

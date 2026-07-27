@@ -4,11 +4,13 @@ import "../styles/global.css";
 export interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Moving With God — Jenessa Wait",
   description = "Moving with God by Jenessa Wait — nine keys to getting unstuck and stepping boldly into His promises for your life. Pre-order now (releases October 6) and join the free 9-day challenge.",
+  noindex = false,
 } = Astro.props;
 
 const canonical = "https://jenessawait.com/";
@@ -64,6 +66,7 @@ const structuredData = [
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
