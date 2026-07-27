@@ -1,27 +1,21 @@
 ---
 export const prerender = true;
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer.astro";
+
+// Editable in the CMS: /keystatic → Thank-You Page
+const reader = createReader(process.cwd(), keystaticConfig);
+const ty = await reader.singletons.thankYou.read();
 
 const pageTitle = "You're In! — The Moving With God Challenge";
 const pageDescription =
   "You're signed up for the free Moving With God 9-Day Challenge. Here's what happens next.";
 
-// Next-step links. Replace the '#' placeholders with real URLs.
-const steps = [
-  {
-    text: "Check your inbox for the welcome email and all the details.",
-    link: null,
-  },
-  {
-    text: "so you don't miss release day, October 6.",
-    link: { label: "Add it to your calendar", href: "/moving-with-god.ics", download: true },
-  },
-  {
-    text: "Get a little encouragement sent straight to your phone.",
-    link: { label: "Join the text thread", href: "#" }, // [Placeholder link]
-  },
-];
+// Normalize image field values (Keystatic stores the filename) into a src path.
+const img = (v?: string | null) =>
+  !v ? "" : v.startsWith("/") || v.startsWith("http") ? v : `/assets/images/${v}`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} noindex={true}>
@@ -30,7 +24,7 @@ const steps = [
       <div class="ty__inner container">
         <div class="ty__media">
           <img
-            src="/assets/images/challenge-thankyou.jpg"
+            src={img(ty?.photo)}
             alt="Jenessa Wait"
             width="1200"
             height="1800"
@@ -39,20 +33,17 @@ const steps = [
         </div>
 
         <div class="ty__content">
-          <p class="section-label ty__eyebrow">The 9 Day Challenge</p>
-          <h1 class="ty__title">You&rsquo;re in!</h1>
-          <p class="ty__lede">
-            Thanks for signing up for the free <em>Moving with God</em> 9-Day Challenge.
-            Here&rsquo;s what happens next:
-          </p>
+          <p class="section-label ty__eyebrow">{ty?.eyebrow}</p>
+          <h1 class="ty__title">{ty?.heading}</h1>
+          <p class="ty__lede">{ty?.lede}</p>
 
           <ol class="ty__steps">
-            {steps.map((s, i) => (
+            {ty?.steps.map((s, i) => (
               <li class="ty__step">
                 <span class="ty__num">{i + 1}</span>
                 <p class="ty__step-text">
-                  {s.link ? (
-                    <><a href={s.link.href} download={s.link.download}>{s.link.label}</a> — {s.text}</>
+                  {s.linkUrl ? (
+                    <><a href={s.linkUrl} download={s.linkDownload || undefined}>{s.linkLabel}</a> — {s.text}</>
                   ) : (
                     s.text
                   )}
@@ -63,15 +54,15 @@ const steps = [
 
           <div class="ty__book">
             <img
-              src="/assets/images/challenge-book.jpg"
+              src={img(ty?.bookImage)}
               alt="Moving with God book by Jenessa Wait"
               width="1000"
               height="1500"
               loading="lazy"
             />
             <p class="ty__book-text">
-              To go deeper, we recommend grabbing a copy of <em>Moving with God</em>.{" "}
-              <a href="/">Pre-order yours here</a>.
+              {ty?.bookText}{" "}
+              <a href={ty?.bookLinkUrl}>{ty?.bookLinkLabel}</a>.
             </p>
           </div>
         </div>

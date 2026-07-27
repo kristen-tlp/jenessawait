@@ -1,4 +1,9 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection, singleton } from '@keystatic/core';
+
+// Reusable image field pointing at the site's public image folder, so uploads
+// are served directly (plain <img src="/assets/images/...">).
+const imageField = (label: string) =>
+  fields.image({ label, directory: 'public/assets/images', publicPath: '/assets/images/' });
 
 // Keystatic CMS — Git-backed (content lives in this repo as JSON), with
 // Keystatic Cloud handling authentication so editors can log in by email
@@ -42,6 +47,32 @@ export default config({
           label: 'YouTube video ID',
           description: "Just the ID from the video URL — e.g. for youtu.be/PwVxaH8NBA0 enter PwVxaH8NBA0",
         }),
+      },
+    }),
+  },
+  singletons: {
+    thankYou: singleton({
+      label: 'Thank-You Page',
+      path: 'src/content/thank-you/',
+      format: { data: 'json' },
+      schema: {
+        eyebrow: fields.text({ label: 'Eyebrow' }),
+        heading: fields.text({ label: 'Heading' }),
+        lede: fields.text({ label: 'Intro line', multiline: true }),
+        photo: imageField('Photo'),
+        steps: fields.array(
+          fields.object({
+            text: fields.text({ label: 'Step text', multiline: true }),
+            linkLabel: fields.text({ label: 'Link text (optional)' }),
+            linkUrl: fields.text({ label: 'Link URL (optional)' }),
+            linkDownload: fields.checkbox({ label: 'Link downloads a file (e.g. calendar)', defaultValue: false }),
+          }),
+          { label: 'Next steps', itemLabel: (p) => p.fields.text.value?.slice(0, 45) || 'Step' },
+        ),
+        bookImage: imageField('Book image'),
+        bookText: fields.text({ label: 'Book blurb', multiline: true }),
+        bookLinkLabel: fields.text({ label: 'Book link text' }),
+        bookLinkUrl: fields.text({ label: 'Book link URL' }),
       },
     }),
   },

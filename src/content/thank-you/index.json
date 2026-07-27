@@ -1,0 +1,15 @@
+{
+  "eyebrow": "The 9 Day Challenge",
+  "heading": "You're in!",
+  "lede": "Thanks for signing up for the free Moving with God 9-Day Challenge. Here's what happens next:",
+  "photo": "challenge-thankyou.jpg",
+  "steps": [
+    { "text": "Check your inbox for the welcome email and all the details.", "linkLabel": "", "linkUrl": "", "linkDownload": false },
+    { "text": "so you don't miss release day, October 6.", "linkLabel": "Add it to your calendar", "linkUrl": "/moving-with-god.ics", "linkDownload": true },
+    { "text": "Get a little encouragement sent straight to your phone.", "linkLabel": "Join the text thread", "linkUrl": "#", "linkDownload": false }
+  ],
+  "bookImage": "challenge-book.jpg",
+  "bookText": "To go deeper, we recommend grabbing a copy of Moving with God.",
+  "bookLinkLabel": "Pre-order yours here",
+  "bookLinkUrl": "/"
+}
