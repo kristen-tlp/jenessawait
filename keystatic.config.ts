@@ -1,19 +1,19 @@
 import { config, fields, collection } from '@keystatic/core';
 
-// Keystatic CMS — Git-backed, no database.
-// Local mode writes to the filesystem (great for dev). To let the client edit
-// on the live site, switch `storage` to GitHub mode:
+// Keystatic CMS — Git-backed (content lives in this repo as JSON), with
+// Keystatic Cloud handling authentication so editors can log in by email
+// (no GitHub account needed — up to 3 free editors).
 //
-//   storage: { kind: 'github', repo: 'kristen-tlp/jenessawait' }
-//
-// then visit /keystatic and click "Connect to GitHub" (creates a GitHub App and
-// writes the KEYSTATIC_* env vars), add those env vars to Vercel, and add a
-// server adapter + `output: 'server'` so the admin route runs in production.
+// SETUP: create a free project at https://keystatic.cloud, connect this repo
+// (kristen-tlp/jenessawait), then replace the `project` value below with the
+// "team/project" slug from your Cloud project's settings page.
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: 'kristen-tlp/jenessawait',
+    kind: 'cloud',
+  },
+  cloud: {
+    project: 'TEAM/PROJECT', // TODO: replace with your Keystatic Cloud slug, e.g. jenessa-wait/moving-with-god
   },
   ui: {
     brand: { name: 'Moving With God' },
