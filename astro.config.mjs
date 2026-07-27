@@ -11,5 +11,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   integrations: [react(), keystatic()],
   adapter: vercel(),
-  output: 'static',
+  // Server output so Keystatic's admin + Cloud auth routes run on-demand.
+  // Content pages opt back into static via `export const prerender = true`.
+  output: 'server',
 });
