@@ -1,0 +1,150 @@
+{
+  "hero": {
+    "eyebrow": "Preorder Now · Releases October 6",
+    "title": "Moving with God",
+    "lede": "If you feel stuck between where you are and where you believe God is leading you, this book is for you",
+    "body": "Nine keys to getting unstuck and stepping boldly into His promises for your life.",
+    "ctaLabel": "Pre-Order Today",
+    "ctaHref": "#how-it-works",
+    "badge": "Pre-order before 10/6 for bonuses + a chance to win $1,500 in prizes",
+    "image": "hero-book.jpg"
+  },
+  "sidelined": {
+    "titleBefore": "You are",
+    "titleWord": "not",
+    "titleAfter": "sidelined.",
+    "body": "You've prayed. You've believed. You've held tightly to the promises God placed in your heart. Yet somewhere along the journey, you've found yourself wondering when you'll finally step into all God has spoken over your life.",
+    "lede": "Your life is not on hold.\nGod is still moving, and so can you.",
+    "ctaLabel": "Pre-Order Today",
+    "ctaHref": "#how-it-works",
+    "image": "sidelined-walk.jpg"
+  },
+  "inside": {
+    "eyebrow": "What's Inside",
+    "title": "Inside Moving with God",
+    "intro": "Grounded in Scripture and filled with honest personal insight, Moving with God is a guide for anyone longing to enter fully into the promises of God. It will help you recognize where God is at work and show you how to walk forward with confident faith.",
+    "cards": [
+      { "icon": "icon-recognize.png", "alt": "Head with a lightbulb", "text": "Recognize where God is already moving in your life", "theme": "dark" },
+      { "icon": "icon-navigate.png", "alt": "Winding route with location pins", "text": "Navigate delays without losing trust in God's timing", "theme": "peach" },
+      { "icon": "icon-move.png", "alt": "Content smiling face", "text": "Move from frustration to preparation in your current season", "theme": "blue" },
+      { "icon": "icon-position.png", "alt": "Raised hands", "text": "Position yourself for God's purposes", "theme": "cream" }
+    ]
+  },
+  "bonuses": {
+    "title": "Pre-Order Bonuses",
+    "cards": [
+      {
+        "tag": "Individual",
+        "image": "book-single.png",
+        "imageAlt": "Moving with God book",
+        "heading": "Pre-Order\n1 Book",
+        "variant": "primary",
+        "ctaLabel": "Pre-Order 1 Book",
+        "ctaHref": "#how-it-works",
+        "items": [
+          { "lead": "The 9-Day Moving with God Video Study", "body": "One short video from Jenessa in your inbox every morning for nine days. One key per day." },
+          { "lead": "Live Mentorship Q&A with Jenessa", "body": "A one-hour Zoom call. Bring your actual situation. Ask your actual question. Not a webinar, a conversation." },
+          { "lead": "Entry Into the Big Giveaway", "body": "Two nights at Naava Retreat ($1,000 value) plus a $500 gift card to shop.jenessawait.com." }
+        ]
+      },
+      {
+        "tag": "Group",
+        "image": "book-stack.png",
+        "imageAlt": "Three copies of Moving with God",
+        "heading": "Pre-Order\n3+ Books",
+        "variant": "secondary",
+        "ctaLabel": "Pre-Order 3+ Books",
+        "ctaHref": "#how-it-works",
+        "items": [
+          { "lead": "All the individual book bonuses, plus…", "body": "" },
+          { "lead": "The Small Group Facilitator Guide", "body": "Nine sessions, discussion questions, and the framework to lead your group through the book without building anything yourself." },
+          { "lead": "Content Creator Lab ($197 Value)", "body": "Jenessa's full social media course. Yours free. And you are allowed to run it with your group." }
+        ]
+      }
+    ]
+  },
+  "giveaway": {
+    "titleWord": "All",
+    "titleAfter": "pre-orders are entered into the Big Giveaway",
+    "prizes": [
+      {
+        "badge": "$1000 Value",
+        "title": "2 Night Stay at Nava Retreats",
+        "sub": "Luxury cabins on Lake Travis just outside of Austin, TX",
+        "image": "giveaway-cabin.jpg",
+        "alt": "A modern cabin overlooking a lake at sunset"
+      },
+      {
+        "badge": "$500 Value",
+        "title": "$500 to Shop Jenessa Wait",
+        "sub": "Your favorite faith-based lifestyle shop",
+        "image": "giveaway-hats.jpg",
+        "alt": "A stack of faith-based branded caps"
+      }
+    ]
+  },
+  "howItWorks": {
+    "heading": "How It Works",
+    "step1": "Pre-Order the Book at any of these retailers",
+    "step2": "Come back to this page and fill out this form"
+  },
+  "testimonials": {
+    "eyebrow": "Endorsements",
+    "titleBefore": "What others are saying about",
+    "titleAccent": "Moving With God",
+    "cards": [
+      {
+        "theme": "pink",
+        "heading": "What does it look like to move in step with God, not rushing ahead or falling behind?",
+        "quote": "Jenessa Wait is a trusted guide to help you discern God's timing and move forward in confidence through every door He opens.",
+        "name": "Rebekah Lyons",
+        "role": "Bestselling Author, Speaker, and Co-Founder of Thinq Media",
+        "img": "head-rebekah.jpg"
+      },
+      {
+        "theme": "dark",
+        "heading": "Moving with God is not just a message Jenessa Wait teaches; it is a life she has faithfully lived.",
+        "quote": "Walking through surrender, stewardship, service, and bold obedience to God's promises. With clarity and conviction, she offers nine practical and spiritual keys that help readers move from stagnation to possession of what God has spoken. This book will strengthen your faith, challenge unbelief, and anchor you in the house of God as you step courageously into His promises for your life.",
+        "name": "Joaquin and Renée Evans",
+        "role": "Senior Pastors of Bethel Austin",
+        "img": "head-evans.jpg"
+      },
+      {
+        "theme": "periwinkle",
+        "heading": "Jenessa Wait is someone whose life speaks just as powerfully as her words.",
+        "quote": "What has always stood out to me is her persistent teachability. She honors the voices God has placed in her life and leans in to discern what He is saying and where He is leading. In Moving with God, she brings that same grace to the reader, helping you see the Father's heart even in hidden or stretching seasons. With clarity and Spirit-led insight, she offers a practical pathway for partnering with God and stepping into His promises. This book will steady your heart, awaken fresh courage, and remind you that you are not forgotten. God is actively leading you forward right now.",
+        "name": "Bethany Hicks",
+        "role": "Co-Founder of Prophetic Company & Author of The God Connection",
+        "img": "head-bethany.jpg"
+      },
+      {
+        "theme": "cream",
+        "heading": "Jenessa Wait's honest and vulnerable storytelling dismantles the addiction to hustle and calls us back to belief.",
+        "quote": "From the very first page, Jenessa Wait beckons us into a deeper life of faith, trust, and vision. Moving with God serves as both an invitation and a guide into the life we ache for but often struggle to access. This book encourages readers to dream, take risks, and recognize God's presence. It challenges the status quo and invites us into a life marked by surrender and expectancy, emphasizing humility, trust, and laying everything down to truly find life.",
+        "name": "Jessi Green",
+        "role": "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church",
+        "img": "head-jessi.jpg"
+      }
+    ]
+  },
+  "challengeCta": {
+    "eyebrow": "Free · No Purchase Necessary",
+    "titleAccent": "Free 9 Day Challenge:",
+    "titleRest": "Start moving with God!",
+    "lead": "Nine days. One short video from me in your inbox every morning.",
+    "body1": "If you feel caught between where you are and where you believe God is leading you, this challenge is for you.",
+    "body2": "Thousands of us are going through it together.\nWill you join us?",
+    "image": "cta-steps.jpg"
+  },
+  "about": {
+    "eyebrow": "About the Author",
+    "titleTop": "Hi,",
+    "titleAccent": "I'm Jenessa.",
+    "body1": "Jenessa Wait is a wife, mother, creator, and speaker passionate about helping women step boldly into the promises of God. She runs a successful online business selling faith-filled goods around the world. Through her books and products, she reaches countless women with messages of truth, hope, and faith. Jenessa and her husband Ben serve on the leadership team at Bethel Austin. Jenessa and Ben have three children and live in Austin, Texas.",
+    "pull": "After walking through seasons of waiting, unanswered prayers, and unexpected detours, she discovered that God's plan isn't simply to wait on Him—but to learn how to move with Him.",
+    "body2": "That journey became the foundation for her first book, Moving with God, a practical and hope-filled guide for anyone longing to step into the promises God has for them.",
+    "ctaLabel": "Pre-Order the Book",
+    "ctaHref": "#how-it-works",
+    "image": "about-family.jpg"
+  }
+}

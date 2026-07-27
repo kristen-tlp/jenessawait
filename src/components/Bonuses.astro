@@ -1,56 +1,33 @@
 ---
 import Button from "./Button.astro";
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.bonuses;
 ---
 
 <section class="bonuses" id="pre-order" aria-labelledby="bonuses-title">
   <div class="bonuses__inner container">
-    <h2 id="bonuses-title" class="bonuses__title">Pre-Order Bonuses</h2>
+    <h2 id="bonuses-title" class="bonuses__title">{d.title}</h2>
 
     <div class="bonuses__grid">
-      <!-- Individual -->
-      <article class="bcard bcard--individual">
-        <span class="bcard__tag">Individual</span>
-        <header class="bcard__head">
-          <img src="/assets/images/book-single.png" alt="Moving with God book" width="114" height="138" loading="lazy" />
-          <h3 class="bcard__heading">Pre-Order<br />1 Book</h3>
-        </header>
-        <ul class="bcard__list">
-          <li>
-            <strong>The 9-Day Moving with God Video Study</strong>
-            One short video from Jenessa in your inbox every morning for nine days. One key per day.
-          </li>
-          <li>
-            <strong>Live Mentorship Q&amp;A with Jenessa</strong>
-            A one-hour Zoom call. Bring your actual situation. Ask your actual question. Not a webinar, a conversation.
-          </li>
-          <li>
-            <strong>Entry Into the Big Giveaway</strong>
-            Two nights at Naava Retreat ($1,000 value) plus a $500 gift card to shop.jenessawait.com.
-          </li>
-        </ul>
-        <Button href="#how-it-works" label="Pre-Order 1 Book" variant="primary" class="bcard__cta" />
-      </article>
-
-      <!-- Group -->
-      <article class="bcard bcard--group">
-        <span class="bcard__tag">Group</span>
-        <header class="bcard__head">
-          <img src="/assets/images/book-stack.png" alt="Three copies of Moving with God" width="138" height="150" loading="lazy" />
-          <h3 class="bcard__heading">Pre-Order<br />3+ Books</h3>
-        </header>
-        <ul class="bcard__list">
-          <li><strong>All the individual book bonuses, plus&hellip;</strong></li>
-          <li>
-            <strong>The Small Group Facilitator Guide</strong>
-            Nine sessions, discussion questions, and the framework to lead your group through the book without building anything yourself.
-          </li>
-          <li>
-            <strong>Content Creator Lab ($197 Value)</strong>
-            Jenessa&rsquo;s full social media course. Yours free. And you are allowed to run it with your group.
-          </li>
-        </ul>
-        <Button href="#how-it-works" label="Pre-Order 3+ Books" variant="secondary" class="bcard__cta" />
-      </article>
+      {d.cards.map((card) => (
+        <article class={`bcard bcard--${card.tag.toLowerCase()}`}>
+          <span class="bcard__tag">{card.tag}</span>
+          <header class="bcard__head">
+            <img src={img(card.image)} alt={card.imageAlt} height="150" loading="lazy" />
+            <h3 class="bcard__heading">{card.heading}</h3>
+          </header>
+          <ul class="bcard__list">
+            {card.items.map((it) => (
+              <li>
+                <strong>{it.lead}</strong>
+                {it.body}
+              </li>
+            ))}
+          </ul>
+          <Button href={card.ctaHref} label={card.ctaLabel} variant={card.variant} class="bcard__cta" />
+        </article>
+      ))}
     </div>
   </div>
 </section>
@@ -119,12 +96,15 @@ import Button from "./Button.astro";
     height: auto;
     flex: none;
   }
+  .bcard--individual .bcard__head img { width: 7.125em; }
+  .bcard--group .bcard__head img { width: 8.625em; }
   .bcard--individual .bcard__head img { width: 4.5em; }
   .bcard--group .bcard__head img { width: 8em; }
   .bcard__heading {
     font-size: 2.25em;
     line-height: 1;
     letter-spacing: -1px;
+    white-space: pre-line;
   }
   .bcard__list {
     display: flex;

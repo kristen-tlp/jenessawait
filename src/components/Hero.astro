@@ -1,11 +1,14 @@
 ---
 import Button from "./Button.astro";
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.hero;
 ---
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__media img-zoom">
     <img
-      src="/assets/images/hero-book.jpg"
+      src={img(d.image)}
       alt="Jenessa Wait holding a copy of the book Moving with God"
       width="703"
       height="834"
@@ -14,15 +17,11 @@ import Button from "./Button.astro";
   </div>
   <div class="hero__panel">
     <div class="hero__content">
-      <p class="hero__eyebrow section-label">Preorder Now &middot; Releases October 6</p>
-      <h1 id="hero-title" class="hero__title">Moving with God</h1>
-      <p class="hero__lede">
-        If you feel stuck between where <br class="br-desk" />you are and where you believe God <br class="br-desk" />is leading you, this book is for you
-      </p>
-      <p class="hero__body">
-        Nine keys to getting unstuck and stepping <br class="br-desk" />boldly into His promises for your life.
-      </p>
-      <Button href="#how-it-works" label="Pre-Order Today" variant="primary" />
+      <p class="hero__eyebrow section-label">{d.eyebrow}</p>
+      <h1 id="hero-title" class="hero__title">{d.title}</h1>
+      <p class="hero__lede">{d.lede}</p>
+      <p class="hero__body">{d.body}</p>
+      <Button href={d.ctaHref} label={d.ctaLabel} variant="primary" />
 
       <div class="hero__badge">
         <svg class="hero__asterisk" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
@@ -33,7 +32,7 @@ import Button from "./Button.astro";
             <line x1="18.4" y1="5.6" x2="5.6" y2="18.4" />
           </g>
         </svg>
-        <p>Pre-order before 10/6 for bonuses + a chance to win $1,500 in prizes</p>
+        <p>{d.badge}</p>
       </div>
     </div>
   </div>

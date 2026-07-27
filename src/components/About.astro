@@ -1,20 +1,23 @@
 ---
 import Button from "./Button.astro";
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.about;
 ---
 
 <section class="about" aria-labelledby="about-title">
   <div class="about__inner container">
     <div class="about__grid">
       <div class="about__head">
-        <p class="section-label about__eyebrow">About the Author</p>
+        <p class="section-label about__eyebrow">{d.eyebrow}</p>
         <h2 id="about-title" class="about__title">
-          Hi,<br /><span class="about__title-accent">I&rsquo;m Jenessa.</span>
+          {d.titleTop}<br /><span class="about__title-accent">{d.titleAccent}</span>
         </h2>
       </div>
 
       <div class="about__photo img-zoom">
         <img
-          src="/assets/images/about-family.jpg"
+          src={img(d.image)}
           alt="Jenessa Wait with her husband Ben and their three children"
           width="400"
           height="405"
@@ -23,24 +26,10 @@ import Button from "./Button.astro";
       </div>
 
       <div class="about__body">
-        <p class="about__text">
-          <strong>Jenessa Wait</strong> is a wife, mother, creator, and speaker passionate
-          about helping women step boldly into the promises of God. She runs a successful
-          online business selling faith-filled goods around the world. Through her books and
-          products, she reaches countless women with messages of truth, hope, and faith.
-          Jenessa and her husband Ben serve on the leadership team at Bethel Austin. Jenessa
-          and Ben have three children and live in Austin, Texas.
-        </p>
-        <p class="about__pull">
-          After walking through seasons of waiting, unanswered prayers, and unexpected
-          detours, she discovered that God&rsquo;s plan isn&rsquo;t simply to wait on
-          Him&mdash;but to learn how to move with Him.
-        </p>
-        <p class="about__text">
-          That journey became the foundation for her first book, Moving with God, a practical
-          and hope-filled guide for anyone longing to step into the promises God has for them.
-        </p>
-        <Button href="#how-it-works" label="Pre-Order the Book" variant="primary" class="about__cta" />
+        <p class="about__text">{d.body1}</p>
+        <p class="about__pull">{d.pull}</p>
+        <p class="about__text">{d.body2}</p>
+        <Button href={d.ctaHref} label={d.ctaLabel} variant="primary" class="about__cta" />
       </div>
     </div>
   </div>

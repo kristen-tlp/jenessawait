@@ -228,5 +228,175 @@ export default config({
         ),
       },
     }),
+    home: singleton({
+      label: 'Home / Pre-order Page',
+      path: 'src/content/home/',
+      format: { data: 'json' },
+      schema: {
+        hero: fields.object(
+          {
+            eyebrow: fields.text({ label: 'Eyebrow' }),
+            title: fields.text({ label: 'Title' }),
+            lede: fields.text({ label: 'Lede (large italic line)', multiline: true }),
+            body: fields.text({ label: 'Body', multiline: true }),
+            ctaLabel: fields.text({ label: 'Button label' }),
+            ctaHref: fields.text({ label: 'Button link' }),
+            badge: fields.text({ label: 'Badge text (tilted dark box)', multiline: true }),
+            image: imageField('Hero image'),
+          },
+          { label: 'Hero' },
+        ),
+        sidelined: fields.object(
+          {
+            titleBefore: fields.text({ label: 'Title — before underlined word' }),
+            titleWord: fields.text({ label: 'Title — underlined word' }),
+            titleAfter: fields.text({ label: 'Title — after underlined word' }),
+            body: fields.text({ label: 'Body', multiline: true }),
+            lede: fields.text({ label: 'Emphasis line (line breaks preserved)', multiline: true }),
+            ctaLabel: fields.text({ label: 'Button label' }),
+            ctaHref: fields.text({ label: 'Button link' }),
+            image: imageField('Image'),
+          },
+          { label: '"Not Sidelined" section' },
+        ),
+        inside: fields.object(
+          {
+            eyebrow: fields.text({ label: 'Eyebrow' }),
+            title: fields.text({ label: 'Title' }),
+            intro: fields.text({ label: 'Intro paragraph', multiline: true }),
+            cards: fields.array(
+              fields.object({
+                icon: imageField('Icon'),
+                alt: fields.text({ label: 'Icon alt text' }),
+                text: fields.text({ label: 'Text', multiline: true }),
+                theme: fields.select({
+                  label: 'Card color',
+                  defaultValue: 'dark',
+                  options: [
+                    { label: 'Dark', value: 'dark' },
+                    { label: 'Peach', value: 'peach' },
+                    { label: 'Blue', value: 'blue' },
+                    { label: 'Cream', value: 'cream' },
+                  ],
+                }),
+              }),
+              { label: 'Cards', itemLabel: (p) => p.fields.text.value?.slice(0, 40) || 'Card' },
+            ),
+          },
+          { label: 'Inside the Book' },
+        ),
+        bonuses: fields.object(
+          {
+            title: fields.text({ label: 'Title' }),
+            cards: fields.array(
+              fields.object({
+                tag: fields.text({ label: 'Tag (Individual / Group)' }),
+                image: imageField('Book image'),
+                imageAlt: fields.text({ label: 'Image alt text' }),
+                heading: fields.text({ label: 'Heading (line breaks preserved)', multiline: true }),
+                variant: fields.select({
+                  label: 'Button style',
+                  defaultValue: 'primary',
+                  options: [
+                    { label: 'Primary', value: 'primary' },
+                    { label: 'Secondary', value: 'secondary' },
+                  ],
+                }),
+                ctaLabel: fields.text({ label: 'Button label' }),
+                ctaHref: fields.text({ label: 'Button link' }),
+                items: fields.array(
+                  fields.object({
+                    lead: fields.text({ label: 'Bold lead' }),
+                    body: fields.text({ label: 'Description', multiline: true }),
+                  }),
+                  { label: 'Bonus items', itemLabel: (p) => p.fields.lead.value || 'Item' },
+                ),
+              }),
+              { label: 'Pricing cards', itemLabel: (p) => p.fields.tag.value || 'Card' },
+            ),
+          },
+          { label: 'Pre-Order Bonuses' },
+        ),
+        giveaway: fields.object(
+          {
+            titleWord: fields.text({ label: 'Title — underlined word' }),
+            titleAfter: fields.text({ label: 'Title — rest' }),
+            prizes: fields.array(
+              fields.object({
+                badge: fields.text({ label: 'Value badge' }),
+                title: fields.text({ label: 'Prize title' }),
+                sub: fields.text({ label: 'Prize description', multiline: true }),
+                image: imageField('Prize image'),
+                alt: fields.text({ label: 'Image alt text' }),
+              }),
+              { label: 'Prizes', itemLabel: (p) => p.fields.title.value || 'Prize' },
+            ),
+          },
+          { label: 'Giveaway' },
+        ),
+        howItWorks: fields.object(
+          {
+            heading: fields.text({ label: 'Heading' }),
+            step1: fields.text({ label: 'Step 1 text', multiline: true }),
+            step2: fields.text({ label: 'Step 2 text', multiline: true }),
+          },
+          { label: 'How It Works' },
+        ),
+        testimonials: fields.object(
+          {
+            eyebrow: fields.text({ label: 'Eyebrow' }),
+            titleBefore: fields.text({ label: 'Title — plain part' }),
+            titleAccent: fields.text({ label: 'Title — book title part' }),
+            cards: fields.array(
+              fields.object({
+                theme: fields.select({
+                  label: 'Card color',
+                  defaultValue: 'cream',
+                  options: [
+                    { label: 'Pink', value: 'pink' },
+                    { label: 'Dark', value: 'dark' },
+                    { label: 'Periwinkle', value: 'periwinkle' },
+                    { label: 'Cream', value: 'cream' },
+                  ],
+                }),
+                heading: fields.text({ label: 'Pull quote', multiline: true }),
+                quote: fields.text({ label: 'Full quote', multiline: true }),
+                name: fields.text({ label: 'Name' }),
+                role: fields.text({ label: 'Role' }),
+                img: imageField('Headshot'),
+              }),
+              { label: 'Endorsements', itemLabel: (p) => p.fields.name.value || 'Endorsement' },
+            ),
+          },
+          { label: 'Endorsements' },
+        ),
+        challengeCta: fields.object(
+          {
+            eyebrow: fields.text({ label: 'Eyebrow' }),
+            titleAccent: fields.text({ label: 'Title — highlighted part' }),
+            titleRest: fields.text({ label: 'Title — rest' }),
+            lead: fields.text({ label: 'Lead line', multiline: true }),
+            body1: fields.text({ label: 'Body paragraph 1', multiline: true }),
+            body2: fields.text({ label: 'Body paragraph 2 (line breaks preserved)', multiline: true }),
+            image: imageField('Image'),
+          },
+          { label: 'Challenge CTA' },
+        ),
+        about: fields.object(
+          {
+            eyebrow: fields.text({ label: 'Eyebrow' }),
+            titleTop: fields.text({ label: 'Title — top line' }),
+            titleAccent: fields.text({ label: 'Title — accent line' }),
+            body1: fields.text({ label: 'Paragraph 1', multiline: true }),
+            pull: fields.text({ label: 'Emphasis paragraph', multiline: true }),
+            body2: fields.text({ label: 'Paragraph 2', multiline: true }),
+            ctaLabel: fields.text({ label: 'Button label' }),
+            ctaHref: fields.text({ label: 'Button link' }),
+            image: imageField('Family photo'),
+          },
+          { label: 'About the Author' },
+        ),
+      },
+    }),
   },
 });

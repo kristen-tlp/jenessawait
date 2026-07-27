@@ -1,29 +1,22 @@
 ---
-const cards = [
-  { icon: "/assets/images/icon-recognize.png", alt: "Head with a lightbulb", text: "Recognize where God is already moving in your life", theme: "dark" },
-  { icon: "/assets/images/icon-navigate.png", alt: "Winding route with location pins", text: "Navigate delays without losing trust in God's timing", theme: "peach" },
-  { icon: "/assets/images/icon-move.png", alt: "Content smiling face", text: "Move from frustration to preparation in your current season", theme: "blue" },
-  { icon: "/assets/images/icon-position.png", alt: "Raised hands", text: "Position yourself for God's purposes", theme: "cream" },
-];
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.inside;
+const cards = d.cards;
 ---
 
 <section class="inside" aria-labelledby="inside-title">
   <div class="inside__inner container">
     <header class="inside__head">
-      <p class="section-label inside__eyebrow">What&rsquo;s Inside</p>
-      <h2 id="inside-title" class="inside__title">Inside Moving with God</h2>
-      <p class="inside__intro">
-        Grounded in Scripture and filled with honest personal insight, Moving with God
-        is a guide for anyone longing to enter fully into the promises of God. It will
-        help you recognize where God is at work and show you how to walk forward with
-        confident&nbsp;faith.
-      </p>
+      <p class="section-label inside__eyebrow">{d.eyebrow}</p>
+      <h2 id="inside-title" class="inside__title">{d.title}</h2>
+      <p class="inside__intro">{d.intro}</p>
     </header>
 
     <ul class="inside__cards">
       {cards.map((c) => (
         <li class={`icard icard--${c.theme}`}>
-          <img class="icard__icon" src={c.icon} alt={c.alt} width="80" height="80" loading="lazy" />
+          <img class="icard__icon" src={img(c.icon)} alt={c.alt} width="80" height="80" loading="lazy" />
           <p class="icard__text">{c.text}</p>
         </li>
       ))}

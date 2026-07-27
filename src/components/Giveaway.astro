@@ -1,31 +1,15 @@
 ---
-const prizes = [
-  {
-    badge: "$1000 Value",
-    title: "2 Night Stay at Nava Retreats",
-    sub: "Luxury cabins on Lake Travis just outside of Austin, TX",
-    img: "/assets/images/giveaway-cabin.jpg",
-    alt: "A modern cabin overlooking a lake at sunset",
-    w: 297,
-    h: 212,
-  },
-  {
-    badge: "$500 Value",
-    title: "$500 to Shop Jenessa Wait",
-    sub: "Your favorite faith-based lifestyle shop",
-    img: "/assets/images/giveaway-hats.jpg",
-    alt: "A stack of faith-based branded caps",
-    w: 309,
-    h: 218,
-  },
-];
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.giveaway;
+const prizes = d.prizes;
 ---
 
 <section class="giveaway" aria-labelledby="giveaway-title">
   <div class="giveaway__inner container">
     <div class="giveaway__grid">
       <h2 id="giveaway-title" class="giveaway__title">
-        <span class="u-underline">All<img class="hand-underline" src="/assets/images/line-all.png" alt="" aria-hidden="true" /></span> pre-orders are entered into the Big Giveaway
+        <span class="u-underline">{d.titleWord}<img class="hand-underline" src="/assets/images/line-all.png" alt="" aria-hidden="true" /></span> {d.titleAfter}
       </h2>
 
       {prizes.map((p) => (
@@ -34,7 +18,7 @@ const prizes = [
           <h3 class="prize__title">{p.title}</h3>
           <p class="prize__sub">{p.sub}</p>
           <div class="prize__media img-zoom">
-            <img class="prize__img" src={p.img} alt={p.alt} width={p.w} height={p.h} loading="lazy" />
+            <img class="prize__img" src={img(p.image)} alt={p.alt} width="297" height="212" loading="lazy" />
           </div>
         </article>
       ))}

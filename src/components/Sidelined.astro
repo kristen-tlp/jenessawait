@@ -1,29 +1,24 @@
 ---
 import Button from "./Button.astro";
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.sidelined;
 ---
 
 <section class="sidelined" aria-labelledby="sidelined-title">
   <div class="sidelined__panel">
     <div class="sidelined__content">
       <h2 id="sidelined-title" class="sidelined__title">
-        You are <span class="u-underline">not<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> sidelined.
+        {d.titleBefore} <span class="u-underline">{d.titleWord}<img class="hand-underline" src="/assets/images/line-not.png" alt="" aria-hidden="true" /></span> {d.titleAfter}
       </h2>
-      <p class="sidelined__body">
-        You&rsquo;ve prayed. You&rsquo;ve believed. You&rsquo;ve held tightly to the
-        promises God placed in your heart. Yet somewhere along the journey, you&rsquo;ve
-        found yourself wondering when you&rsquo;ll finally step into all God has spoken
-        over your life.
-      </p>
-      <p class="sidelined__lede">
-        Your life is not on hold.<br />
-        God is still moving, and so can you.
-      </p>
-      <Button href="#how-it-works" label="Pre-Order Today" variant="primary" />
+      <p class="sidelined__body">{d.body}</p>
+      <p class="sidelined__lede">{d.lede}</p>
+      <Button href={d.ctaHref} label={d.ctaLabel} variant="primary" />
     </div>
   </div>
   <div class="sidelined__media img-zoom">
     <img
-      src="/assets/images/sidelined-walk.jpg"
+      src={img(d.image)}
       alt="Jenessa Wait walking along a path outdoors"
       width="570"
       height="763"
@@ -79,6 +74,7 @@ import Button from "./Button.astro";
     font-size: 1.75em;
     line-height: 1.15;
     letter-spacing: -0.7px;
+    white-space: pre-line;
   }
   .sidelined__content :global(.btn) {
     margin-top: 1.75em;

@@ -1,10 +1,13 @@
 ---
+import { getHome, img } from "../lib/cms";
+const home = await getHome();
+const d = home!.challengeCta;
 ---
 
 <section class="cta" id="challenge" aria-labelledby="cta-title">
   <div class="cta__media img-zoom">
     <img
-      src="/assets/images/cta-steps.jpg"
+      src={img(d.image)}
       alt="Jenessa Wait sitting on the front steps of a house"
       width="703"
       height="812"
@@ -13,18 +16,13 @@
   </div>
   <div class="cta__panel">
     <div class="cta__content">
-      <p class="section-label cta__eyebrow">Free &middot; No Purchase Necessary</p>
+      <p class="section-label cta__eyebrow">{d.eyebrow}</p>
       <h2 id="cta-title" class="cta__title">
-        <span class="cta__title-accent">Free 9 Day Challenge:</span> Start moving with God!
+        <span class="cta__title-accent">{d.titleAccent}</span> {d.titleRest}
       </h2>
-      <p class="cta__lead">Nine days. One short video from me in your inbox every morning.</p>
-      <p class="cta__body">
-        If you feel caught between where you are and where you believe God is leading you,
-        this challenge is for you.
-      </p>
-      <p class="cta__body">
-        Thousands of us are going through it together.<br />Will you join us?
-      </p>
+      <p class="cta__lead">{d.lead}</p>
+      <p class="cta__body">{d.body1}</p>
+      <p class="cta__body cta__body--breaks">{d.body2}</p>
 
       <div class="klaviyo-form-Rvq64Z"></div>
     </div>
@@ -79,6 +77,7 @@
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.85);
   }
+  .cta__body--breaks { white-space: pre-line; }
   .cta__form {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,9 @@
 ---
 import LogoGrid from "./LogoGrid.astro";
 import { howItWorksKeys } from "../data/retailers.ts";
+import { getHome } from "../lib/cms";
+const home = await getHome();
+const d = home!.howItWorks;
 ---
 
 <section class="hiw" id="how-it-works" aria-labelledby="hiw-title">
@@ -14,14 +17,14 @@ import { howItWorksKeys } from "../data/retailers.ts";
           <line x1="18.4" y1="5.6" x2="5.6" y2="18.4" />
         </g>
       </svg>
-      <h2 id="hiw-title">How It Works</h2>
+      <h2 id="hiw-title">{d.heading}</h2>
     </div>
 
     <ol class="hiw__steps">
       <li class="step">
         <div class="step__label">
           <span class="step__num">1</span>
-          <p class="step__text">Pre-Order the Book at any of these retailers</p>
+          <p class="step__text">{d.step1}</p>
         </div>
         <div class="step__content">
           <LogoGrid variant="blue" keys={howItWorksKeys} layout="grid" />
@@ -31,7 +34,7 @@ import { howItWorksKeys } from "../data/retailers.ts";
       <li class="step">
         <div class="step__label">
           <span class="step__num">2</span>
-          <p class="step__text">Come back to this page and fill out this form</p>
+          <p class="step__text">{d.step2}</p>
         </div>
         <div class="step__content">
           <div class="hiw__form">
