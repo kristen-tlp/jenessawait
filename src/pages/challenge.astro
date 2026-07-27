@@ -162,27 +162,35 @@ const endorsements = [
       </div>
     </section>
 
-    <!-- 2. EMPATHY -->
+    <!-- 2. EMPATHY (inline-image statement) -->
     <section class="empathy" aria-labelledby="empathy-title">
-      <div class="empathy__media">
-        <img src="/assets/images/challenge-empathy.jpg" alt="Jenessa Wait sitting outdoors" width="1200" height="1800" loading="lazy" />
-      </div>
-      <div class="empathy__panel">
-        <div class="empathy__content">
-          <h2 id="empathy-title" class="empathy__title">If your heart is tired of waiting, you&rsquo;re in the right place.</h2>
-          <p class="empathy__intro">
-            You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
-            space between His promise and your right-now started to feel heavy.
-          </p>
+      <div class="empathy__inner container">
+        <h2 id="empathy-title" class="empathy__statement">
+          If your
+          <img class="empathy__img" src="/assets/images/challenge-inline-1.jpg" alt="" aria-hidden="true" width="520" height="312" loading="lazy" />
+          heart is tired of
+          <img class="empathy__img" src="/assets/images/challenge-inline-2.jpg" alt="" aria-hidden="true" width="520" height="312" loading="lazy" />
+          waiting, you&rsquo;re in the right
+          <img class="empathy__img" src="/assets/images/challenge-inline-3.jpg" alt="" aria-hidden="true" width="520" height="312" loading="lazy" />
+          place.
+        </h2>
+
+        <div class="empathy__grid">
+          <div class="empathy__col">
+            <p class="empathy__intro">
+              You love God. You believe He&rsquo;s good. And still, somewhere along the way, the
+              space between His promise and your right-now started to feel heavy.
+            </p>
+            <p class="empathy__close">
+              Wherever you are, God is still moving &mdash; and over the next nine days, you can
+              begin moving with Him.
+            </p>
+          </div>
           <ul class="empathy__list">
             {empathyLines.map((line) => (
               <li>{line}</li>
             ))}
           </ul>
-          <p class="empathy__close">
-            Wherever you are, God is still moving &mdash; and over the next nine days, you can
-            begin moving with Him.
-          </p>
         </div>
       </div>
     </section>
@@ -446,72 +454,71 @@ const endorsements = [
     object-position: center 22%;
   }
 
-  /* ---------- 2. Empathy (editorial split) ---------- */
-  .empathy {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    width: 100%;
-    background-color: var(--color-periwinkle);
-  }
-  .empathy__media { position: relative; min-height: 100%; }
-  .empathy__media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-  .empathy__panel {
-    display: flex;
-    align-items: center;
-    padding: 5.5em var(--container-padding) 5.5em 4.5em;
-  }
-  .empathy__content { max-width: 34em; }
-  .empathy__title {
+  /* ---------- 2. Empathy (inline-image statement) ---------- */
+  .empathy { width: 100%; background-color: var(--color-cream-soft); }
+  .empathy__inner { padding-block: 6em; }
+  .empathy__statement {
+    max-width: 20em;
+    font-family: var(--font-heading);
+    font-weight: 400;
     color: var(--color-dark);
-    font-size: 3em;
-    line-height: 1.05;
-    letter-spacing: -1.2px;
+    font-size: 4.25em;
+    line-height: 1.28;
+    letter-spacing: -1.5px;
+  }
+  .empathy__img {
+    display: inline-block;
+    height: 0.72em;
+    width: auto;
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+    border-radius: 0.14em;
+    vertical-align: -0.06em;
+    margin: 0 0.12em;
+  }
+  .empathy__grid {
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5em;
+    align-items: start;
   }
   .empathy__intro {
-    margin-top: 1.1em;
-    font-size: 1.25em;
+    font-size: 1.375em;
     line-height: 1.5;
     color: var(--color-text);
   }
+  .empathy__close {
+    margin-top: 1.25em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 1.75em;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: var(--color-blue);
+  }
   .empathy__list {
     list-style: none;
-    margin-top: 1.75em;
     display: flex;
     flex-direction: column;
-    gap: 0.9em;
+    gap: 1.1em;
   }
   .empathy__list li {
     position: relative;
-    padding-left: 1.5em;
-    font-family: var(--font-heading);
-    font-weight: 400;
-    font-size: 1.5em;
-    line-height: 1.15;
-    letter-spacing: -0.4px;
-    color: var(--color-blue);
+    padding-left: 1.6em;
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: var(--color-text);
   }
   .empathy__list li::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0.5em;
-    width: 0.4em;
-    height: 0.4em;
+    width: 0.45em;
+    height: 0.45em;
     border-radius: 50%;
     background-color: var(--color-terracotta);
-  }
-  .empathy__close {
-    margin-top: 1.75em;
-    font-size: 1.25em;
-    line-height: 1.45;
-    color: var(--color-text);
   }
 
   /* ---------- 3. Steps ---------- */
@@ -897,18 +904,19 @@ const endorsements = [
     .section-head h2 { font-size: 2.75em; }
     .hero__title { font-size: 3.25em; }
     .about__title, .final__title, .quotes__title { font-size: 2.75em; }
-    .empathy__title, .book__title { font-size: 2.5em; }
+    .empathy__statement { font-size: 3.25em; }
+    .book__title { font-size: 2.5em; }
     .steps__grid { grid-template-columns: 1fr; max-width: 34em; margin-inline: auto; }
     .journey__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 767px) {
-    .hero, .about, .final, .empathy { grid-template-columns: 1fr; }
+    .hero, .about, .final { grid-template-columns: 1fr; }
     .hero__panel { padding: 3em var(--container-padding); order: 2; }
     .hero__media { order: 1; aspect-ratio: 4 / 3; min-height: 0; }
     .hero__title { font-size: 2.75em; }
-    .empathy__media { aspect-ratio: 4 / 3; min-height: 0; }
-    .empathy__panel { padding: 3em var(--container-padding); }
+    .empathy__statement { font-size: 2.4em; max-width: none; }
+    .empathy__grid { grid-template-columns: 1fr; gap: 2em; margin-top: 2.5em; }
     .about__media { aspect-ratio: 4 / 3; min-height: 0; }
     .about__panel { padding: 3em var(--container-padding); }
     .book__inner { grid-template-columns: 1fr; gap: 2.5em; }
@@ -917,7 +925,7 @@ const endorsements = [
     .final__panel { padding: 3.5em var(--container-padding); }
     .final__media { aspect-ratio: 4 / 3; min-height: 0; }
     .quotes__head { flex-direction: column; align-items: flex-start; gap: 1.25em; }
-    .empathy__panel, .steps__inner, .receive__inner, .journey__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
+    .empathy__inner, .steps__inner, .receive__inner, .journey__inner, .book__inner, .faq__inner { padding-block: 3.5em; }
     .quotes { padding-block: 3.5em; }
   }
 </style>
