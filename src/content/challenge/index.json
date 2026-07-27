@@ -1,10 +1,10 @@
 {
   "hero": {
-    "eyebrow": "Free · No Purchase Necessary",
+    "eyebrow": "Free · Starts October 6th",
     "titleAccent": "9 Day Challenge:",
     "titleRest": "Start moving with God!",
     "lede": "A free, guided journey to help you get unstuck, quiet the noise, and take your next faithful step — one small, hope-filled day at a time.",
-    "reassure": "100% free · Start anytime · Unsubscribe whenever you like",
+    "reassure": "100% free · Starts October 6th · Unsubscribe whenever you like",
     "image": "challenge-hero.jpg"
   },
   "empathy": {
@@ -134,7 +134,7 @@
     "eyebrow": "Optional Companion",
     "titleLine1": "Want to go deeper?",
     "titleLine2": "Pre-order the book.",
-    "body": "The challenge is completely free and stands on its own. If you'd like to keep going after Day 9, Moving with God expands every theme into nine full chapters — your guide to getting unstuck and stepping boldly into His promises.",
+    "body": "The challenge is completely free and can be completed on its own, but for the deepest experience, I recommend purchasing Moving with God before it begins and reading each chapter alongside the daily challenge. The book expands on every theme with personal stories, biblical teaching, and practical steps to help you get unstuck and move boldly toward God's promises.",
     "meta": "Releases October 6 · Pre-order available now",
     "ctaLabel": "Explore the Book",
     "ctaUrl": "/",
@@ -146,7 +146,7 @@
     "items": [
       {
         "q": "Do I need the book?",
-        "a": "Not at all. The challenge is completely free and stands on its own. Moving with God is simply an optional way to go deeper after the nine days."
+        "a": "Not at all — the challenge is completely free and stands on its own. That said, we absolutely recommend Moving with God as the perfect companion: read each chapter alongside the daily challenge for the deepest experience."
       },
       {
         "q": "How long does each day take?",
@@ -158,11 +158,11 @@
       },
       {
         "q": "Can I start anytime?",
-        "a": "Yes — sign up whenever you're ready and we'll send your first day so you can begin. [Placeholder — confirm whether the challenge runs on set dates or is available anytime.]"
+        "a": "The challenge starts October 6th, the day Moving with God releases. Sign up now and we'll make sure you're ready to begin on day one."
       },
       {
         "q": "How will I receive each day's content?",
-        "a": "Straight to your inbox. Each morning for nine days you'll get a short email with that day's teaching, Scripture, and step."
+        "a": "On the day of launch, October 6th, you will receive your first day straight to your inbox. Each morning for nine days you'll get a short email with that day's teaching, Scripture, and step."
       }
     ]
   },
@@ -170,7 +170,7 @@
     "title": "Your next step is closer than it feels.",
     "body": "You don't have to have it all figured out to begin. You just have to take the first day. Let's move with God — together.",
     "ctaLabel": "Save My Spot — It's Free",
-    "reassure": "Free · Nine short days · Start anytime",
+    "reassure": "Free · Nine short days · Starts October 6th",
     "image": "challenge-cta.jpg"
   }
 }

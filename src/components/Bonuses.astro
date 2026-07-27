@@ -96,8 +96,6 @@ const d = home!.bonuses;
     height: auto;
     flex: none;
   }
-  .bcard--individual .bcard__head img { width: 7.125em; }
-  .bcard--group .bcard__head img { width: 8.625em; }
   .bcard--individual .bcard__head img { width: 4.5em; }
   .bcard--group .bcard__head img { width: 8em; }
   .bcard__heading {
@@ -157,14 +155,17 @@ const d = home!.bonuses;
     .bonuses__grid {
       grid-template-columns: minmax(0, 30em);
     }
-    /* stack the book above the heading so it gets full width */
+    /* stack the book above the heading, centered, so the card top reads
+       as a tidy header instead of a small image floating in the corner */
     .bcard__head {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 1em;
     }
-    .bcard--individual .bcard__head img { width: 4em; }
-    .bcard--group .bcard__head img { width: 6.5em; }
+    .bcard--individual .bcard__head img { width: 5.5em; }
+    .bcard--group .bcard__head img { width: 7.5em; }
     .bcard__heading { font-size: 2em; }
+    .bcard :global(.bcard__cta) { align-self: center; }
   }
 </style>
