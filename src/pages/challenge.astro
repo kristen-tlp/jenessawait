@@ -142,8 +142,8 @@ const endorsements = [
     <section class="hero" id="join" aria-labelledby="hero-title">
       <div class="hero__panel">
         <div class="hero__content">
-          <p class="section-label hero__eyebrow">Free 9-Day Challenge</p>
-          <h1 id="hero-title" class="hero__title">9 days to stop waiting and start moving with God.</h1>
+          <p class="section-label hero__eyebrow">Free &middot; No Purchase Necessary</p>
+          <h1 id="hero-title" class="hero__title"><span class="hero__title-accent">9 Day Challenge:</span> Start moving with God!</h1>
           <p class="hero__lede">
             A free, guided journey to help you get unstuck, quiet the noise, and take your
             next faithful step &mdash; one small, hope-filled day at a time.
@@ -403,34 +403,34 @@ const endorsements = [
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    background-color: var(--color-cream-soft);
+    background-color: var(--color-blue);
   }
   .hero__panel {
     display: flex;
     align-items: center;
     padding: 5.5em 4em 5.5em var(--container-padding);
   }
-  .hero__content { max-width: 34em; }
-  .hero__eyebrow { color: var(--color-terracotta); }
+  .hero__content { max-width: 34em; color: var(--color-white); }
+  .hero__eyebrow { color: var(--color-salmon); }
   .hero__title {
     margin-top: 0.5em;
-    color: var(--color-blue);
+    color: var(--color-white);
     font-size: 4em;
     line-height: 1;
     letter-spacing: -2px;
   }
+  .hero__title-accent { color: var(--color-salmon); }
   .hero__lede {
     margin-top: 0.9em;
     font-size: 1.25em;
     line-height: 1.4;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.85);
   }
   .hero__form { margin-top: 1.75em; }
   .hero__reassure {
     margin-top: 1.25em;
     font-size: 0.9375em;
-    color: var(--color-text);
-    opacity: 0.75;
+    color: rgba(255, 255, 255, 0.7);
   }
   .hero__media { min-height: 100%; position: relative; }
   .hero__media img {
