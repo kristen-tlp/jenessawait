@@ -5,7 +5,7 @@
     "titleRest": "Start moving with God!",
     "lede": "A free, guided journey to help you get unstuck, quiet the noise, and take your next faithful step — one small, hope-filled day at a time.",
     "reassure": "100% free · Starts October 6th · Unsubscribe anytime",
-    "image": "challenge-hero.jpg"
+    "image": "/assets/images/challenge-hero.jpg"
   },
   "empathy": {
     "statementBefore": "If your heart is",
@@ -72,15 +72,51 @@
     "heading": "The 9 Day Challenge",
     "note": "Note: the daily themes below are placeholders and will be updated with the final chapter themes from Moving with God.",
     "items": [
-      { "day": "Day 1", "title": "Naming Where You Feel Stuck", "body": "Bring your honest starting place to God — no pretending required." },
-      { "day": "Day 2", "title": "Remembering Who God Is", "body": "Return to the character of the One who is leading you." },
-      { "day": "Day 3", "title": "Seeing Where He's Already Moving", "body": "Notice the quiet ways God is at work in your life right now." },
-      { "day": "Day 4", "title": "Trusting His Timing", "body": "Make peace with the wait without letting go of hope." },
-      { "day": "Day 5", "title": "Releasing What You're Carrying", "body": "Set down the striving, the fear, and the comparison." },
-      { "day": "Day 6", "title": "Preparing in the In-Between", "body": "Use this season to quietly get ready for what's next." },
-      { "day": "Day 7", "title": "Listening for His Voice", "body": "Create space to hear God's direction for your next step." },
-      { "day": "Day 8", "title": "Taking the Next Faithful Step", "body": "Move forward with the little you can see in front of you." },
-      { "day": "Day 9", "title": "Moving with God", "body": "Step into the promise with confident, hope-filled faith." }
+      {
+        "day": "Day 1",
+        "title": "Naming Where You Feel Stuck",
+        "body": "Bring your honest starting place to God — no pretending required."
+      },
+      {
+        "day": "Day 2",
+        "title": "Remembering Who God Is",
+        "body": "Return to the character of the One who is leading you."
+      },
+      {
+        "day": "Day 3",
+        "title": "Seeing Where He's Already Moving",
+        "body": "Notice the quiet ways God is at work in your life right now."
+      },
+      {
+        "day": "Day 4",
+        "title": "Trusting His Timing",
+        "body": "Make peace with the wait without letting go of hope."
+      },
+      {
+        "day": "Day 5",
+        "title": "Releasing What You're Carrying",
+        "body": "Set down the striving, the fear, and the comparison."
+      },
+      {
+        "day": "Day 6",
+        "title": "Preparing in the In-Between",
+        "body": "Use this season to quietly get ready for what's next."
+      },
+      {
+        "day": "Day 7",
+        "title": "Listening for His Voice",
+        "body": "Create space to hear God's direction for your next step."
+      },
+      {
+        "day": "Day 8",
+        "title": "Taking the Next Faithful Step",
+        "body": "Move forward with the little you can see in front of you."
+      },
+      {
+        "day": "Day 9",
+        "title": "Moving with God",
+        "body": "Step into the promise with confident, hope-filled faith."
+      }
     ]
   },
   "about": {
@@ -89,7 +125,7 @@
     "body1": "I know what it's like to feel stuck — to love God deeply and still wonder when the things He placed in your heart will finally come. [Placeholder — a short piece of Jenessa's story / testimony to be added here.]",
     "body2": "I created this challenge because I don't believe getting unstuck happens through more information. It happens through small, faithful movement with God. Over these nine days, I'll walk it with you.",
     "ctaLabel": "Join the Challenge",
-    "image": "challenge-about.jpg"
+    "image": "/assets/images/challenge-about.jpg"
   },
   "endorsements": {
     "eyebrow": "Endorsements",
@@ -102,7 +138,7 @@
         "quote": "Jenessa Wait is a trusted guide to help you discern God's timing and move forward in confidence through every door He opens.",
         "name": "Rebekah Lyons",
         "role": "Bestselling Author, Speaker, and Co-Founder of Thinq Media",
-        "img": "head-rebekah.jpg"
+        "img": "/assets/images/head-rebekah.jpg"
       },
       {
         "theme": "dark",
@@ -110,7 +146,7 @@
         "quote": "Walking through surrender, stewardship, service, and bold obedience to God's promises. With clarity and conviction, she offers nine practical and spiritual keys that help readers move from stagnation to possession of what God has spoken. This book will strengthen your faith, challenge unbelief, and anchor you in the house of God as you step courageously into His promises for your life.",
         "name": "Joaquin and Renée Evans",
         "role": "Senior Pastors of Bethel Austin",
-        "img": "head-evans.jpg"
+        "img": "/assets/images/head-evans.jpg"
       },
       {
         "theme": "periwinkle",
@@ -118,7 +154,7 @@
         "quote": "What has always stood out to me is her persistent teachability. She honors the voices God has placed in her life and leans in to discern what He is saying and where He is leading. In Moving with God, she brings that same grace to the reader, helping you see the Father's heart even in hidden or stretching seasons. With clarity and Spirit-led insight, she offers a practical pathway for partnering with God and stepping into His promises. This book will steady your heart, awaken fresh courage, and remind you that you are not forgotten. God is actively leading you forward right now.",
         "name": "Bethany Hicks",
         "role": "Co-Founder of Prophetic Company & Author of The God Connection",
-        "img": "head-jessi.jpg"
+        "img": "/assets/images/head-jessi.jpg"
       },
       {
         "theme": "cream",
@@ -126,7 +162,7 @@
         "quote": "From the very first page, Jenessa Wait beckons us into a deeper life of faith, trust, and vision. Moving with God serves as both an invitation and a guide into the life we ache for but often struggle to access. This book encourages readers to dream, take risks, and recognize God's presence. It challenges the status quo and invites us into a life marked by surrender and expectancy, emphasizing humility, trust, and laying everything down to truly find life.",
         "name": "Jessi Green",
         "role": "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church",
-        "img": "head-bethany.jpg"
+        "img": "/assets/images/head-bethany.jpg"
       }
     ]
   },
@@ -138,7 +174,7 @@
     "meta": "Releases October 6 · Pre-order available now",
     "ctaLabel": "Explore the Book",
     "ctaUrl": "/",
-    "image": "challenge-book.jpg"
+    "image": "/assets/images/challenge-book.jpg"
   },
   "faq": {
     "eyebrow": "Questions",
@@ -171,6 +207,6 @@
     "body": "You don't have to have it all figured out to begin. You just have to take the first day. Let's move with God — together.",
     "ctaLabel": "Save My Spot — It's Free",
     "reassure": "Free · Nine short days · Starts October 6th",
-    "image": "challenge-cta.jpg"
+    "image": "/assets/images/challenge-cta.jpg"
   }
 }
