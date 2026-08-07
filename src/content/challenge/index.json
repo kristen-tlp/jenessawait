@@ -4,7 +4,8 @@
     "titleAccent": "9 Day Challenge:",
     "titleRest": "Start moving with God!",
     "lede": "A free, guided journey to help you get unstuck, quiet the noise, and take your next faithful step — one small, hope-filled day at a time.",
-    "reassure": "100% free · Starts October 6th · Unsubscribe anytime"
+    "reassure": "100% free · Starts October 6th · Unsubscribe anytime",
+    "image": "/assets/images/challenge-hero.jpg"
   },
   "empathy": {
     "statementBefore": "If your heart is",
@@ -123,7 +124,8 @@
     "title": "Hi, I'm Jenessa.",
     "body1": "I know what it's like to feel stuck — to love God deeply and still wonder when the things He placed in your heart will finally come. [Placeholder — a short piece of Jenessa's story / testimony to be added here.]",
     "body2": "I created this challenge because I don't believe getting unstuck happens through more information. It happens through small, faithful movement with God. Over these nine days, I'll walk it with you.",
-    "ctaLabel": "Join the Challenge"
+    "ctaLabel": "Join the Challenge",
+    "image": "/assets/images/challenge-about.jpg"
   },
   "endorsements": {
     "eyebrow": "Endorsements",
@@ -135,28 +137,32 @@
         "heading": "What does it look like to move in step with God, not rushing ahead or falling behind?",
         "quote": "Jenessa Wait is a trusted guide to help you discern God's timing and move forward in confidence through every door He opens.",
         "name": "Rebekah Lyons",
-        "role": "Bestselling Author, Speaker, and Co-Founder of Thinq Media"
+        "role": "Bestselling Author, Speaker, and Co-Founder of Thinq Media",
+        "img": "/assets/images/head-rebekah.jpg"
       },
       {
         "theme": "dark",
         "heading": "Moving with God is not just a message Jenessa Wait teaches; it is a life she has faithfully lived.",
         "quote": "Walking through surrender, stewardship, service, and bold obedience to God's promises. With clarity and conviction, she offers nine practical and spiritual keys that help readers move from stagnation to possession of what God has spoken. This book will strengthen your faith, challenge unbelief, and anchor you in the house of God as you step courageously into His promises for your life.",
         "name": "Joaquin and Renée Evans",
-        "role": "Senior Pastors of Bethel Austin"
+        "role": "Senior Pastors of Bethel Austin",
+        "img": "/assets/images/head-evans.jpg"
       },
       {
         "theme": "periwinkle",
         "heading": "Jenessa Wait is someone whose life speaks just as powerfully as her words.",
         "quote": "What has always stood out to me is her persistent teachability. She honors the voices God has placed in her life and leans in to discern what He is saying and where He is leading. In Moving with God, she brings that same grace to the reader, helping you see the Father's heart even in hidden or stretching seasons. With clarity and Spirit-led insight, she offers a practical pathway for partnering with God and stepping into His promises. This book will steady your heart, awaken fresh courage, and remind you that you are not forgotten. God is actively leading you forward right now.",
         "name": "Bethany Hicks",
-        "role": "Co-Founder of Prophetic Company & Author of The God Connection"
+        "role": "Co-Founder of Prophetic Company & Author of The God Connection",
+        "img": "/assets/images/head-jessi.jpg"
       },
       {
         "theme": "cream",
         "heading": "Jenessa Wait's honest and vulnerable storytelling dismantles the addiction to hustle and calls us back to belief.",
         "quote": "From the very first page, Jenessa Wait beckons us into a deeper life of faith, trust, and vision. Moving with God serves as both an invitation and a guide into the life we ache for but often struggle to access. This book encourages readers to dream, take risks, and recognize God's presence. It challenges the status quo and invites us into a life marked by surrender and expectancy, emphasizing humility, trust, and laying everything down to truly find life.",
         "name": "Jessi Green",
-        "role": "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church"
+        "role": "Author of The Invitation & Wildfires, Co-Lead Pastor of Salt Church",
+        "img": "/assets/images/head-bethany.jpg"
       }
     ]
   },
@@ -167,7 +173,8 @@
     "body": "The challenge is completely free and can be completed on its own, but for the deepest experience, I recommend purchasing Moving with God before it begins and reading each chapter alongside the daily challenge. The book expands on every theme with personal stories, biblical teaching, and practical steps to help you get unstuck and move boldly toward God's promises.",
     "meta": "Releases October 6 · Pre-order available now",
     "ctaLabel": "Explore the Book",
-    "ctaUrl": "/"
+    "ctaUrl": "/",
+    "image": "/assets/images/challenge-book.jpg"
   },
   "faq": {
     "eyebrow": "Questions",
@@ -199,6 +206,7 @@
     "title": "Your next step is closer than it feels.",
     "body": "You don't have to have it all figured out to begin. You just have to take the first day. Let's move with God — together.",
     "ctaLabel": "Save My Spot — It's Free",
-    "reassure": "Free · Nine short days · Starts October 6th"
+    "reassure": "Free · Nine short days · Starts October 6th",
+    "image": "/assets/images/challenge-cta.jpg"
   }
 }
