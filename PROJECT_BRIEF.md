@@ -15,7 +15,7 @@
 ## Project
 
 A single-page pre-order landing page for the book **"Moving with God"** by author/speaker
-**Jenessa Wait** (releases **October 6**). Goals: drive book pre-orders, capture pre-order
+**Jenessa Wait** (releases **November 24**). Goals: drive book pre-orders, capture pre-order
 bonus claims, and sign-ups for the free 9-day email challenge.
 
 ## Brand Colors
