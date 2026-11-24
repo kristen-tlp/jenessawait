@@ -51,80 +51,12 @@
     ]
   },
   "bonuses": {
-    "title": "Pre-Order Bonuses",
-    "cards": [
-      {
-        "tag": "Individual",
-        "image": "/assets/images/bonuses/cards/0/image.png",
-        "imageAlt": "Moving with God book",
-        "heading": "Pre-Order\n1 Book",
-        "variant": "primary",
-        "ctaLabel": "Pre-Order 1 Book",
-        "ctaHref": "#how-it-works",
-        "items": [
-          {
-            "lead": "The 9-Day Moving with God Video Study",
-            "body": "One short video from Jenessa in your inbox every morning for nine days. One key per day."
-          },
-          {
-            "lead": "Live Mentorship Q&A with Jenessa",
-            "body": "A one-hour Zoom call. Bring your actual situation. Ask your actual question. Not a webinar, a conversation."
-          },
-          {
-            "lead": "Entry Into the Big Giveaway",
-            "body": "Two nights at Naava Retreat ($1,000 value) plus a $500 gift card to shop.jenessawait.com."
-          }
-        ]
-      },
-      {
-        "tag": "Group",
-        "image": "/assets/images/bonuses/cards/1/image.png",
-        "imageAlt": "Three copies of Moving with God",
-        "heading": "Pre-Order\n3+ Books",
-        "variant": "secondary",
-        "ctaLabel": "Pre-Order 3+ Books",
-        "ctaHref": "#how-it-works",
-        "items": [
-          {
-            "lead": "All the individual book bonuses, plus…"
-          },
-          {
-            "lead": "The Small Group Facilitator Guide",
-            "body": "Nine sessions, discussion questions, and the framework to lead your group through the book without building anything yourself."
-          },
-          {
-            "lead": "Content Creator Lab ($197 Value)",
-            "body": "Jenessa's full social media course. Yours free. And you are allowed to run it with your group."
-          }
-        ]
-      }
-    ]
+    "cards": []
   },
   "giveaway": {
-    "titleWord": "All",
-    "titleAfter": "pre-orders are entered into the Big Giveaway",
-    "prizes": [
-      {
-        "badge": "$1000 Value",
-        "title": "2 Night Stay at Naava Retreats",
-        "sub": "Luxury cabins on Lake Travis just outside of Austin, TX",
-        "image": "/assets/images/giveaway/prizes/0/image.jpg",
-        "alt": "A modern cabin overlooking a lake at sunset"
-      },
-      {
-        "badge": "$500 Value",
-        "title": "$500 to Shop Jenessa Wait",
-        "sub": "Your favorite faith-based lifestyle shop",
-        "image": "/assets/images/giveaway/prizes/1/image.jpg",
-        "alt": "A stack of faith-based branded caps"
-      }
-    ]
+    "prizes": []
   },
-  "howItWorks": {
-    "heading": "How It Works",
-    "step1": "Pre-Order the Book at any of these retailers",
-    "step2": "Come back to this page and fill out this form"
-  },
+  "howItWorks": {},
   "testimonials": {
     "eyebrow": "Endorsements",
     "titleBefore": "What others are saying about",
