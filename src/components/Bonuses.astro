@@ -3,8 +3,13 @@ import Button from "./Button.astro";
 import { getHome, img } from "../lib/cms";
 const home = await getHome();
 const d = home!.bonuses;
+// Only render when there are bonus cards. Editors clear this section in the CMS
+// once pre-order incentives end — guarding here keeps an empty shell (and the
+// stray background band it leaves) off the page.
+const hasCards = (d?.cards?.length ?? 0) > 0;
 ---
 
+{hasCards && (
 <section class="bonuses" id="pre-order" aria-labelledby="bonuses-title">
   <div class="bonuses__inner container">
     <h2 id="bonuses-title" class="bonuses__title">{d.title}</h2>
@@ -31,6 +36,7 @@ const d = home!.bonuses;
     </div>
   </div>
 </section>
+)}
 
 <style>
   .bonuses {

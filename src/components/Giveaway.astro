@@ -3,8 +3,12 @@ import { getHome, img } from "../lib/cms";
 const home = await getHome();
 const d = home!.giveaway;
 const prizes = d.prizes;
+// Hide the whole giveaway when there are no prizes (cleared in the CMS once the
+// pre-order giveaway ends) so it doesn't leave an empty band on the page.
+const hasPrizes = (prizes?.length ?? 0) > 0;
 ---
 
+{hasPrizes && (
 <section class="giveaway" aria-labelledby="giveaway-title">
   <div class="giveaway__inner container">
     <div class="giveaway__grid">
@@ -25,6 +29,7 @@ const prizes = d.prizes;
     </div>
   </div>
 </section>
+)}
 
 <style>
   .giveaway {
