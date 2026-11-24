@@ -5,8 +5,11 @@ export interface Props {
   variant: "white" | "blue";
   keys: string[];
   layout?: "row" | "grid";
+  /** Verb used in each logo's aria-label, e.g. "Order at Amazon". Defaults to
+   *  "Pre-order" for the pages still in the pre-order funnel. */
+  ctaVerb?: string;
 }
-const { variant, keys, layout = "row" } = Astro.props;
+const { variant, keys, layout = "row", ctaVerb = "Pre-order" } = Astro.props;
 ---
 
 <ul class={`logos logos--${layout}`}>
@@ -16,7 +19,7 @@ const { variant, keys, layout = "row" } = Astro.props;
     return (
       <li class="logos__item">
         {r.url ? (
-          <a href={r.url} target="_blank" rel="noopener noreferrer" aria-label={`Pre-order at ${r.label}`}>
+          <a href={r.url} target="_blank" rel="noopener noreferrer" aria-label={`${ctaVerb} at ${r.label}`}>
             <img src={img} alt={r.label} loading="lazy" />
           </a>
         ) : (

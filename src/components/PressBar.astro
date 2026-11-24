@@ -4,7 +4,7 @@ import { retailers, pressKeys } from "../data/retailers.ts";
 const loop = [...pressKeys, ...pressKeys];
 ---
 
-<section class="pressbar" aria-label="Pre-order from these retailers">
+<section class="pressbar" aria-label="Order from these retailers">
   <div class="pressbar__inner">
     <div class="pressbar__label">
       <svg class="pressbar__asterisk" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
@@ -15,7 +15,7 @@ const loop = [...pressKeys, ...pressKeys];
           <line x1="18.4" y1="5.6" x2="5.6" y2="18.4" />
         </g>
       </svg>
-      <span class="pressbar__label-text">pre-order now<img class="hand-underline" src="/assets/images/line-preorder.png" alt="" aria-hidden="true" /></span>
+      <span class="pressbar__label-text">Order now<img class="hand-underline" src="/assets/images/line-preorder.png" alt="" aria-hidden="true" /></span>
     </div>
     <div class="pressbar__marquee">
       <div class="pressbar__track">
@@ -24,7 +24,7 @@ const loop = [...pressKeys, ...pressKeys];
           const img = `/assets/images/logos/white-${k}.png`;
           const dup = i >= pressKeys.length;
           return r.url ? (
-            <a href={r.url} target="_blank" rel="noopener noreferrer" aria-label={dup ? undefined : `Pre-order at ${r.label}`} aria-hidden={dup ? "true" : undefined} tabindex={dup ? -1 : undefined}>
+            <a href={r.url} target="_blank" rel="noopener noreferrer" aria-label={dup ? undefined : `Order at ${r.label}`} aria-hidden={dup ? "true" : undefined} tabindex={dup ? -1 : undefined}>
               <img src={img} alt={dup ? "" : r.label} loading="eager" decoding="async" />
             </a>
           ) : (
