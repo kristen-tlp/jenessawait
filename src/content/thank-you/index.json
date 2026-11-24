@@ -2,12 +2,10 @@
   "eyebrow": "The 9 Day Challenge",
   "heading": "You're in!",
   "lede": "Thanks for signing up for the free Moving with God 9-Day Challenge. Here's what happens next:",
-  "photo": "/assets/images/challenge-thankyou.jpg",
+  "photo": "/assets/images/photo.jpg",
   "steps": [
     {
       "text": "Check your inbox for the welcome email and all the details.",
-      "linkLabel": "",
-      "linkUrl": "",
       "linkDownload": false
     },
     {
@@ -17,8 +15,8 @@
       "linkDownload": true
     }
   ],
-  "bookImage": "/assets/images/challenge-book.jpg",
+  "bookImage": "/assets/images/bookImage.jpg",
   "bookText": "Pre-order Moving with God before November 24 and unlock exclusive bonuses: a 9-day video study, a live Q&A with Jenessa, and entry to win $1,500 in prizes.",
-  "bookLinkLabel": "Pre-order yours here",
+  "bookLinkLabel": "Order yours here",
   "bookLinkUrl": "/"
 }
