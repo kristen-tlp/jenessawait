@@ -9,7 +9,7 @@ export interface Props {
 
 const {
   title = "Moving With God — Jenessa Wait",
-  description = "Moving with God by Jenessa Wait — nine keys to getting unstuck and stepping boldly into His promises for your life. Pre-order now (releases November 24) and join the free 9-day challenge.",
+  description = "Moving with God by Jenessa Wait — nine keys to getting unstuck and stepping boldly into His promises for your life. Available now, and join the free 9-day challenge.",
   noindex = false,
 } = Astro.props;
 
@@ -18,7 +18,7 @@ const siteUrl = "https://jenessawait.com";
 const ogImage = `${siteUrl}/assets/images/hero-book.jpg`;
 
 // Structured data (JSON-LD) for SEO / AEO — helps search + AI answer engines
-// understand the book, its author, and the pre-order.
+// understand the book, its author, and its availability.
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -35,7 +35,7 @@ const structuredData = [
     description,
     offers: {
       "@type": "Offer",
-      availability: "https://schema.org/PreOrder",
+      availability: "https://schema.org/InStock",
       url: "https://a.co/d/0aN1ynB3",
     },
   },
